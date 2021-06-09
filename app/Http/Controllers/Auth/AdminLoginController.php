@@ -33,7 +33,7 @@ class AdminLoginController extends Controller
             return redirect()->intended(route('admin.dashboard'));
         }else {
        //redirect back to login
-            return back()->withInput($request->only('email'))->withErrors('please check your credentials and try again ');
+            return back()->withInput($request->only('email'))->withErrors('Please check your credentials and try again!');
         }
 
     }

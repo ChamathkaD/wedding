@@ -54,11 +54,25 @@
     <!-- Login box.scss -->
     <!-- ============================================================== -->
     <div class="auth-wrapper d-flex no-block justify-content-center align-items-center">
-        <div class="auth-box border-top border-secondary">
+        <div class="auth-box border-top border-secondary w-50">
             <div id="loginform">
                 <div class="text-center pt-3 pb-3">
-                    <span class="db"><img src="{{ asset('dashboard/assets/images/logo.png') }}" alt="logo"/></span>
+                    <span class="db">
+                        <img
+                            src="{{ asset('dashboard/assets/images/logo.png') }}"
+                            alt="logo"
+                        />
+                    </span>
                 </div>
+                @if($errors->any())
+                    <div class="alert alert-danger fade show" role="alert">
+                        @foreach($errors->all() as $error)
+                            <i class="fas fa-exclamation-circle me-2"></i>
+                            {{ $error }} <br>
+                        @endforeach
+                    </div>
+                @endif
+
                 <!-- Form -->
                 <form class="form-horizontal mt-3"
                       id="loginform"
@@ -68,58 +82,45 @@
                     @csrf
                     <div class="row pb-4">
                         <div class="col-12">
-
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-danger text-white h-100" id="basic-addon1"><i
-                                            class="ti-email"></i></span>
+                                    <span class="input-group-text bg-danger text-white h-100" id="basic-addon1">
+                                        <i class="ti-email"></i>
+                                    </span>
                                 </div>
-
 
                                 <input
                                     type="email"
                                     id="email"
-                                    class="form-control form-control-lg @error('email') is-invalid @enderror"
+                                    class="form-control form-control-lg"
                                     placeholder="Email Address"
                                     aria-label="Username"
                                     aria-describedby="basic-addon1"
-                                    name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    name="email"
+                                    value="{{ old('email') }}"
+                                    required
+                                    autocomplete="email"
+                                >
                             </div>
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-warning text-white h-100" id="basic-addon2"><i
-                                            class="ti-pencil"></i></span>
+                                    <span class="input-group-text bg-warning text-white h-100" id="basic-addon2">
+                                        <i class="ti-lock"></i>
+                                    </span>
                                 </div>
                                 <input
                                     id="password"
                                     type="password"
-                                    class="form-control form-control-lg @error('password') is-invalid @enderror"
+                                    class="form-control form-control-lg"
                                     name="password"
                                     placeholder="Password"
                                     aria-label="Password"
                                     aria-describedby="basic-addon1"
                                     required
                                     autocomplete="current-password">
-
-
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
-
-
                         </div>
-
-
                     </div>
                     <div class="row border-top border-secondary">
                         <div class="col-12">
