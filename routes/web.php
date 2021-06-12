@@ -21,6 +21,11 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')->group(function () {
+    Route::get('createUserAccount','UserController@createUserAccount')->name('create.user.account');
+    Route::post('updateUserAccount','UserController@updateUserAccount')->name('user.update');
+});
+
 
 //Admin Routes
 
