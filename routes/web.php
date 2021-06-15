@@ -24,6 +24,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware('auth')->group(function () {
     Route::get('createUserAccount','UserController@createUserAccount')->name('create.user.account');
     Route::post('updateUserAccount','UserController@updateUserAccount')->name('user.update');
+    Route::get('update/password','userController@showChangePassword')->name('password.show');
+    Route::post('update/password','userController@updatePassword')->name('password.update');
+    Route::get('show/users','userController@showUsers')->name('show.user');
+
 });
 
 

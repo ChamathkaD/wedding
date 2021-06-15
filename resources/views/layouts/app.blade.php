@@ -68,6 +68,7 @@
                                             </li>
                                         @endif
                                     @else
+                                        <li><a href="{{route('show.user')}}">Users</a></li>
                                         <li><a href="#">{{ Auth::user()->name }}</a>
                                             <ul class="submenu">
                                                 <li><a class="dropdown-item" href="{{ route('logout') }}"
@@ -79,6 +80,9 @@
                                                       class="d-none">
                                                     @csrf
                                                 </form>
+                                                <li><a href="{{ route('create.user.account') }}">Edit Profile</a></li>
+
+                                                <li><a href="{{ route('password.show') }}">Change Password</a></li>
                                             </ul>
                                         </li>
                                     @endguest
@@ -100,6 +104,7 @@
 
     <main class="py-4">
         @yield('content')
+        @include('partials.footer')
     </main>
 </div>
 
