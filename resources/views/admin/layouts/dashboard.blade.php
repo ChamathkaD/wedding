@@ -10,7 +10,7 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href=" {{ asset('dashboard/assets/images/favicon.png') }}">
     <!-- Custom CSS -->
-    <link href=" {{ asset('dashboard/assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
+    <link href="{{ asset('dashboard/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href=" {{ asset('dashboard/dist/css/style.min.css') }}" rel="stylesheet">
 </head>
@@ -23,21 +23,23 @@
     </div>
 </div>
 
-<div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
-     data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
-
+<div id="main-wrapper"
+     data-layout="vertical"
+     data-navbarbg="skin5"
+     data-sidebartype="full"
+     data-sidebar-position="absolute"
+     data-header-position="absolute"
+     data-boxed-layout="full"
+>
 
    @include('admin.partials.header')
 
     @include('admin.partials.sidebar')
 
     <div class="page-wrapper">
-
-    @yield('content')
+        @yield('content')
     </div>
 </div>
-
-
 
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -53,16 +55,9 @@
 <script src=" {{ asset('dashboard/dist/js/sidebarmenu.js') }}"></script>
 <!--Custom JavaScript -->
 <script src=" {{ asset('dashboard/dist/js/custom.min.js') }}"></script>
-<!--This page JavaScript -->
-<!-- <script src="../../dist/js/pages/dashboards/dashboard1.js"></script> -->
-<!-- Charts js Files -->
-<script src=" {{ asset('dashboard/assets/libs/flot/excanvas.js') }}"></script>
-<script src=" {{ asset('dashboard/assets/libs/flot/jquery.flot.js') }}"></script>
-<script src=" {{ asset('dashboard/assets/libs/flot/jquery.flot.pie.js') }}"></script>
-<script src=" {{ asset('dashboard/assets/libs/flot/jquery.flot.time.js') }}"></script>
-<script src=" {{ asset('dashboard/assets/libs/flot/jquery.flot.stack.js') }}"></script>
-<script src=" {{ asset('dashboard/assets/libs/flot/jquery.flot.crosshair.js') }}"></script>
-<script src=" {{ asset('dashboard/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js') }}"></script>
-<script src=" {{ asset('dashboard/dist/js/pages/chart/chart-page-init.js') }}"></script>
+<script src="{{ asset('dashboard/assets/extra-libs/DataTables/datatables.min.js') }}"></script>
+<script>
+    $('#zero_config').DataTable();
+</script>
 </body>
 </html>
