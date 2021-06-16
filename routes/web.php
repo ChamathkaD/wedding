@@ -21,29 +21,20 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::middleware('auth')->group(function () {
-    Route::get('createUserAccount','UserController@createUserAccount')->name('create.user.account');
-    Route::get('personal/info','UserController@personalInfo')->name('personal.info');
-    Route::post('update/personal/info','UserController@UpdatePersonalInfo')->name('personal.info.update');
-
-    Route::get('family/info','UserController@familyInfo')->name('family.info');
-    Route::post('update/family/info','UserController@UpdateFamilyInfo')->name('family.info.update');
-    Route::post('updateUserAccount','UserController@updateUserAccount')->name('user.update');
-    Route::get('update/password','userController@showChangePassword')->name('password.show');
-    Route::post('update/password','userController@updatePassword')->name('password.update');
-    Route::get('show/users','userController@showUsers')->name('show.user');
-
-});
-
 
 //Admin Routes
-
-
 Route::prefix('admin')->name('admin.')->group(function (){
+    // Authentication Routes
     Route::get('/', 'AdminController@index')->name('dashboard');
     Route::get('login', 'Auth\AdminLoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\AdminLoginController@login')->name('login.submit');
     Route::post('logout','Auth\AdminLoginController@logout')->name('logout');
+
+    Route::resource('users', 'Admin\UserController');
+
+    // Admin Profile
+    Route::get('profile', 'AdminController@showProfile')->name('profile');
+    Route::post('profile/update', 'AdminController@updateProfile')->name('profile.update');
 });
 
 
