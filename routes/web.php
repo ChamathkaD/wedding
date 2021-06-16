@@ -23,6 +23,11 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware('auth')->group(function () {
     Route::get('createUserAccount','UserController@createUserAccount')->name('create.user.account');
+    Route::get('personal/info','UserController@personalInfo')->name('personal.info');
+    Route::post('update/personal/info','UserController@UpdatePersonalInfo')->name('personal.info.update');
+
+    Route::get('family/info','UserController@familyInfo')->name('family.info');
+    Route::post('update/family/info','UserController@UpdateFamilyInfo')->name('family.info.update');
     Route::post('updateUserAccount','UserController@updateUserAccount')->name('user.update');
     Route::get('update/password','userController@showChangePassword')->name('password.show');
     Route::post('update/password','userController@updatePassword')->name('password.update');

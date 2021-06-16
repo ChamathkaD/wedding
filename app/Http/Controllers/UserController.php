@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PersonalInfoRequest;
 use App\Http\Requests\UpdatePasswordRequest;
 use App\Http\Requests\UserRequest;
 use App\User;
@@ -13,11 +14,84 @@ use phpDocumentor\Reflection\DocBlock\Tags\Uses;
 
 class UserController extends Controller
 {
+    public function personalInfo(){
+        return view('users.persanalInfo');
+    }
+
+    public function UpdatePersonalInfo(PersonalInfoRequest $personalInfoRequest){
+
+        dd($personalInfoRequest->all());
+        die;
+
+        if ($personalInfoRequest->hasFile('image')){
+            if ($personalInfoRequest->file('image')->isValid()){
+                $image = $personalInfoRequest->file('image');
+                $extention = $image->getClientOriginalExtension();
+                $filename = date('y_m_d_h_i_s') . "." . $extention;
+                Storage::disk('public')->put('img/users/'.$filename,file_get_contents($image));
+            }
+            if (Storage::disk('public')->exists('img/users/'.Auth::user()->image)){
+                try {
+                    (Storage::disk('public')->delete('img/users/'.Auth::user()->image));
+                } catch (\Exception $exception){
+                    return null;
+                }
+            }
+        }
+
+        User::where('id', Auth::id())->update([
+            'firstName' =>$personalInfoRequest->input('firstName'),
+            'middleName' =>$personalInfoRequest->input('middleName'),
+            'lastName' =>$personalInfoRequest->input('lastName'),
+            'nicName' =>$personalInfoRequest->input('nicName'),
+            'birthday' =>$personalInfoRequest->input('birthday'),
+            'gender' =>$personalInfoRequest->input('gender'),
+            'email' =>$personalInfoRequest->input('email'),
+            'phone' =>$personalInfoRequest->input('phone'),
+            'whatsApp' =>$personalInfoRequest->input('whatsApp'),
+            'addressLine1' =>$personalInfoRequest->input('addressLine1'),
+            'addressLine2' =>$personalInfoRequest->input('addressLine2'),
+            'addressLine3' =>$personalInfoRequest->input('addressLine3'),
+            'nic' =>$personalInfoRequest->input('nic'),
+            'jobType' =>$personalInfoRequest->input('jobType'),
+            'jobPost' =>$personalInfoRequest->input('jobPost'),
+            'weight' =>$personalInfoRequest->input('weight'),
+            'height' =>$personalInfoRequest->input('height'),
+            'feature' =>$personalInfoRequest->input('feature'),
+            'nationality' =>$personalInfoRequest->input('nationality'),
+            'religion' =>$personalInfoRequest->input('religion'),
+            'motherTongue' =>$personalInfoRequest->input('motherTongue'),
+            'maritalStatus' =>$personalInfoRequest->input('maritalStatus'),
+            'horoscope' =>$personalInfoRequest->input('horoscope'),
+            'school' =>$personalInfoRequest->input('school'),
+            'education' =>$personalInfoRequest->input('education'),
+            'country' =>$personalInfoRequest->input('country'),
+            'city' =>$personalInfoRequest->input('city'),
+            'hobby' =>$personalInfoRequest->input('hobby'),
+            'sd' =>$personalInfoRequest->input('sd'),
+            'fb' =>$personalInfoRequest->input('fb'),
+            'ig' =>$personalInfoRequest->input('ig'),
+            'aboutYou' =>$personalInfoRequest->input('aboutYou'),
+            'image' => isset($filename) ? $filename : Auth::user()->image,
+        ]);
+        return back()->with('success','Profile Updated Successfully');
+
+
+    }
+
+    public function familyInfo(){
+        return view('users.familyInfo');
+    }
+
+
+
+
+
     public function createUserAccount(){
         return view('users.createAccount');
     }
 
-    public function updateUserAccount(UserRequest $userRequest){
+   public function updateUserAccount(UserRequest $userRequest){
         if ($userRequest->hasFile('image')){
             if ($userRequest->file('image')->isValid()){
                 $image = $userRequest->file('image');

@@ -285,18 +285,39 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="form-box mb-10">
-                                                    <label for="name" >Name</label>
+                                                    <label for="firstName" >First Name</label>
                                                     <input
                                                         type="text"
-                                                        name="name"
-                                                        placeholder="Name"
-                                                        id="name"
-                                                        class="form-control @error('name') is-invalid @enderror"
-                                                        value="{{ old('name') }}"
-                                                        required autocomplete="name"
+                                                        name="firstName"
+                                                        placeholder="First Name"
+                                                        id="firstName"
+                                                        class="form-control @error('firstName') is-invalid @enderror"
+                                                        value="{{ old('firstName') }}"
+                                                        required autocomplete="firstName"
 
                                                     >
-                                                    @error('name')
+                                                    @error('firstName')
+                                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                    @enderror
+
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-box mb-10">
+                                                    <label for="lastName" >Last Name</label>
+                                                    <input
+                                                        type="text"
+                                                        name="lastName"
+                                                        placeholder="Last Name"
+                                                        id="lastName"
+                                                        class="form-control @error('lastName') is-invalid @enderror"
+                                                        value="{{ old('lastName') }}"
+                                                        required autocomplete="lastName"
+
+                                                    >
+                                                    @error('lastName')
                                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

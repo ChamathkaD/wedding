@@ -68,9 +68,14 @@
                                             </li>
                                         @endif
                                     @else
+                                        <li><a href="{{ route('personal.info') }}">Personal Information</a></li>
+                                        <li><a href="{{ route('family.info') }}">Family Information</a></li>
                                         <li><a href="{{route('show.user')}}">Users</a></li>
-                                        <li><a href="#">{{ Auth::user()->name }}</a>
+                                        <li><a href="#">{{ Auth::user()->firstName }}</a>
                                             <ul class="submenu">
+                                                <li><a href="{{ route('create.user.account') }}">Edit Profile</a></li>
+
+                                                <li><a href="{{ route('password.show') }}">Change Password</a></li>
                                                 <li><a class="dropdown-item" href="{{ route('logout') }}"
                                                        onclick="event.preventDefault();
                                                                   document.getElementById('logout-form').submit();">
@@ -80,9 +85,7 @@
                                                       class="d-none">
                                                     @csrf
                                                 </form>
-                                                <li><a href="{{ route('create.user.account') }}">Edit Profile</a></li>
 
-                                                <li><a href="{{ route('password.show') }}">Change Password</a></li>
                                             </ul>
                                         </li>
                                     @endguest

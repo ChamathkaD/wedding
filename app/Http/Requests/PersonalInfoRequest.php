@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
-class UserRequest extends FormRequest
+class PersonalInfoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -63,11 +63,6 @@ class UserRequest extends FormRequest
             'fb' =>['string'],
             'ig' =>['string'], // https://laravel.com/docs/7.x/validation#rule-url
             'aboutYou' =>['required','string'],
-            'brother' =>['required','string'],
-            'sister' =>['required','string'],
-            'fatherName' =>['string'],
-            'motherName' =>['string'],
-            'otherDetails' =>['string'],
             'image' =>['mimes:jpeg,gif,png,svg,ico,jpg','required'], // wrong
 
 
