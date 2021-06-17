@@ -25,7 +25,6 @@ class CreateAdminsTable extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('zip')->nullable();
-            $table->string('country')->nullable();
             $table->text('notes')->nullable();
             $table->timestamp('last_login')->nullable();
             $table->rememberToken();
