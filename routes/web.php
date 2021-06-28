@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get('personal/info','UserController@personalInfo')->name('personal.info');
     Route::post('update/personal/info','UserController@UpdatePersonalInfo')->name('personal.info.update');
 
+
     Route::get('family/info','UserController@familyInfo')->name('family.info');
     Route::post('update/family/info','UserController@UpdateFamilyInfo')->name('family.info.update');
     Route::post('updateUserAccount','UserController@updateUserAccount')->name('user.update');
@@ -33,7 +34,18 @@ Route::middleware('auth')->group(function () {
     Route::post('update/password','userController@updatePassword')->name('password.update');
     Route::get('show/users','userController@showUsers')->name('show.user');
 
+    Route::get('show/profile/{id}','UserController@showProfile')->name('show.profile');
+
 });
+
+
+
+// broker routes
+
+Route::get('register/broker','Auth\BrokerController@registerBroker')->name('broker.register');
+/*Route::post('save/register/broker','Auth\BrokerController@registerBrokerSave')->name('broker.register.Save');*/
+Route::get('login/broker','Auth\BrokerController@loginBroker')->name('broker.login');
+Route::get('update/broker','BrokerController@updateBroker')->name('broker.update');
 
 
 //Admin Routes

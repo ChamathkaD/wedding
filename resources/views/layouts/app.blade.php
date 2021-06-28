@@ -35,6 +35,7 @@
     <link rel="stylesheet" href=" {{ asset('css/slick.css') }}">
     <link rel="stylesheet" href=" {{ asset('css/nice-select.css') }}">
     <link rel="stylesheet" href=" {{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
 
 
 </head>
@@ -56,12 +57,14 @@
                         <div class="main-menu f-right d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
+
                                     @guest
-                                        <li><a href="our_story.html"> Our Story</a></li>
-                                        <li><a href="location.html">Location</a></li>
-                                        <li><a href="booking.html">Guest Book</a></li>
+
                                         <li><a href="contact.html">contact</a></li>
+
+
                                         <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
+
                                         @if (Route::has('register'))
                                             <li class="nav-item">
                                                 <a href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -89,7 +92,13 @@
                                             </ul>
                                         </li>
                                     @endguest
+                                        <li><a href="#" style="color: #800098"> Broker?</a>
+                                            <ul class="submenu ">
+                                                <li><a href="{{ route('broker.register') }} ">Register</a></li>
+                                                <li><a href="{{ route('broker.login') }}">Login</a></li>
+                                            </ul>
 
+                                        </li>
 
 
                                 </ul>

@@ -148,20 +148,21 @@
                             </div>
 
 
-                            <div class="col-lg-12">
+                            <div class="col-lg-6">
 
                                 <div class="submit-info col-md-1 ">
                                     <button class="btn2" type="submit"> {{ __('Login') }}</button>
                                 </div>
 
-                                <div class="col-md-9 mt-3">
-                                    @if (Route::has('password.request'))
-                                        <a class="btn2" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                    @endif
-                                </div>
+                            </div>
 
+                            <div class="col-lg-6">
+                                @if (Route::has('password.request'))
+                                    <a class=" btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+
+                                @endif
                             </div>
 
 

@@ -56,7 +56,18 @@ return [
             'driver' => 'token',
             'provider' => 'admins',
 
-        ]
+        ],
+
+        'broker' => [
+            'driver' => 'session',
+            'provider' => 'brokers',
+        ],
+
+        'broker-api' => [
+            'driver' => 'token',
+            'provider' => 'brokers',
+
+        ],
     ],
 
     /*
@@ -87,6 +98,10 @@ return [
             'model' => App\Admin::class,
         ],
 
+        'brokers' => [
+            'driver' => 'eloquent',
+            'model' => App\Broker::class,
+        ],
 
 
         // 'users' => [
@@ -121,6 +136,13 @@ return [
 
         'admins' => [
             'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'brokers' => [
+            'provider' => 'brokers',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

@@ -163,15 +163,21 @@ class UserController extends Controller
 
     public function updatePassword(UpdatePasswordRequest $updatePasswordRequest){
 
-
-        if (Hash::check($updatePasswordRequest->current_password, Auth::user()->password)) {
-            $hashed_password = Hash::make($updatePasswordRequest->password_confirmation);
-
+        $current_Password = $updatePasswordRequest->current_password;
+        //Check if the passwords are match
+        if (Hash::check($current_Password, Auth::user()->password)){
+            $new_password = $updatePasswordRequest->password_confirmation;
+            //hashing the nwe password
+            $hashed_password = Hash::make($new_password);
+            //update password
             User::where('id', Auth::id())->update([
                 'password' => $hashed_password,
             ]);
 
-            return back()->with('success', 'Your Password Has been Updated');
+            return back()->with('success', 'Your Password has been updated');
+
+        }else{
+            return back()->withErrors('Your current password is not valid. Please enter your new password');
         }
 
 
@@ -179,6 +185,12 @@ class UserController extends Controller
 
     public function showUsers(){
         return view('users.users');
+    }
+
+    public function showProfile($id){
+        $user = User::find($id);
+
+        return view('users.profile')->with(compact('user'));
     }
 
 }

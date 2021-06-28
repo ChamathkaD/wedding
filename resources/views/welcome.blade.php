@@ -163,10 +163,10 @@
                         <nav>
                             <ul id="navigation">
 
-                                    <li><a href="our_story.html"> Our Story</a></li>
-                                    <li><a href="location.html">Location</a></li>
-                                    <li><a href="booking.html">Guest Book</a></li>
+
                                     <li><a href="contact.html">contact</a></li>
+
+
                                 @if (Route::has('login'))
 
                                         @auth
@@ -180,7 +180,13 @@
                                         @endauth
 
                                 @endif
+                                <li><a href="#" style="color: #800098"> Broker?</a>
+                                    <ul class="submenu ">
+                                        <li><a href="{{ route('broker.register') }} ">Register</a></li>
+                                        <li><a href="{{ route('broker.login') }}">Login</a></li>
+                                    </ul>
 
+                                </li>
 
 
 

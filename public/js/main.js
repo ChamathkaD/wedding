@@ -1,6 +1,6 @@
 (function ($)
   { "use strict"
-  
+
 /* 1. Proloder */
     $(window).on('load', function () {
       $('#preloader-active').delay(450).fadeOut('slow');
@@ -217,8 +217,8 @@
     new WOW().init();
 
 /* 11. Datepicker */
-    
-// 11. ---- Mailchimp js --------//  
+
+// 11. ---- Mailchimp js --------//
     function mailChimp() {
       $('#mc_embed_signup').find('form').ajaxChimp();
     }
@@ -235,7 +235,7 @@
           }
         });
       }
-//Another popUp     
+//Another popUp
       var popUp = $('.menorie-icon');
       if(popUp.length){
         popUp.magnificPopup({
@@ -245,7 +245,7 @@
           }
         });
       }
-// 
+//
 
 //Brand Active
   $('.brand-active').slick({
@@ -293,9 +293,5 @@
       // instead of a settings object
     ]
   });
-
-
-
-
 
 })(jQuery);

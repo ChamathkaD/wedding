@@ -354,13 +354,12 @@
                                                     <input
                                                         type="date"
                                                         name="birthday"
-                                                        placeholder="Birthday"
+                                                        placeholder="mm/dd/yyyy"
                                                         id="birthday"
                                                         class="form-control @error('birthday') is-invalid @enderror"
                                                         value="{{ old('birthday') }}"
                                                         required
                                                         autocomplete="birthday"
-
                                                     >
                                                     @error('birthday')
                                                     <span class="invalid-feedback" role="alert">
@@ -373,13 +372,12 @@
 
 
 
-
                                             <div class="col-lg-12">
                                                 <div class="form-box subject-icon mb-30">
                                                     <label for="name" >Password</label>
                                                     <input
                                                         type="password"
-                                                        placeholder="Password"
+                                                        placeholder=" Password"
                                                         id="password"
                                                         class="form-control @error('password') is-invalid @enderror"
                                                         name="password"
@@ -401,14 +399,20 @@
                                                     <label for="name" >Password</label>
                                                     <input
                                                         type="password"
-                                                        placeholder="Password"
+                                                        placeholder="Confirm Password"
                                                         id="password-confirm"
-                                                        class="form-control "
+                                                        class="form-control @error('password') is-invalid @enderror"
                                                         name="password_confirmation"
                                                         value="{{ old('email') }}"
                                                         required
                                                         autocomplete="new-password"
                                                     >
+                                                    @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                    @enderror
+
 
                                                 </div>
                                             </div>

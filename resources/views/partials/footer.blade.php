@@ -1,9 +1,9 @@
 <footer>
     <!-- Footer Start-->
-    <div class="footer-main footer-bg">
+    <div class="footer-main footer-bg ">
         <div class="footer-area footer-padding">
             <div class="container">
-                <div class="row d-flex justify-content-between">
+                <div class="row d-flex justify-content-between ">
                     <div class="col-xl-4 col-lg-4 col-md-5 col-sm-8">
                         <div class="single-footer-caption mb-50">
                             <div class="single-footer-caption mb-30">
