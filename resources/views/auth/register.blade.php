@@ -164,16 +164,27 @@
 
                                                 <div class="col-lg-12">
                                                     <label for="name">Select Payment Method</label>
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="payment_method" name="payment_method" value="ez_cash">
-                                                        <label class="custom-control-label" for="payment_method">via Dialog ez cash</label>
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" class="custom-control-input payment_method" id="ez_cash" name="payment_method" value="ez_cash">
+                                                        <label class="custom-control-label" for="ez_cash">via Dialog ez cash</label>
                                                     </div>
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="payment_method" name="payment_method" value="bank_deposit">
-                                                        <label class="custom-control-label" for="payment_method">via Bank Deposit</label>
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" class="custom-control-input payment_method" id="bank_deposit" name="payment_method" value="bank_deposit">
+                                                        <label class="custom-control-label" for="bank_deposit">via Bank Deposit</label>
                                                     </div>
                                                 </div>
 
+                                                <div class="col-lg-12 mt-2 mb-2">
+                                                    <input type="file" id="bank_slip" style="display:none;">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control @error('password') is-invalid @enderror"
+                                                        name="dialog_mobile"
+                                                        placeholder="Enter your ez cash dialog number"
+                                                        id="dialog_mobile"
+                                                        style="display:none;"
+                                                    >
+                                                </div>
 
                                                 <div class="col-lg-12 text-center mt-4">
                                                     <div class="submit-info">
@@ -211,6 +222,27 @@
 
 @endsection
 
+@push('js')
+
+    <script>
+        $(document).ready(function () {
+
+            /* handle payment methods */
+            $(".payment_method").on('change', function () {
+                let val = $('input[name=payment_method]:checked').val()
+                if (val == "ez_cash") {
+                    $("#bank_slip").hide();
+                    $("#dialog_mobile").show();
+                } else {
+                    $("#bank_slip").show();
+                    $("#dialog_mobile").hide();
+                }
+            });
+
+        })
+    </script>
+
+@endpush
 
 
 

@@ -61,5 +61,6 @@
 <!-- Jquery Plugins, main Jquery -->
 <script src="{{ asset('js/plugins.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
+@stack('js')
 </body>
 </html>
