@@ -13,7 +13,6 @@
     <link href="{{ asset('dashboard/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href=" {{ asset('dashboard/dist/css/style.min.css') }}" rel="stylesheet">
-    @livewireStyles
 </head>
 <body>
 
@@ -33,13 +32,14 @@
      data-boxed-layout="full"
 >
 
-   @include('admin.partials.header')
-
+    @include('admin.partials.header')
     @include('admin.partials.sidebar')
 
     <div class="page-wrapper">
         @yield('content')
+        @include('admin.partials.footer')
     </div>
+
 </div>
 
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -60,6 +60,5 @@
 <script>
     $('#zero_config').DataTable();
 </script>
-@livewireScripts
 </body>
 </html>
