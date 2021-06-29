@@ -1,5 +1,5 @@
 <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
-    <a class="dropdown-item" href="{{ route('admin.profile') }}">
+    <a class="dropdown-item" href="#">
         <i class="ti-user me-1 ms-1"></i>
         My Profile
     </a>

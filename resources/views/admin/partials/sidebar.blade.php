@@ -16,7 +16,7 @@
 
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                       href="{{ route('admin.users.index') }}"
+                       href="#"
                        aria-expanded="false">
                         <i class="mdi mdi-account-multiple"></i>
                         <span class="hide-menu">Users</span>
