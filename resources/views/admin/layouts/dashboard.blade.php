@@ -13,6 +13,7 @@
     <link href="{{ asset('dashboard/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href=" {{ asset('dashboard/dist/css/style.min.css') }}" rel="stylesheet">
+    @livewireStyles
 </head>
 <body>
 
@@ -59,5 +60,6 @@
 <script>
     $('#zero_config').DataTable();
 </script>
+@livewireScripts
 </body>
 </html>
