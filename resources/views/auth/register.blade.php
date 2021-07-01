@@ -24,7 +24,6 @@
             <div class="row">
                 <div class="col-lg-5 section-tittle">
                     <div class="story-caption">
-                        <h2>Payment</h2>
                         <ul>
                             <li>Registration fee: 500 LKR</li>
                             <li>You can deposit your money through a Bank deposit, online banking, deposit machine or eZ Cash</li>
@@ -51,18 +50,18 @@
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="form-box mb-10">
-                                                        <label for="firstName">First Name</label>
+                                                        <label for="first_name">First Name</label>
                                                         <input
                                                             type="text"
-                                                            name="firstName"
+                                                            name="first_name"
                                                             placeholder="First Name"
-                                                            id="firstName"
-                                                            class="form-control @error('firstName') is-invalid @enderror"
-                                                            value="{{ old('firstName') }}"
-                                                            required autocomplete="firstName"
+                                                            id="first_name"
+                                                            class="form-control @error('first_name') is-invalid @enderror"
+                                                            value="{{ old('first_name') }}"
+                                                            required autocomplete="first_name"
 
                                                         >
-                                                        @error('firstName')
+                                                        @error('first_name')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
@@ -72,18 +71,18 @@
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="form-box mb-10">
-                                                        <label for="lastName">Last Name</label>
+                                                        <label for="last_name">Last Name</label>
                                                         <input
                                                             type="text"
-                                                            name="lastName"
+                                                            name="last_name"
                                                             placeholder="Last Name"
-                                                            id="lastName"
-                                                            class="form-control @error('lastName') is-invalid @enderror"
-                                                            value="{{ old('lastName') }}"
-                                                            required autocomplete="lastName"
+                                                            id="last_name"
+                                                            class="form-control @error('last_name') is-invalid @enderror"
+                                                            value="{{ old('last_name') }}"
+                                                            required autocomplete="last_name"
 
                                                         >
-                                                        @error('lastName')
+                                                        @error('last_name')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
@@ -166,43 +165,51 @@
                                                             type="password"
                                                             placeholder="Confirm Password"
                                                             id="password-confirm"
-                                                            class="form-control @error('password') is-invalid @enderror"
+                                                            class="form-control"
                                                             name="password_confirmation"
-                                                            value="{{ old('email') }}"
                                                             required
                                                             autocomplete="new-password"
                                                         >
-                                                        @error('password')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                        @enderror
-
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-12">
                                                     <label for="name">Select Payment Method</label>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" class="custom-control-input payment_method" id="ez_cash" name="payment_method" value="ez_cash">
+                                                        <input type="radio" class="custom-control-input payment_method @error('payment_method') is-invalid @enderror" id="ez_cash" name="payment_method" value="ez_cash">
                                                         <label class="custom-control-label" for="ez_cash">via Dialog ez cash</label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" class="custom-control-input payment_method" id="bank_deposit" name="payment_method" value="bank_deposit">
+                                                        <input type="radio" class="custom-control-input payment_method @error('payment_method') is-invalid @enderror" id="bank_deposit" name="payment_method" value="bank_deposit">
                                                         <label class="custom-control-label" for="bank_deposit">via Bank Deposit</label>
                                                     </div>
+                                                    @error('payment_method')
+                                                    <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
 
                                                 <div class="col-lg-12 mt-2 mb-2">
-                                                    <input type="file" id="bank_slip" style="display:none;">
+                                                    <input type="file" class="@error('image') is-invalid @enderror" name="image" id="image" style="display:none;">
+                                                    @error('image')
+                                                    <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                     <input
                                                         type="text"
-                                                        class="form-control @error('password') is-invalid @enderror"
+                                                        class="form-control @error('dialog_mobile') is-invalid @enderror"
                                                         name="dialog_mobile"
                                                         placeholder="Enter your ez cash dialog number"
                                                         id="dialog_mobile"
                                                         style="display:none;"
                                                     >
+                                                    @error('dialog_mobile')
+                                                    <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
 
                                                 <div class="col-lg-12 text-center mt-4">
@@ -250,10 +257,10 @@
             $(".payment_method").on('change', function () {
                 let val = $('input[name=payment_method]:checked').val()
                 if (val == "ez_cash") {
-                    $("#bank_slip").hide();
+                    $("#image").hide();
                     $("#dialog_mobile").show();
                 } else {
-                    $("#bank_slip").show();
+                    $("#image").show();
                     $("#dialog_mobile").hide();
                 }
             });
