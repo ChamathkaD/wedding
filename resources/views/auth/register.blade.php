@@ -24,14 +24,14 @@
             <div class="row">
                 <div class="col-lg-5 section-tittle">
                     <div class="story-caption">
-                        <h2>Our Story</h2>
+                        <h2>Payment</h2>
                         <ul>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores cupiditate deserunt doloribus fuga illo libero quae quasi recusandae, saepe! Consectetur cumque dignissimos doloremque ea iusto magnam numquam provident quae?</li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores cupiditate deserunt doloribus fuga illo libero quae quasi recusandae, saepe! Consectetur cumque dignissimos doloremque ea iusto magnam numquam provident quae?</li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores cupiditate deserunt doloribus fuga illo libero quae quasi recusandae, saepe! Consectetur cumque dignissimos doloremque ea iusto magnam numquam provident quae?</li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores cupiditate deserunt doloribus fuga illo libero quae quasi recusandae, saepe! Consectetur cumque dignissimos doloremque ea iusto magnam numquam provident quae?</li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores cupiditate deserunt doloribus fuga illo libero quae quasi recusandae, saepe! Consectetur cumque dignissimos doloremque ea iusto magnam numquam provident quae?</li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores cupiditate deserunt doloribus fuga illo libero quae quasi recusandae, saepe! Consectetur cumque dignissimos doloremque ea iusto magnam numquam provident quae?</li>
+                            <li>Registration fee: 500 LKR</li>
+                            <li>You can deposit your money through a Bank deposit, online banking, deposit machine or eZ Cash</li>
+                            <li>A snapshot of your bank slip or a screenshot of your online payment must be uploaded.</li>
+
+                            <li>Your information is only visible to our registered and verified users. Your information will not be exposed to any third party for any reason.</li>
+                            <li>We protect your anonymity 100% and make it easy for you to decide which information you will disclose to whom.</li>
                         </ul>
                     </div>
                 </div>
