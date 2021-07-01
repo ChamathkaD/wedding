@@ -2,17 +2,36 @@
 
 @section('content')
 
+    <style>
+        li:before {
+            content: '';
+            display: inline-block;
+            height: 25px;
+            width: 35px;
+            background-image: url({{ asset('img/check-green.png') }});
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-left: -35px;
+            vertical-align: top;
+        }
+        ul li {
+            margin-bottom: 20px;
+        }
+    </style>
+
     <div class="contact-form section-padding fix">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 section-tittle">
                     <div class="story-caption">
                         <h2>Our Story</h2>
-                        <ul class="unordered-list">
-                            <li>Lorem ipsum dolor.</li>
-                            <li>Lorem ipsum dolor.</li>
-                            <li>Lorem ipsum dolor.</li>
-                            <li>Lorem ipsum dolor.</li>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores cupiditate deserunt doloribus fuga illo libero quae quasi recusandae, saepe! Consectetur cumque dignissimos doloremque ea iusto magnam numquam provident quae?</li>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores cupiditate deserunt doloribus fuga illo libero quae quasi recusandae, saepe! Consectetur cumque dignissimos doloremque ea iusto magnam numquam provident quae?</li>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores cupiditate deserunt doloribus fuga illo libero quae quasi recusandae, saepe! Consectetur cumque dignissimos doloremque ea iusto magnam numquam provident quae?</li>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores cupiditate deserunt doloribus fuga illo libero quae quasi recusandae, saepe! Consectetur cumque dignissimos doloremque ea iusto magnam numquam provident quae?</li>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores cupiditate deserunt doloribus fuga illo libero quae quasi recusandae, saepe! Consectetur cumque dignissimos doloremque ea iusto magnam numquam provident quae?</li>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores cupiditate deserunt doloribus fuga illo libero quae quasi recusandae, saepe! Consectetur cumque dignissimos doloremque ea iusto magnam numquam provident quae?</li>
                         </ul>
                     </div>
                 </div>
