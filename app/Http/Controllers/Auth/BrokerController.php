@@ -8,9 +8,12 @@ use Illuminate\Http\Request;
 
 class BrokerController extends Controller
 {
+    public function showAuthForms()
+    {
+        return view('auth.broker_auth');
+    }
 
-
-    public function registerBroker(){
+    /*public function registerBroker(){
         return view('auth.brokerRegister');
     }
 
@@ -29,5 +32,5 @@ class BrokerController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-    }
+    }*/
 }

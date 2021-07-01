@@ -49,15 +49,9 @@
                                         </ul>
                                     </li>
                                 @endguest
-                                <li><a href="#" style="color: #800098"> Broker?</a>
-                                    <ul class="submenu ">
-                                        <li><a href="{{ route('broker.register') }} ">Register</a></li>
-                                        <li><a href="{{ route('broker.login') }}">Login</a></li>
-                                    </ul>
-
+                                <li>
+                                    <a href="{{ route('broker.show.auth') }}" style="color: #800098" class="font-weight-bold"> Broker?</a>
                                 </li>
-
-
                             </ul>
                         </nav>
                     </div>

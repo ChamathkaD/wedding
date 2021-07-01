@@ -40,11 +40,10 @@ Route::middleware('auth')->group(function () {
 
 
 // broker routes
-
-Route::get('register/broker','Auth\BrokerController@registerBroker')->name('broker.register');
+Route::get('broker/auth','Auth\BrokerController@showAuthForms')->name('broker.show.auth');
 /*Route::post('save/register/broker','Auth\BrokerController@registerBrokerSave')->name('broker.register.Save');*/
-Route::get('login/broker','Auth\BrokerController@loginBroker')->name('broker.login');
-Route::get('update/broker','BrokerController@updateBroker')->name('broker.update');
+/*Route::get('login/broker','Auth\BrokerController@loginBroker')->name('broker.login');
+Route::get('update/broker','BrokerController@updateBroker')->name('broker.update');*/
 
 
 //Admin Routes
