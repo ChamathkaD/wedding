@@ -16,6 +16,11 @@
                                 </div>
                             </div>
                         </div>
+
+                        @if(session()->has('success'))
+                            <x-Alert type="success" :message="session()->get('success')"></x-Alert>
+                        @endif
+
                         <form id="contact-form" action="{{ route('login') }}" method="POST">
                             @csrf
                             <div class="row">
