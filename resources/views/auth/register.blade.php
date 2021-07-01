@@ -3,7 +3,7 @@
 @section('content')
 
     <style>
-        li:before {
+        .story-caption li:before {
             content: '';
             display: inline-block;
             height: 25px;
