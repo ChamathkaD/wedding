@@ -46,15 +46,17 @@ Route::get('broker/auth','Auth\BrokerController@showAuthForms')->name('broker.sh
 Route::get('update/broker','BrokerController@updateBroker')->name('broker.update');*/
 
 
-//Admin Routes
-
-
+//backend Routes
 Route::prefix('admin')->name('admin.')->group(function (){
     Route::get('/', 'AdminController@index')->name('dashboard');
     Route::get('login', 'Auth\AdminLoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\AdminLoginController@login')->name('login.submit');
     Route::post('logout','Auth\AdminLoginController@logout')->name('logout');
 
+    // users routes
+    Route::get('users/requests', 'Admin\UserController@requests')->name('users.requests');
+    Route::get('users/blocked', 'Admin\UserController@blocked')->name('users.blocked');
+    Route::get('users/deleted', 'Admin\UserController@deleted')->name('users.deleted');
     Route::resource('users', 'Admin\UserController');
 });
 
