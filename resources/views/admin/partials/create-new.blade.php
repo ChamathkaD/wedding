@@ -4,7 +4,7 @@
         <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="{{ route('admin.users.create') }}">User</a></li>
         <li><a class="dropdown-item" href="#">Another action</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="#">Something else here</a></li>
