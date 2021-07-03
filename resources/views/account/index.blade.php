@@ -74,6 +74,14 @@
 
         <div class="row p-4">
             <a href="#" class="col-sm-3 d-flex justify-content-start align-items-center">
+                <i class="fad fa-image-polaroid fa-3x"></i>
+                <div class="ml-3">
+                    <h5>My Gallery</h5>
+                    <small class="text-dark">Stories</small>
+                </div>
+            </a>
+
+            <a href="#" class="col-sm-3 d-flex justify-content-start align-items-center">
                 <i class="fad fa-lock fa-3x"></i>
                 <div class="ml-3">
                     <h5>Privacy</h5>
