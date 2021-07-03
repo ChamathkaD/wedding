@@ -61,6 +61,9 @@ Route::prefix('admin')->name('admin.')->group(function (){
     Route::post('login', 'Auth\AdminLoginController@login')->name('login.submit');
     Route::post('logout','Auth\AdminLoginController@logout')->name('logout');
 
+    // change password
+    Route::match(['get', 'post'], 'change/password', 'AdminController@changePassword')->name('change.password');
+
     // users routes
     Route::get('users/requests', 'Admin\UserController@requests')->name('users.requests');
     Route::get('users/blocked', 'Admin\UserController@blocked')->name('users.blocked');

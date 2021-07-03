@@ -3,9 +3,9 @@
         <i class="ti-user me-1 ms-1"></i>
         My Profile
     </a>
-    <a class="dropdown-item" href="javascript:void(0)">
+    <a class="dropdown-item" href="{{ route('admin.change.password') }}">
         <i class="ti-wallet me-1 ms-1"></i>
-        My Balance
+        Change Password
     </a>
     <a class="dropdown-item" href="javascript:void(0)">
         <i class="ti-email me-1 ms-1"></i>
