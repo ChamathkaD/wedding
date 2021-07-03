@@ -18,6 +18,14 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('aboutUs', function (){
+    return view('partials.aboutUs');
+});
+
+Route::get('contact', function (){
+    return view('partials.contact');
+});
+
 Auth::routes(['verify' => true]);
 
 Route::middleware('auth')->group(function () {

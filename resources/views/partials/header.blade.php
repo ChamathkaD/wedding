@@ -17,7 +17,8 @@
 
                                 @guest
 
-                                    <li><a href="contact.html">contact</a></li>
+                                    <li><a href=" {{ url('aboutUs') }}">About Us</a></li>
+                                    <li><a href="{{url('contact')}}">contact</a></li>
 
 
                                     <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
