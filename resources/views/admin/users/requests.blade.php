@@ -31,8 +31,6 @@
                                     <th>Last Name</th>
                                     <th>Email</th>
                                     <th>Birthday</th>
-                                    <th>Payment Method</th>
-                                    <th>Evidence</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
@@ -43,14 +41,6 @@
                                             <td>{{ $record->last_name }}</td>
                                             <td>{{ $record->email }}</td>
                                             <td>{{ $record->birthday }}</td>
-                                            <td>{{ $record->payment_method }}</td>
-                                            <td>
-                                                @if($record->dialog_mobile)
-                                                    {{ $record->dialog_mobile}}
-                                                @else
-                                                    -
-                                                @endif
-                                            </td>
                                             <td>
                                                 <a href="#" class="btn btn-success btn-sm text-white">
                                                     <i class="mdi mdi-check mdi-18px"></i>
