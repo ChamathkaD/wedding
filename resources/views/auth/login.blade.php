@@ -65,24 +65,31 @@
                                     </div>
                                 </div>
 
-
-                                <div class="col-lg-6">
-
-                                    <div class="submit-info col-md-1 ">
-                                        <button class="btn2" type="submit"> {{ __('Login') }}</button>
+                                <div class="col-lg-12">
+                                    <div class="confirm-checkbox">
+                                        <input
+                                            type="checkbox"
+                                            name="remember"
+                                            id="remember" {{ old('remember') ? 'checked' : '' }}
+                                        >
+                                        <label for="remember"></label>
                                     </div>
-
+                                    <p class="text-dark" style="margin-top: -21px; margin-left: 30px;">
+                                        {{ __('Remember Me') }}
+                                    </p>
                                 </div>
 
-                                <div class="col-lg-6">
+
+                                <div class="col-lg-12 d-flex justify-content-between">
+                                    <div class="submit-info">
+                                        <button class="btn2" type="submit"> {{ __('Login') }}</button>
+                                    </div>
                                     @if (Route::has('password.request'))
                                         <a class=" btn-link" href="{{ route('password.request') }}">
                                             {{ __('Forgot Your Password?') }}
                                         </a>
-
                                     @endif
                                 </div>
-
 
                             </div>
                         </form>
