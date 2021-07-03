@@ -21,6 +21,10 @@
                             <x-Alert type="success" :message="session()->get('success')"></x-Alert>
                         @endif
 
+                        @if(session()->has('warning'))
+                            <x-Alert type="warning" :message="session()->get('warning')"></x-Alert>
+                        @endif
+
                         <form id="contact-form" action="{{ route('login') }}" method="POST">
                             @csrf
                             <div class="row">
