@@ -14,13 +14,10 @@
                     <div class="main-menu f-right d-none d-lg-block">
                         <nav>
                             <ul id="navigation">
+                                <li><a href="{{ url('aboutUs') }}">About Us</a></li>
+                                <li><a href="{{url('contact')}}">contact</a></li>
 
                                 @guest
-
-                                    <li><a href=" {{ url('aboutUs') }}">About Us</a></li>
-                                    <li><a href="{{url('contact')}}">contact</a></li>
-
-
                                     <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
 
                                     @if (Route::has('register'))
@@ -28,18 +25,31 @@
                                             <a href="{{ route('register') }}">{{ __('Register') }}</a>
                                         </li>
                                     @endif
-                                @else
-                                    <li><a href="{{ route('personal.info') }}">Personal Information</a></li>
-                                    <li><a href="{{ route('family.info') }}">Family Information</a></li>
-                                    <li><a href="{{route('show.user')}}">Users</a></li>
-                                    <li><a href="#">{{ Auth::user()->firstName }}</a>
-                                        <ul class="submenu">
-                                            <li><a href="{{ route('create.user.account') }}">Edit Profile</a></li>
 
-                                            <li><a href="{{ route('password.show') }}">Change Password</a></li>
+                                    <li>
+                                        <a href="{{ route('broker.show.auth') }}" style="color: #800098" class="font-weight-bold"> Broker?</a>
+                                    </li>
+                                @else
+                                    <li>
+                                        <a href="#" class="font-weight-bold">
+                                            {{ Auth::user()->full_name }}
+                                        </a>
+                                        <ul class="submenu">
+                                            <li>
+                                                <a href="{{ route('user.account') }}">
+                                                    My Account
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="{{ route('password.show') }}">
+                                                    Change Password
+                                                </a>
+                                            </li>
                                             <li><a class="dropdown-item" href="{{ route('logout') }}"
                                                    onclick="event.preventDefault();
                                                                   document.getElementById('logout-form').submit();">
+                                                    <i class="fas fa-sign-out-alt mr-2"></i>
                                                     {{ __('Logout') }}
                                                 </a></li>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -50,9 +60,6 @@
                                         </ul>
                                     </li>
                                 @endguest
-                                <li>
-                                    <a href="{{ route('broker.show.auth') }}" style="color: #800098" class="font-weight-bold"> Broker?</a>
-                                </li>
                             </ul>
                         </nav>
                     </div>
