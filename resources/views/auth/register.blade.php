@@ -21,7 +21,7 @@
 
     <div class="contact-form section-padding fix">
         <div class="container">
-            <div class="row">
+            <div class="row d-flex align-items-center">
                 <div class="col-lg-5 section-tittle">
                     <div class="story-caption">
                         <ul>
@@ -45,7 +45,7 @@
                                                 <h2>Register</h2>
                                             </div>
                                         </div>
-                                        <form id="contact-form" action="{{ route('register') }}" method="POST">
+                                        <form id="contact-form" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="row">
                                                 <div class="col-lg-12">
@@ -93,7 +93,7 @@
 
                                                 <div class="col-lg-12">
                                                     <div class="form-box subject-icon mb-30">
-                                                        <label for="name">Email</label>
+                                                        <label for="email">Email</label>
                                                         <input
                                                             type="email"
                                                             placeholder="Email"
@@ -115,11 +115,10 @@
 
                                                 <div class="col-lg-12">
                                                     <div class="form-box mb-30">
-                                                        <label for="name">Birthday</label>
+                                                        <label for="birthday">Birthday</label>
                                                         <input
                                                             type="date"
                                                             name="birthday"
-                                                            placeholder="mm/dd/yyyy"
                                                             id="birthday"
                                                             class="form-control @error('birthday') is-invalid @enderror"
                                                             value="{{ old('birthday') }}"
@@ -135,10 +134,9 @@
                                                     </div>
                                                 </div>
 
-
                                                 <div class="col-lg-12">
                                                     <div class="form-box subject-icon mb-30">
-                                                        <label for="name">Password</label>
+                                                        <label for="password">Password</label>
                                                         <input
                                                             type="password"
                                                             placeholder=" Password"
@@ -160,7 +158,7 @@
 
                                                 <div class="col-lg-12">
                                                     <div class="form-box subject-icon mb-30">
-                                                        <label for="name">Password</label>
+                                                        <label for="password-confirm">Re-enter Password</label>
                                                         <input
                                                             type="password"
                                                             placeholder="Confirm Password"
@@ -171,45 +169,6 @@
                                                             autocomplete="new-password"
                                                         >
                                                     </div>
-                                                </div>
-
-                                                <div class="col-lg-12">
-                                                    <label for="name">Select Payment Method</label>
-                                                    <div class="custom-control custom-radio">
-                                                        <input type="radio" class="custom-control-input payment_method @error('payment_method') is-invalid @enderror" id="ez_cash" name="payment_method" value="ez_cash">
-                                                        <label class="custom-control-label" for="ez_cash">via Dialog ez cash</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio">
-                                                        <input type="radio" class="custom-control-input payment_method @error('payment_method') is-invalid @enderror" id="bank_deposit" name="payment_method" value="bank_deposit">
-                                                        <label class="custom-control-label" for="bank_deposit">via Bank Deposit</label>
-                                                    </div>
-                                                    @error('payment_method')
-                                                    <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
-                                                </div>
-
-                                                <div class="col-lg-12 mt-2 mb-2">
-                                                    <input type="file" class="@error('image') is-invalid @enderror" name="image" id="image" style="display:none;">
-                                                    @error('image')
-                                                    <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
-                                                    <input
-                                                        type="text"
-                                                        class="form-control @error('dialog_mobile') is-invalid @enderror"
-                                                        name="dialog_mobile"
-                                                        placeholder="Enter your ez cash dialog number"
-                                                        id="dialog_mobile"
-                                                        style="display:none;"
-                                                    >
-                                                    @error('dialog_mobile')
-                                                    <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
                                                 </div>
 
                                                 <div class="col-lg-12 text-center mt-4">
@@ -233,8 +192,7 @@
 
                                         <div class="shape-outer-flower">
                                             <img src="{{ asset('img/flower/from-top.png') }}" class="outer-top" alt="">
-                                            <img src="{{ asset('img/flower/from-bottom.png') }}" class="outer-bottom"
-                                                 alt="">
+                                            <img src="{{ asset('img/flower/from-bottom.png') }}" class="outer-bottom" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -247,28 +205,6 @@
     </div>
 
 @endsection
-
-@push('js')
-
-    <script>
-        $(document).ready(function () {
-
-            /* handle payment methods */
-            $(".payment_method").on('change', function () {
-                let val = $('input[name=payment_method]:checked').val()
-                if (val == "ez_cash") {
-                    $("#image").hide();
-                    $("#dialog_mobile").show();
-                } else {
-                    $("#image").show();
-                    $("#dialog_mobile").hide();
-                }
-            });
-
-        })
-    </script>
-
-@endpush
 
 
 

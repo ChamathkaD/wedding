@@ -57,9 +57,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'image',
         'is_blocked',
         'is_activated',
-        'payment_method',
-        'reg_bank_slip',
-        'dialog_mobile',
     ];
 
     /**

@@ -57,9 +57,6 @@ class CreateUsersTable extends Migration
             $table->string('image')->nullable();
             $table->boolean('is_blocked')->default(false);
             $table->boolean('is_activated')->default(false); // for registration purpose only
-            $table->string('payment_method')->nullable();
-            $table->string('reg_bank_slip')->nullable();
-            $table->string('dialog_mobile')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

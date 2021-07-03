@@ -56,9 +56,6 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'birthday' => ['required' , 'date', 'before:2003-01-01'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'payment_method' => ['required', 'string'],
-            'dialog_mobile' => ['required', 'string'],
-//            'reg_bank_slip' => ['required'],
         ]);
     }
 
@@ -76,9 +73,6 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'birthday' => $data['birthday'],
             'password' => Hash::make($data['password']),
-            'payment_method' => $data['payment_method'],
-            'dialog_mobile' => $data['dialog_mobile'],
-//            'reg_bank_slip' => $data['reg_bank_slip'],
         ]);
     }
 
