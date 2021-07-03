@@ -66,6 +66,8 @@ Route::prefix('admin')->name('admin.')->group(function (){
 
     // users routes
     Route::get('users/requests', 'Admin\UserController@requests')->name('users.requests');
+    Route::get('users/requests/accept/{user}', 'Admin\UserController@accept')->name('users.requests.accept');
+    Route::get('users/requests/reject/{user}', 'Admin\UserController@reject')->name('users.requests.reject');
     Route::get('users/blocked', 'Admin\UserController@blocked')->name('users.blocked');
     Route::get('users/deleted', 'Admin\UserController@deleted')->name('users.deleted');
     Route::resource('users', 'Admin\UserController');

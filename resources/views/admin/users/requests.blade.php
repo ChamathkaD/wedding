@@ -23,6 +23,11 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
+
+                        @if(session()->has('success'))
+                            <x-Alert type="success" :message="session()->get('success')"></x-Alert>
+                        @endif
+
                         <div class="table-responsive">
                             <table id="zero_config" class="table table-striped table-bordered table-sm">
                                 <thead>
@@ -42,10 +47,18 @@
                                             <td>{{ $record->email }}</td>
                                             <td>{{ $record->birthday }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-success btn-sm text-white">
+                                                <a
+                                                    href="{{ route('admin.users.requests.accept', $record->id) }}"
+                                                    class="btn btn-success btn-sm text-white"
+                                                    onclick="return confirm('Do you want to accept {{ $record->full_name }}?')"
+                                                >
                                                     <i class="mdi mdi-check mdi-18px"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-danger btn-sm text-white">
+                                                <a
+                                                    href="{{ route('admin.users.requests.reject', $record->id) }}"
+                                                    class="btn btn-danger btn-sm text-white"
+                                                    onclick="return confirm('Do you want to reject {{ $record->full_name }}?')"
+                                                >
                                                     <i class="mdi mdi-close mdi-18px"></i>
                                                 </a>
                                             </td>

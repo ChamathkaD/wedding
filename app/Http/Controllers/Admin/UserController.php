@@ -17,10 +17,27 @@ class UserController extends Controller
         $records = User::where('is_activated', false)->get();
         return view('admin.users.requests')->with(compact('records'));
     }
+
+    public function accept(User $user)
+    {
+        $user->is_activated = true;
+        $user->save();
+
+        $msg = $user->full_name . ' accepted.';
+        return back()->with('success', $msg);
+    }
+
+    public function reject(User $user)
+    {
+        $msg = $user->full_name . ' deleted form the system.';
+
+        $user->delete();
+
+        return back()->with('success', $msg);
+    }
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -30,7 +47,6 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -40,8 +56,6 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -51,8 +65,6 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
@@ -62,8 +74,6 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
@@ -73,9 +83,6 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
