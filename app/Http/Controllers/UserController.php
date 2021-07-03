@@ -14,14 +14,13 @@ use phpDocumentor\Reflection\DocBlock\Tags\Uses;
 
 class UserController extends Controller
 {
-    public function personalInfo(){
-        return view('users.persanalInfo');
+    public function showAccount()
+    {
+        return view('account.index');
     }
 
     public function UpdatePersonalInfo(PersonalInfoRequest $personalInfoRequest){
 
-        dd($personalInfoRequest->all());
-        die;
 
         if ($personalInfoRequest->hasFile('image')){
             if ($personalInfoRequest->file('image')->isValid()){

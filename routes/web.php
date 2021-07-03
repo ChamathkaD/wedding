@@ -29,7 +29,10 @@ Route::get('contact', function (){
 Auth::routes(['verify' => true]);
 
 Route::middleware('auth')->group(function () {
-    Route::get('createUserAccount','UserController@createUserAccount')->name('create.user.account');
+
+    Route::get('account','UserController@showAccount')->name('user.account');
+
+
     Route::get('personal/info','UserController@personalInfo')->name('personal.info');
     Route::post('update/personal/info','UserController@UpdatePersonalInfo')->name('personal.info.update');
 
