@@ -22,6 +22,29 @@
     <link rel="stylesheet" href=" {{ asset('css/nice-select.css') }}">
     <link rel="stylesheet" href=" {{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+    <style>
+        .genric-btn.purple {
+            color:#fff;background:#a903c8;
+            border:1px solid transparent
+        }
+
+        .genric-btn.purple:hover {
+            color:#a903c8;
+            border:1px solid #a903c8;
+            background:#fff
+        }
+
+        .genric-btn.purple-border{
+            color:#a903c8;border:1px solid #a903c8;
+            background:#fff
+        }
+
+        .genric-btn.purple-border:hover {
+            color:#fff;
+            background:#a903c8;
+            border:1px solid transparent
+        }
+    </style>
     @stack('css')
 </head>
 <body>

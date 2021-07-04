@@ -1,658 +1,436 @@
-<form id="contact-form" action="{{ route('user.update') }}" method="POST" enctype="multipart/form-data">
-    @csrf
+@extends('layouts.app')
 
-    <div class="col-lg-6">
-        <div class="story-caption">
-            <h4>Personal Information</h4>
+@push('css')
 
-        </div>
-    </div>
+    <style>
+        .single-input-secondary:focus, .single-textarea:focus {
+            outline:none;border:1px solid #a903c8
+        }
 
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="form-box mb-30">
-                <input
-                    type="text"
-                    name="firstName"
-                    placeholder="First Name"
-                    class="form-control @error('firstName') is-invalid @enderror"
-                    id="firstName"
-                    value="{{ Auth::user()->firstName }}"
-                >
-                @error('firstName')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
+        h4 {
+            margin-bottom: 0;
+            color: #a903c8;
+        }
+
+        .heading-icon i {
+            color: #a903c8 !important;
+        }
+    </style>
+
+@endpush
+
+@section('content')
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-9 p-4">
+
+                <h4 class="mb-40 heading-icon">
+                    <i class="fad fa-user mr-2"></i>
+                    Personal Information
+                </h4>
+
+                <form action="{{ route('account.personal.save') }}" method="POST" enctype="multipart/form-data">
+
+                    @csrf
+
+                    <div class="form-group">
+                        <label for="image" class="form-label">Upload Your Photo</label>
+                        <br>
+                        <input
+                            type="file"
+                            id="image"
+                            name="image"
+                            class="@error('image') is-invalid @enderror"
+                        >
+                        @error('image')
+                        <small class="invalid-feedback">
+                            {{ $message }}
+                        </small>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="first_name" class="form-label">First Name</label>
+                        <input
+                            type="text"
+                            id="first_name"
+                            name="first_name"
+                            placeholder="Enter First Name"
+                            onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Enter First Name'"
+                            class="single-input-secondary @error('first_name') is-invalid @enderror"
+                            value="{{ Auth::user()->first_name }}"
+                        >
+                        @error('first_name')
+                        <small class="invalid-feedback">
+                            {{ $message }}
+                        </small>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="middle_name" class="form-label">Middle Name</label>
+                        <input
+                            type="text"
+                            id="middle_name"
+                            name="middle_name"
+                            placeholder="Enter Middle Name"
+                            onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Enter Middle Name'"
+                            class="single-input-secondary @error('middle_name') is-invalid @enderror"
+                            value="{{ Auth::user()->middle_name }}"
+                        >
+                        @error('middle_name')
+                        <small class="invalid-feedback">
+                            {{ $message }}
+                        </small>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="last_name" class="form-label">Last Name</label>
+                        <input
+                            type="text"
+                            id="last_name"
+                            name="last_name"
+                            placeholder="Enter Last Name"
+                            onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Enter Last Name'"
+                            class="single-input-secondary @error('last_name') is-invalid @enderror"
+                            value="{{ Auth::user()->last_name }}"
+                        >
+                        @error('last_name')
+                        <small class="invalid-feedback">
+                            {{ $message }}
+                        </small>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nic_name" class="form-label">NIC Name</label>
+                        <input
+                            type="text"
+                            id="nic_name"
+                            name="nic_name"
+                            placeholder="Enter NIC Name"
+                            onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Enter NIC Name'"
+                            class="single-input-secondary @error('nic_name') is-invalid @enderror"
+                            value="{{ Auth::user()->nic_name }}"
+                        >
+                        @error('nic_name')
+                        <small class="invalid-feedback">
+                            {{ $message }}
+                        </small>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter Email"
+                            onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Enter Email'"
+                            class="single-input-secondary @error('email') is-invalid @enderror"
+                            value="{{ Auth::user()->email }}"
+                        >
+                        @error('email')
+                        <small class="invalid-feedback">
+                            {{ $message }}
+                        </small>
+                        @enderror
+                    </div>
+
+                    <div class="form-row form-group">
+                        <div class="col-sm-4">
+                            <label for="birthday" class="form-label">Birthday</label>
+                            <input
+                                type="date"
+                                id="birthday"
+                                name="birthday"
+                                placeholder="Enter Birthday"
+                                onfocus="this.placeholder = ''"
+                                onblur="this.placeholder = 'Enter Birthday'"
+                                class="single-input-secondary @error('birthday') is-invalid @enderror"
+                                value="{{ Auth::user()->birthday }}"
+                            >
+                            @error('birthday')
+                            <small class="invalid-feedback">
+                                {{ $message }}
+                            </small>
+                            @enderror
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="gender" class="form-label">Gender</label>
+                            <div class="default-select" id="default-select">
+                                <select
+                                    class="single-input-secondary @error('gender') is-invalid @enderror"
+                                    name="gender"
+                                    id="gender"
+                                >
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                @error('gender')
+                                <small class="invalid-feedback">
+                                    {{ $message }}
+                                </small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input
+                                type="text"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter Phone"
+                                onfocus="this.placeholder = ''"
+                                onblur="this.placeholder = 'Enter Phone'"
+                                class="single-input-secondary @error('phone') is-invalid @enderror"
+                                value="{{ Auth::user()->phone }}"
+                            >
+                            @error('phone')
+                            <small class="invalid-feedback">
+                                {{ $message }}
+                            </small>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-row form-group">
+                        <div class="col-sm-4">
+                            <label for="whatsapp" class="form-label">Whatsapp Number</label>
+                            <input
+                                type="text"
+                                id="whatsapp"
+                                name="whatsapp"
+                                placeholder="Enter Whatsapp Number"
+                                onfocus="this.placeholder = ''"
+                                onblur="this.placeholder = 'Enter Whatsapp Number'"
+                                class="single-input-secondary @error('whatsapp') is-invalid @enderror"
+                                value="{{ Auth::user()->whatsapp }}"
+                            >
+                            @error('whatsapp')
+                            <small class="invalid-feedback">
+                                {{ $message }}
+                            </small>
+                            @enderror
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="nationality" class="form-label">Nationality</label>
+                            <div class="default-select" id="default-select">
+                                <select
+                                    class="single-input-secondary @error('nationality') is-invalid @enderror"
+                                    name="nationality"
+                                    id="nationality"
+                                >
+                                    <option value="Sinhalese">Sinhalese</option>
+                                    <option value="Sri Lankan Tamil">Sri Lankan Tamil</option>
+                                    <option value="Sri Lankan Moor">Sri Lankan Moor</option>
+                                    <option value="Indian Tamil">Indian Tamil</option>
+                                    <option value="Sri Lankan Malay">Sri Lankan Malay</option>
+                                    <option value="Burghers">Burghers</option>
+                                    <option value="Indian Moor">Indian Moor</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                @error('nationality')
+                                <small class="invalid-feedback">
+                                    {{ $message }}
+                                </small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="religion" class="form-label">Religion</label>
+                            <div class="default-select" id="default-select">
+                                <select
+                                    class="single-input-secondary @error('religion') is-invalid @enderror"
+                                    name="religion"
+                                    id="religion"
+                                >
+                                    <option value="Buddhism">Buddhism</option>
+                                    <option value="Hindus">Hindus</option>
+                                    <option value="Muslims">Muslims</option>
+                                    <option value="Christians">Christians</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                @error('religion')
+                                <small class="invalid-feedback">
+                                    {{ $message }}
+                                </small>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row form-group">
+                        <div class="col-sm-4">
+                            <label for="height" class="form-label">Height</label>
+                            <input
+                                type="text"
+                                id="height"
+                                name="height"
+                                placeholder="Enter Height (Inches)"
+                                onfocus="this.placeholder = ''"
+                                onblur="this.placeholder = 'Enter Height (Inches)'"
+                                class="single-input-secondary @error('height') is-invalid @enderror"
+                                value="{{ Auth::user()->height }}"
+                            >
+                            @error('height')
+                            <small class="invalid-feedback">
+                                {{ $message }}
+                            </small>
+                            @enderror
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="weight" class="form-label">Weight</label>
+                            <input
+                                type="text"
+                                id="weight"
+                                name="weight"
+                                placeholder="Enter Weight (Kg)"
+                                onfocus="this.placeholder = ''"
+                                onblur="this.placeholder = 'Enter Weight (Kg)'"
+                                class="single-input-secondary @error('weight') is-invalid @enderror"
+                                value="{{ Auth::user()->weight }}"
+                            >
+                            @error('weight')
+                            <small class="invalid-feedback">
+                                {{ $message }}
+                            </small>
+                            @enderror
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="mother_tongue" class="form-label">Mother Tongue</label>
+                            <div class="default-select" id="default-select">
+                                <select
+                                    class="single-input-secondary @error('mother_tongue') is-invalid @enderror"
+                                    name="mother_tongue"
+                                    id="mother_tongue"
+                                >
+                                    <option value="Sinhala">Sinhala</option>
+                                    <option value="Tamil">Tamil</option>
+                                    <option value="English">English</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                @error('mother_tongue')
+                                <small class="invalid-feedback">
+                                    {{ $message }}
+                                </small>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row form-group">
+                        <div class="col-sm-4">
+                            <label for="horoscope" class="form-label">Horoscope</label>
+                            <div class="default-select" id="default-select">
+                                <select
+                                    class="single-input-secondary @error('horoscope') is-invalid @enderror"
+                                    name="horoscope"
+                                    id="horoscope"
+                                >
+                                    <option value="Aries">Aries</option>
+                                    <option value="Taurus">Taurus</option>
+                                    <option value="Gemini">Gemini</option>
+                                    <option value="Cancer">Cancer</option>
+                                    <option value="Leo">Leo</option>
+                                    <option value="Virgo">Virgo</option>
+                                    <option value="Libra">Libra</option>
+                                    <option value="Scorpio">Scorpio</option>
+                                    <option value="Sagittarius">Sagittarius</option>
+                                    <option value="Capricorn">Capricorn</option>
+                                    <option value="Aquarius">Aquarius</option>
+                                    <option value="Pisces">Pisces</option>
+                                </select>
+                                @error('horoscope')
+                                <small class="invalid-feedback">
+                                    {{ $message }}
+                                </small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="marital_status" class="form-label">Marital Status</label>
+                            <div class="default-select" id="default-select">
+                                <select
+                                    class="single-input-secondary @error('marital_status') is-invalid @enderror"
+                                    name="marital_status"
+                                    id="marital_status"
+                                >
+                                    <option value="Unmarried">Unmarried</option>
+                                    <option value="Unmarried">Married</option>
+                                    <option value="Divorce">Divorced</option>
+                                </select>
+                                @error('marital_status')
+                                <small class="invalid-feedback">
+                                    {{ $message }}
+                                </small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="feature" class="form-label">Feature</label>
+                            <div class="default-select" id="default-select">
+                                <select
+                                    class="single-input-secondary @error('feature') is-invalid @enderror"
+                                    name="feature"
+                                    id="feature"
+                                >
+                                    <option value="Fair">Fair</option>
+                                    <option value="Whitish">Whitish</option>
+                                    <option value="Whitish Medium">Whitish Medium</option>
+                                    <option value="Whitish Brown">Whitish Brown</option>
+                                    <option value="Dark">Dark</option>
+                                </select>
+                                @error('feature')
+                                <small class="invalid-feedback">
+                                    {{ $message }}
+                                </small>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bio" class="form-label">Bio</label>
+                        <textarea
+                            class="single-textarea"
+                            placeholder="Type something about you..."
+                            id="bio"
+                            name="bio"
+                            onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Type something about you...'"
+                        ></textarea>
+                        @error('bio')
+                        <small class="invalid-feedback">
+                            {{ $message }}
+                        </small>
+                        @enderror
+                    </div>
+
+                    <div class="d-flex justify-content-end">
+                        <button class="genric-btn purple radius" type="submit">Save</button>
+                    </div>
+
+                </form>
             </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="form-box subject-icon mb-30">
-                <input
-                    type="text"
-                    name="middleName"
-                    placeholder="Middle Name"
-                    class="form-control @error('middleName') is-invalid @enderror"
-                    id="middleName"
-                    value="{{ Auth::user()->middleName }}"
-                >
-                @error('middleName')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="form-box subject-icon mb-30">
-                <input
-                    type="text"
-                    name="lastName"
-                    placeholder="Last Name"
-                    class="form-control @error('lastName') is-invalid @enderror"
-                    id="lastName"
-                    value="{{ Auth::user()->lastName }}"
-                >
-                @error('lastName')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-    </div>
 
+            <div class="col-sm-3 p-2">
 
+                <div class="text-center p-3">
+                    <img src="{{ asset('img/team/person_1.jpg') }}" alt="" width="200">
+                </div>
 
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="form-box mb-30">
-                <input
-                    type="text"
-                    name="nicName"
-                    placeholder="Nic Name"
-                    class="form-control @error('nicName') is-invalid @enderror"
-                    id="nicName"
-                    value="{{ Auth::user()->nicName }}"
-                >
-                @error('nicName')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="form-box mb-30">
-                <input
-                    type="date"
-                    name="birthday"
-                    placeholder="Birthday"
-                    class="form-control @error('birthday') is-invalid @enderror"
-                    id="birthday"
-                    value="{{ Auth::user()->birthday }}"
-                >
-                @error('birthday')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="select-itms">
-                <select name="gender" id="gender" class="form-control @error('gender') is-invalid @enderror" >
-                    <option selected disabled value="{{ Auth::user()->gender }}">Gender</option>
-                    <option value="male" >Male</option>
-                    <option value="female" >Female</option>
-
-                </select>
-                @error('gender')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-    </div>
-
-    <div class="row">
-
-        <div class="col-lg-4">
-            <div class="form-box subject-icon mb-30">
-                <input
-                    type="Email"
-                    name="email"
-                    placeholder="Email"
-                    class="form-control @error('email') is-invalid @enderror"
-                    id="email"
-                    value="{{ Auth::user()->email }}"
-                >
-                @error('email')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="form-box mb-30">
-                <input type="text"
-                       name="phone"
-                       placeholder="Phone1 No1"
-                       class="form-control @error('phone') is-invalid @enderror"
-                       id="phone"
-                       value="{{ Auth::user()->phone }}"
-                >
-                @error('phone')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="form-box mb-30">
-                <input
-                    type="text"
-                    name="whatsApp"
-                    placeholder="WhatsApp No"
-                    class="form-control @error('whatsApp') is-invalid @enderror"
-                    id="whatsApp"
-                    value="{{ Auth::user()->whatsApp }}"
-                >
-                @error('whatsApp')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-    </div>
-
-
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="form-box mb-30">
-                <input type="text"
-                       name="addressLine1"
-                       placeholder="address line1"
-                       class="form-control @error('addressLine1') is-invalid @enderror"
-                       id="addressLine1"
-                       value="{{ Auth::user()->addressLine1 }}"
-                >
-                @error('addressLine1')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="form-box mb-30">
-                <input type="text"
-                       name="addressLine2"
-                       placeholder="address line2"
-                       class="form-control @error('addressLine2') is-invalid @enderror"
-                       id="addressLine2"
-                       value="{{ Auth::user()->addressLine2 }}"
-                >
-                @error('addressLine2')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="form-box mb-30">
-                <input
-                    type="text"
-                    name="addressLine3"
-                    placeholder="address line3"
-                    class="form-control @error('addressLine3') is-invalid @enderror"
-                    id="addressLine3"
-                    value="{{ Auth::user()->addressLine3 }}"
-                >
-                @error('addressLine3')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row">
-
-
-        <div class="col-lg-4">
-            <div class="form-box mb-30">
-                <input
-                    type="text"
-                    name="nic"
-                    placeholder="NIC No"
-                    class="form-control @error('nic') is-invalid @enderror"
-                    id="nic"
-                    value="{{ Auth::user()->nic }}"
-                >
-                @error('nic')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="select-itms" >
-                <select name="jobType" id="jobType" class="form-control  @error('jobType') is-invalid @enderror">
-                    <option selected disabled value="{{ Auth::user()->jobType }}">Job Type</option>
-                    <option value="Government">Government</option>
-                    <option value="Privet">Privet</option>
-                </select>
-                @error('jobType')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="form-box mb-30">
-                <input
-                    type="text"
-                    name="jobPost"
-                    placeholder="Job Post"
-                    class="form-control @error('jobPost') is-invalid @enderror"
-                    id="jobPost"
-                    value="{{ Auth::user()->jobPost }}"
-                >
-                @error('jobPost')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-    </div>
-
-
-    <div class="row mt-4">
-        <div class="col-lg-4">
-            <div class="form-box mb-30">
-                <input
-                    type="text"
-                    name="weight"
-                    placeholder="Weight(Kg)"
-                    class="form-control @error('weight') is-invalid @enderror"
-                    id="weight"
-                    value="{{ Auth::user()->weight }}"
-                >
-                @error('weight')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="form-box mb-30">
-                <input
-                    type="text"
-                    name="height"
-                    placeholder="Height(inches)"
-                    class="form-control @error('height') is-invalid @enderror"
-                    id="height"
-                    value="{{ Auth::user()->height }}"
-                >
-                @error('height')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="select-itms">
-                <select name="feature" id="feature" class="form-control @error('feature') is-invalid @enderror">
-                    <option selected disabled value="{{ Auth::user()->feature }}">Feature</option>
-                    <option value="Fair">Fair</option>
-                    <option value="Whitish">Whitish</option>
-                    <option value="Whitish Medium">Whitish Medium</option>
-                    <option value="Whitish Brown">Whitish Brown</option>
-                    <option value="Dark">Dark</option>
-
-                </select>
-                @error('feature')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-
-    </div>
-
-    <div class="row mt-4">
-        <div class="col-lg-4">
-            <div class="select-itms">
-                <select name="nationality" id="nationality" class="form-control @error('nationality') is-invalid @enderror" >
-                    <option selected disabled value="{{ Auth::user()->nationality }}">Nationality</option>
-                    <option value="Sinhala">Sinhala</option>
-                    <option value="Tamil">Tamil</option>
-                    <option value="Muslim">Muslim</option>
-                </select>
-                @error('nationality')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="select-itms">
-                <select name="religion" id="religion" class="form-control @error('religion') is-invalid @enderror ">
-                    <option selected disabled value="{{ Auth::user()->religion }}">Religion</option>
-                    <option value="Buddhism">Buddhism</option>
-                    <option value="Hindu">Hindu</option>
-                    <option value="Muslim">Muslim</option>
-                    <option value="Christians">Christians</option>
-                </select>
-                @error('religion')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="select-itms">
-                <select name="motherTongue" id="motherTongue" class="form-control @error('motherTongue') is-invalid @enderror">
-                    <option selected disabled value="{{ Auth::user()->motherTongue }}">Mother Tongue</option>
-                    <option value="Sinhala">Sinhala</option>
-                    <option value="Tamil">Tamil</option>
-                    <option value="English">English</option>
-                    <option value="Other">Other</option>
-                </select>
-                @error('motherTongue')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-
-    </div>
-
-
-    <div class="row mt-4">
-        <div class="col-lg-4">
-            <div class="select-itms">
-                <select name="maritalStatus" id="maritalStatus" class="form-control @error('maritalStatus') is-invalid @enderror">
-                    <option selected disabled value="{{ Auth::user()->maritalStatus }}">marital status</option>
-                    <option value="Unmarried">Unmarried</option>
-                    <option value="Divorce">Divorce</option>
-
-                </select>
-                @error('maritalStatus')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="select-itms">
-                <select name="horoscope" id="horoscope" class="form-control @error('horoscope') is-invalid @enderror">
-                    <option selected disabled value="{{ Auth::user()->horoscope }}">Horoscope</option>
-                    <option value="Aries ">Aries </option>
-                    <option value="Taurus">Taurus</option>
-                    <option value="Gemini ">Gemini </option>
-                    <option value="Cancer ">Cancer </option>
-                    <option value="Leo ">Leo </option>
-                    <option value="Virgo ">Virgo </option>
-                    <option value="Libra ">Libra </option>
-                    <option value="Scorpio ">Scorpio </option>
-                    <option value="Sagittarius ">Sagittarius </option>
-                    <option value="Capricorn ">Capricorn </option>
-                    <option value="Aquarius ">Aquarius </option>
-                    <option value="Pisces ">Pisces </option>
-                </select>
-                @error('horoscope')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="form-box mb-30">
-                <input
-                    type="text"
-                    name="hobby"
-                    placeholder="Hobby"
-                    class="form-control @error('hobby') is-invalid @enderror"
-                    id="hobby"
-                    value="{{ Auth::user()->hobby }}"
-                >
-                @error('hobby')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-
-    </div>
-
-
-
-    <div class="row mt-4">
-        <div class="col-lg-6">
-            <div class="form-box mb-30">
-                <input
-                    type="text"
-                    name="school"
-                    placeholder="School or University"
-                    class="form-control @error('school') is-invalid @enderror"
-                    id="school"
-                    value="{{ Auth::user()->school }}"
-                >
-                @error('school')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-        <div class="col-lg-6">
-            <div class="select-itms">
-                <select name="education" id="education" class="form-control @error('education') is-invalid @enderror">
-                    <option selected disabled value="{{ Auth::user()->education }}">Education</option>
-                    <option value="Degree">Degree</option>
-                    <option value="Diploma">Diploma</option>
-                    <option value="O/L">O/L</option>
-                    <option value="A/L">A/L</option>
-                </select>
-                @error('education')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-    </div>
-
-
-    <div class="row mt-4">
-        <div class="col-lg-6">
-            <div class="form-box mb-30">
-                <input
-                    type="text"
-                    name="country"
-                    placeholder="Country of birth"
-                    class="form-control @error('country') is-invalid @enderror"
-                    id="country"
-                    value="{{ Auth::user()->country }}"
-                >
-                @error('country')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-        <div class="col-lg-6">
-            <div class="form-box mb-30">
-                <input
-                    type="text"
-                    name="city"
-                    placeholder="City of birth"
-                    class="form-control @error('city') is-invalid @enderror"
-                    id="city"
-                    value="{{ Auth::user()->city }}"
-                >
-                @error('city')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-
-    </div>
-
-
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="form-box mb-30">
-                <input
-                    type="text"
-                    name="sd"
-                    placeholder="Smoking or Drinking"
-                    class="form-control @error('sd') is-invalid @enderror"
-                    id="sd"
-                    value="{{ Auth::user()->sd }}"
-                >
-                @error('sd')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-
-
-
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="form-box mb-30">
-                <input
-                    type="text"
-                    name="fb"
-                    placeholder="Facebook Link"
-                    class="form-control @error('fb') is-invalid @enderror"
-                    id="fb"
-                    value="{{ Auth::user()->fb }}"
-                >
-                @error('fb')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="form-box subject-icon mb-30">
-                <input
-                    type="Email"
-                    name="ig"
-                    placeholder="Instagram Link"
-                    class="form-control @error('ig') is-invalid @enderror"
-                    id="ig"
-                    value="{{ Auth::user()->ig }}"
-                >
-                @error('ig')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="form-box message-icon mb-30">
-                                    <textarea
-                                        name="aboutYou"
-                                        id="aboutYou"
-                                        placeholder="About You"
-                                        class="form-control @error('aboutYou') is-invalid @enderror">{{ Auth::user()->aboutYou }}</textarea>
-                @error('aboutYou')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="form-box mb-30">
-                <label>
-                    Select your Profile Picture
-                </label>
-
-                <input
-                    type="file"
-                    name="image"
-                    placeholder="Image"
-                    class="form-control @error('image') is-invalid @enderror"
-                    id="image"
-                    value="{{ Auth::user()->image }}"
-
-                >
-                @error('image')
-                <small class="invalid-feedback">
-                    {{ $message }}
-                </small>
-                @enderror
-
-            </div>
-        </div>
-
-    </div>
-
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="submit-info">
-                <button class="btn2" type="submit" class="form-control">Create</button>
-            </div>
-        </div>
-    </div>
-
-
-</form>
+@endsection
