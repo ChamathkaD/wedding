@@ -36,7 +36,7 @@
                                         </a>
                                         <ul class="submenu">
                                             <li>
-                                                <a href="{{ route('user.account') }}">
+                                                <a href="{{ route('account.index') }}">
                                                     My Account
                                                 </a>
                                             </li>
