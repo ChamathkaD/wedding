@@ -46,7 +46,7 @@
         </div>
 
         <div class="row p-4">
-            <a href="#" class="col-sm-3 d-flex justify-content-start align-items-center">
+            <a href="{{ route('account.personal') }}" class="col-sm-3 d-flex justify-content-start align-items-center">
                 <i class="fad fa-user fa-3x"></i>
                 <div class="ml-3">
                     <h5>Personal Information</h5>
@@ -54,15 +54,15 @@
                 </div>
             </a>
 
-            <a href="#" class="col-sm-3 d-flex justify-content-start align-items-center">
-                <i class="fad fa-address-card fa-3x"></i>
+            <a href="{{ route('account.addresses') }}" class="col-sm-3 d-flex justify-content-start align-items-center">
+                <i class="fad fa-location-circle fa-3x"></i>
                 <div class="ml-3">
-                    <h5>Addresses</h5>
+                    <h5>Locations</h5>
                     <small class="text-dark">Address 1, Address 2</small>
                 </div>
             </a>
 
-            <a href="#" class="col-sm-3 d-flex justify-content-start align-items-center">
+            <a href="{{ route('account.family') }}" class="col-sm-3 d-flex justify-content-start align-items-center">
                 <i class="fad fa-users fa-3x"></i>
                 <div class="ml-3">
                     <h5>Family Information</h5>
@@ -70,7 +70,7 @@
                 </div>
             </a>
 
-            <a href="#" class="col-sm-3 d-flex justify-content-start align-items-center">
+            <a href="{{ route('account.education') }}" class="col-sm-3 d-flex justify-content-start align-items-center">
                 <i class="fad fa-graduation-cap fa-3x"></i>
                 <div class="ml-3">
                     <h5>Education</h5>
@@ -80,7 +80,16 @@
         </div>
 
         <div class="row p-4">
+
             <a href="#" class="col-sm-3 d-flex justify-content-start align-items-center">
+                <i class="fad fa-briefcase fa-3x"></i>
+                <div class="ml-3">
+                    <h5>Jobs</h5>
+                    <small class="text-dark">Job, Business</small>
+                </div>
+            </a>
+
+            <a href="{{ route('account.gallery') }}" class="col-sm-3 d-flex justify-content-start align-items-center">
                 <i class="fad fa-image-polaroid fa-3x"></i>
                 <div class="ml-3">
                     <h5>My Gallery</h5>
@@ -88,7 +97,26 @@
                 </div>
             </a>
 
+            <a href="{{ route('account.privacy') }}" class="col-sm-3 d-flex justify-content-start align-items-center">
+                <i class="fad fa-people-arrows fa-3x"></i>
+                <div class="ml-3">
+                    <h5>Social</h5>
+                    <small class="text-dark">Facebook, Instagram</small>
+                </div>
+            </a>
+
             <a href="#" class="col-sm-3 d-flex justify-content-start align-items-center">
+                <i class="fad fa-ballot-check fa-3x"></i>
+                <div class="ml-3">
+                    <h5>Checklist</h5>
+                    <small class="text-dark">Activities, Hobbies</small>
+                </div>
+            </a>
+        </div>
+
+        <div class="row p-4">
+
+            <a href="{{ route('account.privacy') }}" class="col-sm-3 d-flex justify-content-start align-items-center">
                 <i class="fad fa-lock fa-3x"></i>
                 <div class="ml-3">
                     <h5>Privacy</h5>
@@ -99,8 +127,8 @@
             <a href="#" class="col-sm-3 d-flex justify-content-start align-items-center">
                 <i class="fad fa-gear fa-3x"></i>
                 <div class="ml-3">
-                    <h5>Other Settings</h5>
-                    <small class="text-dark">Settings</small>
+                    <h5>Settings</h5>
+                    <small class="text-dark">Other Settings</small>
                 </div>
             </a>
         </div>
