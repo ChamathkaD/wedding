@@ -12,7 +12,7 @@
             margin-bottom: 0;
         }
 
-        i {
+        .account-items i {
             color: #a903c8 !important;
         }
 
@@ -22,7 +22,7 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container account-items">
         <div class="row p-4" style="background-color: #f1f1f1">
             <div class="col-sm-12 d-flex justify-content-between">
 
@@ -31,7 +31,14 @@
                     <div class="ml-3">
                         <h3 class="font-weight-bold">{{ Auth::user()->full_name }}</h3>
                         <p class="mb-0">{{ Auth::user()->email }}</p>
-                        <a href="#" class="btn-link">Logout</a>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                           class="btn-link"
+                        >Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                              class="d-none">
+                            @csrf
+                        </form>
                     </div>
                 </div>
 
