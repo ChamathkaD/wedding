@@ -54,7 +54,7 @@
                 </div>
             </a>
 
-            <a href="{{ route('account.addresses') }}" class="col-sm-3 d-flex justify-content-start align-items-center">
+            <a href="{{ route('account.location') }}" class="col-sm-3 d-flex justify-content-start align-items-center">
                 <i class="fad fa-location-circle fa-3x"></i>
                 <div class="ml-3">
                     <h5>Locations</h5>

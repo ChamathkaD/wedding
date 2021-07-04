@@ -26,7 +26,30 @@ class UserController extends Controller
 
     public function savePersonalInfo(Request $request)
     {
-        dd($request);
+       /* dd($request);*/
+
+        User::where('id',Auth::id())->update([
+            'first_name' =>$request->input('first_name'),
+            'middle_name' =>$request->input('middle_name'),
+            'last_name' =>$request->input('last_name'),
+            'nic_name' =>$request->input('nic_name'),
+            'email' =>$request->input('email'),
+            'birthday' =>$request->input('birthday'),
+            'gender' =>$request->input('gender'),
+            'phone' =>$request->input('phone'),
+            'whatsapp' =>$request->input('whatsapp'),
+            'nationality' =>$request->input('nationality'),
+            'religion' =>$request->input('religion'),
+            'height' =>$request->input('height'),
+            'weight' =>$request->input('weight'),
+            'mother_tongue' =>$request->input('mother_tongue'),
+            'horoscope' =>$request->input('horoscope'),
+            'feature' =>$request->input('feature'),
+            'marital_status' =>$request->input('marital_status'),
+            'bio' =>$request->input('bio'),
+
+
+        ]);
     }
 
     public function showLocationInfo()
@@ -35,7 +58,6 @@ class UserController extends Controller
     }
 
     public function UpdatePersonalInfo(PersonalInfoRequest $personalInfoRequest){
-
 
         if ($personalInfoRequest->hasFile('image')){
             if ($personalInfoRequest->file('image')->isValid()){
