@@ -30,16 +30,26 @@ Auth::routes(['verify' => true]);
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('account','UserController@showAccount')->name('user.account');
+    Route::prefix('account')->name('account.')->group( function () {
+        Route::get('/','UserController@showAccount')->name('index');
 
+        Route::get('personal','UserController@showPersonalInfo')->name('personal');
+        Route::post('personal/save','UserController@showPersonalInfo')->name('personal.save');
 
-    Route::get('personal/info','UserController@personalInfo')->name('personal.info');
-    Route::post('update/personal/info','UserController@UpdatePersonalInfo')->name('personal.info.update');
+        Route::get('addresses','UserController@showAddressesInfo')->name('addresses');
+        Route::post('addresses/save','UserController@showAddressesInfo')->name('addresses.save');
 
+        Route::get('family','UserController@showFamilyInfo')->name('family');
+        Route::post('family/save','UserController@showFamilyInfo')->name('family.save');
 
-    Route::get('family/info','UserController@familyInfo')->name('family.info');
-    Route::post('update/family/info','UserController@UpdateFamilyInfo')->name('family.info.update');
-    Route::post('updateUserAccount','UserController@updateUserAccount')->name('user.update');
+        Route::get('education','UserController@showEducationInfo')->name('education');
+        Route::post('education/save','UserController@showEducationInfo')->name('education.save');
+
+        Route::get('gallery','UserController@showGalley')->name('gallery');
+
+        Route::get('privacy','UserController@showPrivacySettings')->name('privacy');
+    });
+
     Route::get('update/password','userController@showChangePassword')->name('password.show');
     Route::post('update/password','userController@updatePassword')->name('password.update');
     Route::get('show/users','userController@showUsers')->name('show.user');
@@ -48,14 +58,11 @@ Route::middleware('auth')->group(function () {
 
 });
 
-
-
 // broker routes
 Route::get('broker/auth','Auth\BrokerController@showAuthForms')->name('broker.show.auth');
 /*Route::post('save/register/broker','Auth\BrokerController@registerBrokerSave')->name('broker.register.Save');*/
 /*Route::get('login/broker','Auth\BrokerController@loginBroker')->name('broker.login');
 Route::get('update/broker','BrokerController@updateBroker')->name('broker.update');*/
-
 
 //backend Routes
 Route::prefix('admin')->name('admin.')->group(function (){
