@@ -34,16 +34,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/','UserController@showAccount')->name('index');
 
         Route::get('personal','UserController@showPersonalInfo')->name('personal');
-        Route::post('personal/save','UserController@showPersonalInfo')->name('personal.save');
+        Route::post('personal/save','UserController@savePersonalInfo')->name('personal.save');
 
         Route::get('addresses','UserController@showAddressesInfo')->name('addresses');
-        Route::post('addresses/save','UserController@showAddressesInfo')->name('addresses.save');
+        Route::post('addresses/save','UserController@saveAddressesInfo')->name('addresses.save');
 
         Route::get('family','UserController@showFamilyInfo')->name('family');
-        Route::post('family/save','UserController@showFamilyInfo')->name('family.save');
+        Route::post('family/save','UserController@saveFamilyInfo')->name('family.save');
 
         Route::get('education','UserController@showEducationInfo')->name('education');
-        Route::post('education/save','UserController@showEducationInfo')->name('education.save');
+        Route::post('education/save','UserController@saveEducationInfo')->name('education.save');
 
         Route::get('gallery','UserController@showGalley')->name('gallery');
 
