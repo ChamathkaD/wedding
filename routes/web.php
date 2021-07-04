@@ -26,6 +26,10 @@ Route::get('contact', function (){
     return view('partials.contact');
 });
 
+Route::get('help', function (){
+    return view('partials.help');
+});
+
 Auth::routes(['verify' => true]);
 
 Route::middleware('auth')->group(function () {
