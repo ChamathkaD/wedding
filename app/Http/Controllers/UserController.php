@@ -19,6 +19,16 @@ class UserController extends Controller
         return view('account.index');
     }
 
+    public function showPersonalInfo()
+    {
+        return view('account.personal');
+    }
+
+    public function savePersonalInfo(Request $request)
+    {
+        dd($request);
+    }
+
     public function UpdatePersonalInfo(PersonalInfoRequest $personalInfoRequest){
 
 
