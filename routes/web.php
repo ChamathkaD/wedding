@@ -36,8 +36,8 @@ Route::middleware('auth')->group(function () {
         Route::get('personal','UserController@showPersonalInfo')->name('personal');
         Route::post('personal/save','UserController@savePersonalInfo')->name('personal.save');
 
-        Route::get('addresses','UserController@showAddressesInfo')->name('addresses');
-        Route::post('addresses/save','UserController@saveAddressesInfo')->name('addresses.save');
+        Route::get('location','UserController@showLocationInfo')->name('location');
+        Route::post('location/save','UserController@saveLocationInfo')->name('location.save');
 
         Route::get('family','UserController@showFamilyInfo')->name('family');
         Route::post('family/save','UserController@saveFamilyInfo')->name('family.save');

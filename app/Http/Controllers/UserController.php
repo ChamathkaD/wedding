@@ -29,6 +29,11 @@ class UserController extends Controller
         dd($request);
     }
 
+    public function showLocationInfo()
+    {
+        return view('account.location');
+    }
+
     public function UpdatePersonalInfo(PersonalInfoRequest $personalInfoRequest){
 
 
