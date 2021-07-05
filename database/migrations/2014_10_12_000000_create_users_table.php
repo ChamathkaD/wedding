@@ -26,12 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('gender')->nullable();
             $table->string('phone')->nullable()->unique();
             $table->string('whatsapp')->nullable()->unique();
-            $table->string('addressLine1')->nullable();
-            $table->string('addressLine2')->nullable();
-            $table->string('addressLine3')->nullable();
             $table->string('nic')->nullable()->unique();
-            $table->string('job_type')->nullable();
-            $table->string('job_post')->nullable();
             $table->string('weight')->nullable();
             $table->string('height')->nullable();
             $table->string('feature')->nullable();
@@ -40,20 +35,7 @@ class CreateUsersTable extends Migration
             $table->string('mother_tongue')->nullable();
             $table->string('marital_status')->nullable();
             $table->string('horoscope')->nullable();
-            $table->string('school')->nullable();
-            $table->string('education')->nullable();
-            $table->string('country')->nullable();
-            $table->string('city')->nullable();
-            $table->string('hobby')->nullable();
-            $table->string('sd')->nullable();
-            $table->string('facebook')->nullable()->unique();
-            $table->string('instagram')->nullable()->unique();
             $table->string('bio')->nullable();
-            $table->integer('brothers')->nullable();
-            $table->integer('sisters')->nullable();
-            $table->string('father_name')->nullable();
-            $table->string('mother_name')->nullable();
-            $table->string('other')->nullable();
             $table->string('image')->nullable();
             $table->boolean('is_blocked')->default(false);
             $table->boolean('is_activated')->default(false); // for registration purpose only
