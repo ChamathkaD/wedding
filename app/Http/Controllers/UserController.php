@@ -27,8 +27,24 @@ class UserController extends Controller
     public function savePersonalInfo(Request $request)
     {
        /* dd($request);*/
+        if ($request->hasFile('image')){
+            if ($request->file('image')->isValid()){
+                $image = $request->file('image');
+                $extention = $image->getClientOriginalExtension();
+                $filename = date('y_m_d_h_i_s') . "." . $extention;
+                Storage::disk('public')->put('img/users/'.$filename,file_get_contents($image));
+            }
+            if (Storage::disk('public')->exists('img/users/'.Auth::user()->image)){
+                try {
+                    (Storage::disk('public')->delete('img/users/'.Auth::user()->image));
+                } catch (\Exception $exception){
+                    return null;
+                }
+            }
+        }
 
         User::where('id',Auth::id())->update([
+            'image' => isset($filename) ? $filename : Auth::user()->image,
             'first_name' =>$request->input('first_name'),
             'middle_name' =>$request->input('middle_name'),
             'last_name' =>$request->input('last_name'),
