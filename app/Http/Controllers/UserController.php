@@ -104,6 +104,26 @@ Location::where('id',Auth::id())->update([
 
     }
 
+    public function showFamilyInfo()
+    {
+        return view('account.family');
+    }
+
+    public function saveFamilyInfo(Request $request)
+    {
+
+    }
+
+    public function showEducationInfo()
+    {
+        return view('account.education');
+    }
+
+    public function saveEducationInfo(Request $request)
+    {
+
+    }
+
     public function createUserAccount(){
         return view('users.createAccount');
     }
