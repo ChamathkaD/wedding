@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use phpDocumentor\Reflection\DocBlock\Tags\Uses;
+use phpDocumentor\Reflection\Location;
 
 class UserController extends Controller
 {
@@ -72,6 +73,34 @@ class UserController extends Controller
 
     public function saveLocationInfo(Request $request)
     {
+        /*$location = new Location();
+        $location->user_id = Auth::id();
+        $location->address_line1 = $request->input('address_line1');
+        $location->address_line2 = $request->input('address_line2');
+        $location->city = $request->input('city');
+        $location->district = $request->input('district');
+        $location->zip = $request->input('zip');
+        $location->home_town = $request->input('home_town');
+        $location->birth_country = $request->input('birth_country');
+        $location->current_city = $request->input('current_city');
+        $location->current_country = $request->input('current_country');
+        $location->save();*/
+
+
+
+
+
+Location::where('id',Auth::id())->update([
+            'address_line1' =>$request->input('address_line1'),
+            'address_line2' =>$request->input('address_line2'),
+            'city' =>$request->input('city'),
+            'district' =>$request->input('district'),
+            'zip' =>$request->input('zip'),
+            'home_town' =>$request->input('home_town'),
+            'birth_country' =>$request->input('birth_country'),
+            'current_city' =>$request->input('current_city'),
+            'current_country' =>$request->input('current_country'),
+        ]);
 
     }
 
