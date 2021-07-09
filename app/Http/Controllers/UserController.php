@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PersonalInfoRequest;
 use App\Http\Requests\UpdatePasswordRequest;
-use App\Http\Requests\UserRequest;
+use App\Location;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
-use phpDocumentor\Reflection\DocBlock\Tags\Uses;
-use phpDocumentor\Reflection\Location;
 
 class UserController extends Controller
 {
@@ -73,7 +70,7 @@ class UserController extends Controller
 
     public function saveLocationInfo(Request $request)
     {
-        /*$location = new Location();
+        $location = Location::firstOrNew(['user_id' => Auth::id()]);
         $location->user_id = Auth::id();
         $location->address_line1 = $request->input('address_line1');
         $location->address_line2 = $request->input('address_line2');
@@ -84,24 +81,9 @@ class UserController extends Controller
         $location->birth_country = $request->input('birth_country');
         $location->current_city = $request->input('current_city');
         $location->current_country = $request->input('current_country');
-        $location->save();*/
+        $location->save();
 
-
-
-
-
-Location::where('id',Auth::id())->update([
-            'address_line1' =>$request->input('address_line1'),
-            'address_line2' =>$request->input('address_line2'),
-            'city' =>$request->input('city'),
-            'district' =>$request->input('district'),
-            'zip' =>$request->input('zip'),
-            'home_town' =>$request->input('home_town'),
-            'birth_country' =>$request->input('birth_country'),
-            'current_city' =>$request->input('current_city'),
-            'current_country' =>$request->input('current_country'),
-        ]);
-
+        return back();
     }
 
     public function showFamilyInfo()
@@ -111,7 +93,7 @@ Location::where('id',Auth::id())->update([
 
     public function saveFamilyInfo(Request $request)
     {
-
+        dd($request->all());
     }
 
     public function showEducationInfo()
@@ -124,75 +106,55 @@ Location::where('id',Auth::id())->update([
 
     }
 
-    public function createUserAccount(){
-        return view('users.createAccount');
+    public function showJobInfo()
+    {
+        return view('account.job');
     }
 
-   public function updateUserAccount(UserRequest $userRequest){
-        if ($userRequest->hasFile('image')){
-            if ($userRequest->file('image')->isValid()){
-                $image = $userRequest->file('image');
-                $extention = $image->getClientOriginalExtension();
-                $filename = date('y_m_d_h_i_s') . "." . $extention;
-                Storage::disk('public')->put('img/users/'.$filename,file_get_contents($image));
-            }
-            if (Storage::disk('public')->exists('img/users/'.Auth::user()->image)){
-                try {
-                    (Storage::disk('public')->delete('img/users/'.Auth::user()->image));
-                } catch (\Exception $exception){
-                    return null;
-                }
-            }
-        }
+    public function saveJobInfo(Request $request)
+    {
 
-
-
-
-
-
-        User::where('id', Auth::id())->update([
-            'firstName' =>$userRequest->input('firstName'),
-            'middleName' =>$userRequest->input('middleName'),
-            'lastName' =>$userRequest->input('lastName'),
-            'nicName' =>$userRequest->input('nicName'),
-            'birthday' =>$userRequest->input('birthday'),
-            'gender' =>$userRequest->input('gender'),
-            'email' =>$userRequest->input('email'),
-            'phone' =>$userRequest->input('phone'),
-            'whatsApp' =>$userRequest->input('whatsApp'),
-            'addressLine1' =>$userRequest->input('addressLine1'),
-            'addressLine2' =>$userRequest->input('addressLine2'),
-            'addressLine3' =>$userRequest->input('addressLine3'),
-            'nic' =>$userRequest->input('nic'),
-            'jobType' =>$userRequest->input('jobType'),
-             'jobPost' =>$userRequest->input('jobPost'),
-             'weight' =>$userRequest->input('weight'),
-             'height' =>$userRequest->input('height'),
-             'feature' =>$userRequest->input('feature'),
-              'nationality' =>$userRequest->input('nationality'),
-              'religion' =>$userRequest->input('religion'),
-              'motherTongue' =>$userRequest->input('motherTongue'),
-              'maritalStatus' =>$userRequest->input('maritalStatus'),
-            'horoscope' =>$userRequest->input('horoscope'),
-            'school' =>$userRequest->input('school'),
-            'education' =>$userRequest->input('education'),
-            'country' =>$userRequest->input('country'),
-            'city' =>$userRequest->input('city'),
-            'hobby' =>$userRequest->input('hobby'),
-            'sd' =>$userRequest->input('sd'),
-            'fb' =>$userRequest->input('fb'),
-            'ig' =>$userRequest->input('ig'),
-            'aboutYou' =>$userRequest->input('aboutYou'),
-            'brother' =>$userRequest->input('brother'),
-            'sister' =>$userRequest->input('sister'),
-            'fatherName' =>$userRequest->input('fatherName'),
-            'motherName' =>$userRequest->input('motherName'),
-            'otherDetails' =>$userRequest->input('otherDetails'),
-             'image' => isset($filename) ? $filename : Auth::user()->image,
-        ]);
-        return back()->with('success','Profile Updated Successfully');
     }
 
+    public function showGalley()
+    {
+
+    }
+
+    public function addPhotosToGallery(Request $request)
+    {
+
+    }
+
+    public function showSocialInfo()
+    {
+        return view('account.social');
+    }
+
+    public function saveSocialInfo(Request $request)
+    {
+
+    }
+
+    public function showChecklistInfo()
+    {
+
+    }
+
+    public function saveChecklistInfo(Request $request)
+    {
+
+    }
+
+    public function showPrivacySettings()
+    {
+
+    }
+
+    public function savePrivacySettings(Request $request)
+    {
+
+    }
 
     public function showChangePassword(){
         return view('users.password');
