@@ -49,9 +49,20 @@ Route::middleware('auth')->group(function () {
         Route::get('education','UserController@showEducationInfo')->name('education');
         Route::post('education/save','UserController@saveEducationInfo')->name('education.save');
 
+        Route::get('job','UserController@showJobInfo')->name('job');
+        Route::post('job/save','UserController@saveJobInfo')->name('job.save');
+
         Route::get('gallery','UserController@showGalley')->name('gallery');
+        Route::post('gallery/add','UserController@addPhotosToGallery')->name('gallery.add');
+
+        Route::get('social','UserController@showSocialInfo')->name('social');
+        Route::post('social/save','UserController@saveSocialInfo')->name('social.save');
+
+        Route::get('checklist','UserController@showChecklistInfo')->name('checklist');
+        Route::post('checklist/save','UserController@saveChecklistInfo')->name('checklist.save');
 
         Route::get('privacy','UserController@showPrivacySettings')->name('privacy');
+        Route::post('privacy/save','UserController@savePrivacySettings')->name('privacy.save');
     });
 
     Route::get('update/password','userController@showChangePassword')->name('password.show');
