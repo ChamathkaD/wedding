@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Family;
 use App\Http\Requests\UpdatePasswordRequest;
 use App\Location;
 use App\User;
@@ -93,7 +94,12 @@ class UserController extends Controller
 
     public function saveFamilyInfo(Request $request)
     {
-        dd($request->all());
+     $family = new Family();
+     $family->user_id = Auth::id();
+     $family->family_member = $request->input('family_member');
+     $family->full_name = $request->input('full_name');
+     $family->occupation = $request->input('occupation');
+     $family->save();
     }
 
     public function showEducationInfo()
