@@ -35,23 +35,35 @@
 
                     @csrf
 
-                    <div class="form-group">
-                        <label for="whatsapp" class="form-label">Whatsapp</label>
-                        <input
-                            type="text"
-                            id="whatsapp"
-                            name="whatsapp"
-                            placeholder="Enter Whatsapp Number"
-                            onfocus="this.placeholder = ''"
-                            onblur="this.placeholder = 'Enter Whatsapp Number'"
-                            class="single-input-secondary @error('whatsapp') is-invalid @enderror"
-                            value="{{ Auth::user()->whatsapp }}"
-                        >
-                        @error('whatsapp')
-                        <small class="invalid-feedback">
-                            {{ $message }}
-                        </small>
-                        @enderror
+                    <div class="form-group form-row">
+                        <div class="col-sm-6">
+                            <label for="whatsapp" class="form-label">Whatsapp</label>
+                            <input
+                                type="text"
+                                id="whatsapp"
+                                name="whatsapp"
+                                placeholder="Enter Whatsapp Number"
+                                onfocus="this.placeholder = ''"
+                                onblur="this.placeholder = 'Enter Whatsapp Number'"
+                                class="single-input-secondary @error('whatsapp') is-invalid @enderror"
+                                value="{{ Auth::user()->whatsapp }}"
+                            >
+                            @error('whatsapp')
+                            <small class="invalid-feedback">
+                                {{ $message }}
+                            </small>
+                            @enderror
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="customRadioInline1" name="customRadioInline" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadioInline1">Toggle this custom radio</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="customRadioInline2" name="customRadioInline" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadioInline2">Or toggle this other custom radio</label>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
