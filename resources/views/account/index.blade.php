@@ -81,7 +81,7 @@
 
         <div class="row p-4">
 
-            <a href="#" class="col-sm-3 d-flex justify-content-start align-items-center">
+            <a href="{{ route('account.job') }}" class="col-sm-3 d-flex justify-content-start align-items-center">
                 <i class="fad fa-briefcase fa-3x"></i>
                 <div class="ml-3">
                     <h5>Jobs</h5>
@@ -97,7 +97,7 @@
                 </div>
             </a>
 
-            <a href="{{ route('account.privacy') }}" class="col-sm-3 d-flex justify-content-start align-items-center">
+            <a href="{{ route('account.social') }}" class="col-sm-3 d-flex justify-content-start align-items-center">
                 <i class="fad fa-people-arrows fa-3x"></i>
                 <div class="ml-3">
                     <h5>Social</h5>
@@ -105,7 +105,7 @@
                 </div>
             </a>
 
-            <a href="#" class="col-sm-3 d-flex justify-content-start align-items-center">
+            <a href="{{ route('account.checklist') }}" class="col-sm-3 d-flex justify-content-start align-items-center">
                 <i class="fad fa-ballot-check fa-3x"></i>
                 <div class="ml-3">
                     <h5>Checklist</h5>
