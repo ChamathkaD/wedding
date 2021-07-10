@@ -12,6 +12,18 @@ class Experience extends Model
      * @var array
      */
     protected $fillable = [
+    'job_title',
+        'employment_type',
+        'company',
+        'location',
+        'start_month',
+        'start_year',
+        'end_month',
+        'end_year',
+
+
+
+
 
     ];
 }

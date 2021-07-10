@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Experience;
 use App\Family;
 use App\Http\Requests\UpdatePasswordRequest;
 use App\Location;
@@ -109,7 +110,8 @@ class UserController extends Controller
 
     public function saveEducationInfo(Request $request)
     {
-        dd($request->all());
+
+
     }
 
     public function showJobInfo()
@@ -119,7 +121,17 @@ class UserController extends Controller
 
     public function saveJobInfo(Request $request)
     {
-        dd($request->all());
+        $experience = new Experience();
+        $experience->user_id = Auth::id();
+        $experience ->job_title = $request->input('job_title');
+        $experience ->employment_type = $request->input('employment_type');
+        $experience ->company = $request->input('company');
+        $experience ->location = $request->input('location');
+        $experience ->start_month = $request->input('start_month');
+        $experience ->start_year = $request->input('start_year');
+        $experience ->end_month = $request->input('end_month');
+        $experience ->end_year = $request->input('end_year');
+        $experience->save();
     }
 
     public function showGalley()
