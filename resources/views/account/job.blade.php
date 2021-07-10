@@ -126,28 +126,28 @@
 
                     <div class="form-row form-group">
                         <div class="col-sm-3">
-                            <label for="start_date" class="form-label">Start Date</label>
+                            <label for="start_month" class="form-label">Start Date</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('start_date') is-invalid @enderror"
-                                    name="start_date"
-                                    id="start_date"
+                                    class="single-input-secondary @error('start_month') is-invalid @enderror"
+                                    name="start_month"
+                                    id="start_month"
                                 >
                                     <option value="">Month</option>
-                                    <option value="1">January</option>
-                                    <option value="2">February</option>
-                                    <option value="3">March</option>
-                                    <option value="4">April</option>
-                                    <option value="5">May</option>
-                                    <option value="6">June</option>
-                                    <option value="7">July</option>
-                                    <option value="8">August</option>
-                                    <option value="9">September</option>
-                                    <option value="10">October</option>
-                                    <option value="11">November</option>
-                                    <option value="12">December</option>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
                                 </select>
-                                @error('start_date')
+                                @error('start_month')
                                 <small class="invalid-feedback">
                                     {{ $message }}
                                 </small>
@@ -177,29 +177,29 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-3">
-                            <label for="end_date" class="form-label">End Date</label>
+                        <div class="col-sm-3 end_date">
+                            <label for="end_month" class="form-label">End Date</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('end_date') is-invalid @enderror"
-                                    name="end_date"
-                                    id="end_date"
+                                    class="single-input-secondary @error('end_month') is-invalid @enderror"
+                                    name="end_month"
+                                    id="end_month"
                                 >
                                     <option value="">Month</option>
-                                    <option value="1">January</option>
-                                    <option value="2">February</option>
-                                    <option value="3">March</option>
-                                    <option value="4">April</option>
-                                    <option value="5">May</option>
-                                    <option value="6">June</option>
-                                    <option value="7">July</option>
-                                    <option value="8">August</option>
-                                    <option value="9">September</option>
-                                    <option value="10">October</option>
-                                    <option value="11">November</option>
-                                    <option value="12">December</option>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
                                 </select>
-                                @error('end_date')
+                                @error('end_month')
                                 <small class="invalid-feedback">
                                     {{ $message }}
                                 </small>
@@ -207,7 +207,7 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-3">
+                        <div class="col-sm-3 end_date">
                             <label for="end_year" class="form-label">&nbsp;</label>
                             <div class="default-select" id="default-select">
                                 <select
@@ -261,3 +261,23 @@
         </div>
     </div>
 @endsection
+
+@push('js')
+
+    <script>
+
+        $(document).ready(function() {
+
+            $("#current_role").click(function () {
+                if ($(this).is(":checked")) {
+                    $(".end_date").hide();
+                } else {
+                    $(".end_date").show();
+                }
+            });
+
+        });
+
+    </script>
+
+@endpush

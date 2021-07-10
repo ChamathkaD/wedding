@@ -109,7 +109,7 @@ class UserController extends Controller
 
     public function saveEducationInfo(Request $request)
     {
-
+        dd($request->all());
     }
 
     public function showJobInfo()
@@ -119,7 +119,7 @@ class UserController extends Controller
 
     public function saveJobInfo(Request $request)
     {
-
+        dd($request->all());
     }
 
     public function showGalley()
