@@ -31,37 +31,42 @@
                     Social
                 </h4>
 
-                <form action="#" method="POST">
+                <form action="{{ route('account.social.save') }}" method="POST">
 
                     @csrf
 
-                    <div class="form-group form-row">
-                        <div class="col-sm-6">
-                            <label for="whatsapp" class="form-label">Whatsapp</label>
-                            <input
-                                type="text"
-                                id="whatsapp"
-                                name="whatsapp"
-                                placeholder="Enter Whatsapp Number"
-                                onfocus="this.placeholder = ''"
-                                onblur="this.placeholder = 'Enter Whatsapp Number'"
-                                class="single-input-secondary @error('whatsapp') is-invalid @enderror"
-                                value="{{ Auth::user()->whatsapp }}"
-                            >
-                            @error('whatsapp')
-                            <small class="invalid-feedback">
-                                {{ $message }}
-                            </small>
-                            @enderror
-                        </div>
-                        <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="whatsapp" class="form-label">Whatsapp</label>
+                        <input
+                            type="text"
+                            id="whatsapp"
+                            name="whatsapp"
+                            placeholder="Enter Whatsapp Number"
+                            onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Enter Whatsapp Number'"
+                            class="single-input-secondary @error('whatsapp') is-invalid @enderror"
+                            value="{{ Auth::user()->whatsapp }}"
+                        >
+                        @error('whatsapp')
+                        <small class="invalid-feedback">
+                            {{ $message }}
+                        </small>
+                        @enderror
+
+                        <div class="py-2">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="customRadioInline1" name="customRadioInline" class="custom-control-input">
-                                <label class="custom-control-label" for="customRadioInline1">Toggle this custom radio</label>
+                                <input type="radio" id="whatsappPublic" name="whatsappPrivacy" class="custom-control-input">
+                                <label class="custom-control-label" for="whatsappPublic">
+                                    <i class="fal fa-globe ml-1"></i>
+                                    Public
+                                </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="customRadioInline2" name="customRadioInline" class="custom-control-input">
-                                <label class="custom-control-label" for="customRadioInline2">Or toggle this other custom radio</label>
+                                <input type="radio" id="whatsappOnlyMe" name="whatsappPrivacy" class="custom-control-input">
+                                <label class="custom-control-label" for="whatsappOnlyMe">
+                                    <i class="fal fa-lock ml-1"></i>
+                                    Only Me
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -83,6 +88,23 @@
                             {{ $message }}
                         </small>
                         @enderror
+
+                        <div class="py-2">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="facebookPublic" name="facebookPrivacy" class="custom-control-input">
+                                <label class="custom-control-label" for="facebookPublic">
+                                    <i class="fal fa-globe ml-1"></i>
+                                    Public
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="facebookOnlyMe" name="facebookPrivacy" class="custom-control-input">
+                                <label class="custom-control-label" for="facebookOnlyMe">
+                                    <i class="fal fa-lock ml-1"></i>
+                                    Only Me
+                                </label>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -102,6 +124,23 @@
                             {{ $message }}
                         </small>
                         @enderror
+
+                        <div class="py-2">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="instagramPublic" name="instagramPrivacy" class="custom-control-input">
+                                <label class="custom-control-label" for="instagramPublic">
+                                    <i class="fal fa-globe ml-1"></i>
+                                    Public
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="instagramOnlyMe" name="instagramPrivacy" class="custom-control-input">
+                                <label class="custom-control-label" for="instagramOnlyMe">
+                                    <i class="fal fa-lock ml-1"></i>
+                                    Only Me
+                                </label>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -121,23 +160,23 @@
                             {{ $message }}
                         </small>
                         @enderror
-                    </div>
 
-                    <div class="form-group">
-                        <label for="bio" class="form-label">Bio</label>
-                        <textarea
-                            class="single-textarea"
-                            placeholder="Type something about you..."
-                            id="bio"
-                            name="bio"
-                            onfocus="this.placeholder = ''"
-                            onblur="this.placeholder = 'Type something about you...'"
-                        ></textarea>
-                        @error('bio')
-                        <small class="invalid-feedback">
-                            {{ $message }}
-                        </small>
-                        @enderror
+                        <div class="py-2">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="linkedinPublic" name="linkedinPrivacy" class="custom-control-input">
+                                <label class="custom-control-label" for="linkedinPublic">
+                                    <i class="fal fa-globe ml-1"></i>
+                                    Public
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="linkedinOnlyMe" name="linkedinPrivacy" class="custom-control-input">
+                                <label class="custom-control-label" for="linkedinOnlyMe">
+                                    <i class="fal fa-lock ml-1"></i>
+                                    Only Me
+                                </label>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="d-flex justify-content-end">
