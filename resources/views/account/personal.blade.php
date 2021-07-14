@@ -30,6 +30,14 @@
                     <i class="fad fa-user mr-2"></i>
                     Personal Information
                 </h4>
+                @if(session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">&times;</span>
+                        </button>
+                        <strong> <i class="fa fa-check"></i> {!! session()->get('success') !!}</strong></div>
+                @endif
+
 
                 <form action="{{ route('account.personal.save') }}" method="POST" enctype="multipart/form-data">
 
@@ -60,7 +68,7 @@
                             placeholder="Enter First Name"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter First Name'"
-                            class="single-input-secondary @error('first_name') is-invalid @enderror"
+                            class="single-input-secondary form-control @error('first_name') is-invalid @enderror"
                             value="{{ Auth::user()->first_name }}"
                         >
                         @error('first_name')
@@ -79,7 +87,7 @@
                             placeholder="Enter Middle Name"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Middle Name'"
-                            class="single-input-secondary @error('middle_name') is-invalid @enderror"
+                            class="single-input-secondary form-control   @error('middle_name') is-invalid @enderror"
                             value="{{ Auth::user()->middle_name }}"
                         >
                         @error('middle_name')
@@ -98,7 +106,7 @@
                             placeholder="Enter Last Name"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Last Name'"
-                            class="single-input-secondary @error('last_name') is-invalid @enderror"
+                            class="single-input-secondary form-control @error('last_name') is-invalid @enderror"
                             value="{{ Auth::user()->last_name }}"
                         >
                         @error('last_name')
@@ -117,7 +125,7 @@
                             placeholder="Enter NIC Name"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter NIC Name'"
-                            class="single-input-secondary @error('nic_name') is-invalid @enderror"
+                            class="single-input-secondary form-control @error('nic_name') is-invalid @enderror"
                             value="{{ Auth::user()->nic_name }}"
                         >
                         @error('nic_name')
@@ -136,7 +144,7 @@
                             placeholder="Enter Email"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Email'"
-                            class="single-input-secondary @error('email') is-invalid @enderror"
+                            class="single-input-secondary form-control @error('email') is-invalid @enderror"
                             value="{{ Auth::user()->email }}"
                         >
                         @error('email')
@@ -156,7 +164,7 @@
                                 placeholder="Enter Birthday"
                                 onfocus="this.placeholder = ''"
                                 onblur="this.placeholder = 'Enter Birthday'"
-                                class="single-input-secondary @error('birthday') is-invalid @enderror"
+                                class="single-input-secondary form-control @error('birthday') is-invalid @enderror"
                                 value="{{ Auth::user()->birthday }}"
                             >
                             @error('birthday')
@@ -169,7 +177,7 @@
                             <label for="gender" class="form-label">Gender</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('gender') is-invalid @enderror"
+                                    class="single-input-secondary form-control @error('gender') is-invalid @enderror"
                                     name="gender"
                                     id="gender"
                                 >
@@ -192,7 +200,7 @@
                                 placeholder="Enter Phone"
                                 onfocus="this.placeholder = ''"
                                 onblur="this.placeholder = 'Enter Phone'"
-                                class="single-input-secondary @error('phone') is-invalid @enderror"
+                                class="single-input-secondary form-control @error('phone') is-invalid @enderror"
                                 value="{{ Auth::user()->phone }}"
                             >
                             @error('phone')
@@ -213,7 +221,7 @@
                                 placeholder="Enter Whatsapp Number"
                                 onfocus="this.placeholder = ''"
                                 onblur="this.placeholder = 'Enter Whatsapp Number'"
-                                class="single-input-secondary @error('whatsapp') is-invalid @enderror"
+                                class="single-input-secondary form-control @error('whatsapp') is-invalid @enderror"
                                 value="{{ Auth::user()->whatsapp }}"
                             >
                             @error('whatsapp')
@@ -226,7 +234,7 @@
                             <label for="nationality" class="form-label">Nationality</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('nationality') is-invalid @enderror"
+                                    class="single-input-secondary form-control @error('nationality') is-invalid @enderror"
                                     name="nationality"
                                     id="nationality"
                                 >
@@ -250,7 +258,7 @@
                             <label for="religion" class="form-label">Religion</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('religion') is-invalid @enderror"
+                                    class="single-input-secondary form-control @error('religion') is-invalid @enderror"
                                     name="religion"
                                     id="religion"
                                 >
@@ -279,7 +287,7 @@
                                 placeholder="Enter Height (Inches)"
                                 onfocus="this.placeholder = ''"
                                 onblur="this.placeholder = 'Enter Height (Inches)'"
-                                class="single-input-secondary @error('height') is-invalid @enderror"
+                                class="single-input-secondary form-control @error('height') is-invalid @enderror"
                                 value="{{ Auth::user()->height }}"
                             >
                             @error('height')
@@ -297,7 +305,7 @@
                                 placeholder="Enter Weight (Kg)"
                                 onfocus="this.placeholder = ''"
                                 onblur="this.placeholder = 'Enter Weight (Kg)'"
-                                class="single-input-secondary @error('weight') is-invalid @enderror"
+                                class="single-input-secondary form-control @error('weight') is-invalid @enderror"
                                 value="{{ Auth::user()->weight }}"
                             >
                             @error('weight')
@@ -310,7 +318,7 @@
                             <label for="mother_tongue" class="form-label">Mother Tongue</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('mother_tongue') is-invalid @enderror"
+                                    class="single-input-secondary form-control @error('mother_tongue') is-invalid @enderror"
                                     name="mother_tongue"
                                     id="mother_tongue"
                                 >
@@ -333,7 +341,7 @@
                             <label for="horoscope" class="form-label">Horoscope</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('horoscope') is-invalid @enderror"
+                                    class="single-input-secondary form-control @error('horoscope') is-invalid @enderror"
                                     name="horoscope"
                                     id="horoscope"
                                 >
@@ -361,7 +369,7 @@
                             <label for="marital_status" class="form-label">Marital Status</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('marital_status') is-invalid @enderror"
+                                    class="single-input-secondary form-control @error('marital_status') is-invalid @enderror"
                                     name="marital_status"
                                     id="marital_status"
                                 >
@@ -380,7 +388,7 @@
                             <label for="feature" class="form-label">Feature</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('feature') is-invalid @enderror"
+                                    class="single-input-secondary form-control @error('feature') is-invalid @enderror"
                                     name="feature"
                                     id="feature"
                                 >
@@ -402,7 +410,7 @@
                     <div class="form-group">
                         <label for="bio" class="form-label">Bio</label>
                         <textarea
-                            class="single-textarea"
+                            class="single-textarea form-control "
                             placeholder="Type something about you..."
                             id="bio"
                             name="bio"
@@ -426,7 +434,18 @@
             <div class="col-sm-3 p-2">
 
                 <div class="text-center p-3">
-                    <img src="{{ asset('img/team/person_1.jpg') }}" alt="" width="200">
+
+                    @if(\Illuminate\Support\Facades\Auth::user()->image)
+
+                        <img class="mr-3" src="{{ asset('img/users/'.Auth::user()->image) }}" width="200" alt="">
+                    @else
+
+                        <img src="{{ asset('img/team/person_1.jpg') }}" alt="" width="200">
+                    @endif
+
+
+
+
                 </div>
 
             </div>

@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class SavePersonalInformationRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class SavePersonalInformationRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +26,30 @@ class SavePersonalInformationRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'first_name' => ['required','string','alpha', 'max:50'],
+            'middle_name' => ['required','string','alpha', 'max:50'],
+             'last_name' =>['required','string','alpha', 'max:50'],
+             'nic_name' =>['required','string','alpha', 'max:50'],
+             'email' => ['required',
+                 'string',
+                 'email',
+                 'max:75',
+                 Rule::unique('users', 'email')->ignore(Auth::id()),],
+             'birthday'=>['required' , 'date'],
+             'gender'=>['required','string',],
+             'phone' =>['required', 'digits:10', 'numeric', 'regex:/^[0-9]{10}/'],
+             'whatsapp' =>['required', 'digits:10', 'numeric', 'regex:/^[0-9]{10}/'],
+             'nationality' =>['required','string'],
+             'religion' =>['required','string'],
+             'height' =>['numeric','required' ],
+             'weight' =>['numeric','required' ],
+             'mother_tongue' =>['required','string'],
+             'horoscope' =>['required','string'],
+             'feature' =>['required','string'],
+             'marital_status' =>['required','string'],
+             'bio'=>['string'],
+             'image' =>['mimes:jpeg,gif,png,svg,ico,jpg','required'],
+
         ];
     }
 }

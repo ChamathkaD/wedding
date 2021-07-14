@@ -13,7 +13,7 @@ class SaveExperienceRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class SaveExperienceRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'job_title' =>['required','string',],
+            'employment_type' =>['required','string',],
+            'company' =>['required','string',],
+            'location' =>['required','string',],
+            'start_month' =>['string',],
+            'start_year' =>['string',],
+            'end_month' =>['string',],
+            'end_year' =>['string',],
         ];
     }
 }

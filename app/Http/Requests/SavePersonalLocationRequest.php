@@ -13,7 +13,7 @@ class SavePersonalLocationRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class SavePersonalLocationRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'address_line1' =>['required','string',],
+            'address_line2' =>['required','string',],
+            'district' =>['required','string',],
+            'city' =>['required','string',],
+            'zip' =>['required','string',],
+            'home_town' =>['required','string',],
+            'birth_country' =>['required','string',],
+            'current_city' =>['required','string',],
+            'current_country' =>['required','string',],
         ];
     }
 }

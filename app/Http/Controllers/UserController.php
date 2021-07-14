@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Experience;
 use App\Family;
+use App\Http\Requests\SaveExperienceRequest;
+use App\Http\Requests\SavePersonalInformationRequest;
+use App\Http\Requests\SavePersonalLocationRequest;
 use App\Http\Requests\UpdatePasswordRequest;
 use App\Location;
 use App\Social;
@@ -25,11 +28,11 @@ class UserController extends Controller
         return view('account.personal');
     }
 
-    public function savePersonalInfo(Request $request)
+    public function savePersonalInfo(SavePersonalInformationRequest $savePersonalInformationRequest)
     {
-        if ($request->hasFile('image')){
-            if ($request->file('image')->isValid()){
-                $image = $request->file('image');
+        if ($savePersonalInformationRequest->hasFile('image')){
+            if ($savePersonalInformationRequest->file('image')->isValid()){
+                $image = $savePersonalInformationRequest->file('image');
                 $extention = $image->getClientOriginalExtension();
                 $filename = date('y_m_d_h_i_s') . "." . $extention;
                 Storage::disk('public')->put('img/users/'.$filename,file_get_contents($image));
@@ -45,25 +48,26 @@ class UserController extends Controller
 
         User::where('id',Auth::id())->update([
             'image' => isset($filename) ? $filename : Auth::user()->image,
-            'first_name' =>$request->input('first_name'),
-            'middle_name' =>$request->input('middle_name'),
-            'last_name' =>$request->input('last_name'),
-            'nic_name' =>$request->input('nic_name'),
-            'email' =>$request->input('email'),
-            'birthday' =>$request->input('birthday'),
-            'gender' =>$request->input('gender'),
-            'phone' =>$request->input('phone'),
-            'whatsapp' =>$request->input('whatsapp'),
-            'nationality' =>$request->input('nationality'),
-            'religion' =>$request->input('religion'),
-            'height' =>$request->input('height'),
-            'weight' =>$request->input('weight'),
-            'mother_tongue' =>$request->input('mother_tongue'),
-            'horoscope' =>$request->input('horoscope'),
-            'feature' =>$request->input('feature'),
-            'marital_status' =>$request->input('marital_status'),
-            'bio' =>$request->input('bio'),
+            'first_name' =>$savePersonalInformationRequest->input('first_name'),
+            'middle_name' =>$savePersonalInformationRequest->input('middle_name'),
+            'last_name' =>$savePersonalInformationRequest->input('last_name'),
+            'nic_name' =>$savePersonalInformationRequest->input('nic_name'),
+            'email' =>$savePersonalInformationRequest->input('email'),
+            'birthday' =>$savePersonalInformationRequest->input('birthday'),
+            'gender' =>$savePersonalInformationRequest->input('gender'),
+            'phone' =>$savePersonalInformationRequest->input('phone'),
+            'whatsapp' =>$savePersonalInformationRequest->input('whatsapp'),
+            'nationality' =>$savePersonalInformationRequest->input('nationality'),
+            'religion' =>$savePersonalInformationRequest->input('religion'),
+            'height' =>$savePersonalInformationRequest->input('height'),
+            'weight' =>$savePersonalInformationRequest->input('weight'),
+            'mother_tongue' =>$savePersonalInformationRequest->input('mother_tongue'),
+            'horoscope' =>$savePersonalInformationRequest->input('horoscope'),
+            'feature' =>$savePersonalInformationRequest->input('feature'),
+            'marital_status' =>$savePersonalInformationRequest->input('marital_status'),
+            'bio' =>$savePersonalInformationRequest->input('bio'),
         ]);
+        return back()->with('success', 'Profile Created Successfully');
     }
 
     public function showLocationInfo()
@@ -71,22 +75,22 @@ class UserController extends Controller
         return view('account.location');
     }
 
-    public function saveLocationInfo(Request $request)
+    public function saveLocationInfo(SavePersonalLocationRequest $personalLocationRequest)
     {
         $location = Location::firstOrNew(['user_id' => Auth::id()]);
         $location->user_id = Auth::id();
-        $location->address_line1 = $request->input('address_line1');
-        $location->address_line2 = $request->input('address_line2');
-        $location->city = $request->input('city');
-        $location->district = $request->input('district');
-        $location->zip = $request->input('zip');
-        $location->home_town = $request->input('home_town');
-        $location->birth_country = $request->input('birth_country');
-        $location->current_city = $request->input('current_city');
-        $location->current_country = $request->input('current_country');
+        $location->address_line1 = $personalLocationRequest->input('address_line1');
+        $location->address_line2 = $personalLocationRequest->input('address_line2');
+        $location->city = $personalLocationRequest->input('city');
+        $location->district = $personalLocationRequest->input('district');
+        $location->zip = $personalLocationRequest->input('zip');
+        $location->home_town = $personalLocationRequest->input('home_town');
+        $location->birth_country = $personalLocationRequest->input('birth_country');
+        $location->current_city = $personalLocationRequest->input('current_city');
+        $location->current_country = $personalLocationRequest->input('current_country');
         $location->save();
 
-        return back();
+        return back()->with('success', 'Location Created Successfully');
     }
 
     public function showFamilyInfo()
@@ -120,18 +124,18 @@ class UserController extends Controller
         return view('account.job');
     }
 
-    public function saveJobInfo(Request $request)
+    public function saveJobInfo(SaveExperienceRequest $saveExperienceRequest)
     {
         $experience = new Experience();
         $experience->user_id = Auth::id();
-        $experience ->job_title = $request->input('job_title');
-        $experience ->employment_type = $request->input('employment_type');
-        $experience ->company = $request->input('company');
-        $experience ->location = $request->input('location');
-        $experience ->start_month = $request->input('start_month');
-        $experience ->start_year = $request->input('start_year');
-        $experience ->end_month = $request->input('end_month');
-        $experience ->end_year = $request->input('end_year');
+        $experience ->job_title = $saveExperienceRequest->input('job_title');
+        $experience ->employment_type = $saveExperienceRequest->input('employment_type');
+        $experience ->company = $saveExperienceRequest->input('company');
+        $experience ->location = $saveExperienceRequest->input('location');
+        $experience ->start_month = $saveExperienceRequest->input('start_month');
+        $experience ->start_year = $saveExperienceRequest->input('start_year');
+        $experience ->end_month = $saveExperienceRequest->input('end_month');
+        $experience ->end_year = $saveExperienceRequest->input('end_year');
         $experience->save();
     }
 

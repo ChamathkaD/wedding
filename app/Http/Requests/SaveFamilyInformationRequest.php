@@ -13,7 +13,7 @@ class SaveFamilyInformationRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class SaveFamilyInformationRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'family_member' =>['required','string'],
+            'full_name' =>['required','string'],
+            'occupation' =>['required','string'],
+
         ];
     }
 }

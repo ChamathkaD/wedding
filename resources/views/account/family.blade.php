@@ -41,7 +41,7 @@
                         <label for="family_member" class="form-label">Family Member</label>
                         <div class="default-select" id="default-select">
                             <select
-                                class="single-input-secondary @error('family_member') is-invalid @enderror"
+                                class="single-input-secondary form-control @error('family_member') is-invalid @enderror"
                                 name="family_member"
                                 id="family_member"
                             >
@@ -69,7 +69,7 @@
                             placeholder="Enter Full Name"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Full Name'"
-                            class="single-input-secondary @error('full_name') is-invalid @enderror"
+                            class="single-input-secondary form-control @error('full_name') is-invalid @enderror"
                         >
                         @error('full_name')
                         <small class="invalid-feedback">
@@ -87,7 +87,7 @@
                             placeholder="Enter Occupation"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Occupation'"
-                            class="single-input-secondary @error('occupation') is-invalid @enderror"
+                            class="single-input-secondary form-control @error('occupation') is-invalid @enderror"
                         >
                         @error('occupation')
                         <small class="invalid-feedback">

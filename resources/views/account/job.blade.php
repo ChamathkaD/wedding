@@ -30,6 +30,13 @@
                     <i class="fad fa-briefcase mr-2"></i>
                     Jobs
                 </h4>
+                @if(session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">&times;</span>
+                        </button>
+                        <strong> <i class="fa fa-check"></i> {!! session()->get('success') !!}</strong></div>
+                @endif
 
                 <h5 class="font-weight-bold">Add Job / Experience</h5>
 
@@ -46,7 +53,7 @@
                             placeholder="Enter Job Title"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Job Title'"
-                            class="single-input-secondary @error('job_title') is-invalid @enderror"
+                            class="single-input-secondary form-control @error('job_title') is-invalid @enderror"
                         >
                         @error('job_title')
                         <small class="invalid-feedback">
@@ -59,7 +66,7 @@
                         <label for="employment_type" class="form-label">Employment Type</label>
                         <div class="default-select" id="default-select">
                             <select
-                                class="single-input-secondary @error('employment_type') is-invalid @enderror"
+                                class="single-input-secondary form-control @error('employment_type') is-invalid @enderror"
                                 name="employment_type"
                                 id="employment_type"
                             >
@@ -90,7 +97,7 @@
                             placeholder="Enter Company"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Company'"
-                            class="single-input-secondary @error('company') is-invalid @enderror"
+                            class="single-input-secondary form-control @error('company') is-invalid @enderror"
                         >
                         @error('company')
                         <small class="invalid-feedback">
@@ -108,7 +115,7 @@
                             placeholder="Enter Location"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Location'"
-                            class="single-input-secondary @error('location') is-invalid @enderror"
+                            class="single-input-secondary form-control @error('location') is-invalid @enderror"
                         >
                         @error('location')
                         <small class="invalid-feedback">
@@ -129,7 +136,7 @@
                             <label for="start_month" class="form-label">Start Date</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('start_month') is-invalid @enderror"
+                                    class="single-input-secondary form-control @error('start_month') is-invalid @enderror"
                                     name="start_month"
                                     id="start_month"
                                 >
@@ -159,7 +166,7 @@
                             <label for="start_year" class="form-label">&nbsp;</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('start_year') is-invalid @enderror"
+                                    class="single-input-secondary form-control @error('start_year') is-invalid @enderror"
                                     name="start_year"
                                     id="start_year"
                                 >
@@ -181,7 +188,7 @@
                             <label for="end_month" class="form-label">End Date</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('end_month') is-invalid @enderror"
+                                    class="single-input-secondary form-control @error('end_month') is-invalid @enderror"
                                     name="end_month"
                                     id="end_month"
                                 >
@@ -211,7 +218,7 @@
                             <label for="end_year" class="form-label">&nbsp;</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('end_year') is-invalid @enderror"
+                                    class="single-input-secondary form-control @error('end_year') is-invalid @enderror"
                                     name="end_year"
                                     id="end_year"
                                 >
