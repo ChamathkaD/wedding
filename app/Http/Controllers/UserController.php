@@ -136,7 +136,7 @@ class UserController extends Controller
 
     public function showGalley()
     {
-
+        return view('account.gallery');
     }
 
     public function addPhotosToGallery(Request $request)
@@ -156,12 +156,12 @@ class UserController extends Controller
 
     public function showChecklistInfo()
     {
-
+        return view('account.checklist');
     }
 
     public function saveChecklistInfo(Request $request)
     {
-
+        dd($request->all());
     }
 
     public function showPrivacySettings()
