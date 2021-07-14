@@ -55,14 +55,14 @@
 
                         <div class="py-2">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="whatsappPublic" name="whatsappPrivacy" class="custom-control-input">
+                                <input type="radio" id="whatsappPrivacy" name="whatsappPrivacy" class="custom-control-input" value="1">
                                 <label class="custom-control-label" for="whatsappPublic">
                                     <i class="fal fa-globe ml-1"></i>
                                     Public
                                 </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="whatsappOnlyMe" name="whatsappPrivacy" class="custom-control-input">
+                                <input type="radio" id="whatsappPrivacy" name="whatsappPrivacy" class="custom-control-input" value="0">
                                 <label class="custom-control-label" for="whatsappOnlyMe">
                                     <i class="fal fa-lock ml-1"></i>
                                     Only Me
@@ -91,14 +91,14 @@
 
                         <div class="py-2">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="facebookPublic" name="facebookPrivacy" class="custom-control-input">
+                                <input type="radio" id="facebookPrivacy" name="facebookPrivacy" class="custom-control-input" value="1">
                                 <label class="custom-control-label" for="facebookPublic">
                                     <i class="fal fa-globe ml-1"></i>
                                     Public
                                 </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="facebookOnlyMe" name="facebookPrivacy" class="custom-control-input">
+                                <input type="radio" id="facebookPrivacy" name="facebookPrivacy" class="custom-control-input" value="0">
                                 <label class="custom-control-label" for="facebookOnlyMe">
                                     <i class="fal fa-lock ml-1"></i>
                                     Only Me
@@ -127,14 +127,14 @@
 
                         <div class="py-2">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="instagramPublic" name="instagramPrivacy" class="custom-control-input">
+                                <input type="radio" id="instagramPrivacy" name="instagramPrivacy" class="custom-control-input" value="1">
                                 <label class="custom-control-label" for="instagramPublic">
                                     <i class="fal fa-globe ml-1"></i>
                                     Public
                                 </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="instagramOnlyMe" name="instagramPrivacy" class="custom-control-input">
+                                <input type="radio" id="instagramPrivacy" name="instagramPrivacy" class="custom-control-input" value="0">
                                 <label class="custom-control-label" for="instagramOnlyMe">
                                     <i class="fal fa-lock ml-1"></i>
                                     Only Me
@@ -163,14 +163,14 @@
 
                         <div class="py-2">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="linkedinPublic" name="linkedinPrivacy" class="custom-control-input">
+                                <input type="radio" id="linkedinPrivacy" name="linkedinPrivacy" class="custom-control-input" value="1">
                                 <label class="custom-control-label" for="linkedinPublic">
                                     <i class="fal fa-globe ml-1"></i>
                                     Public
                                 </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="linkedinOnlyMe" name="linkedinPrivacy" class="custom-control-input">
+                                <input type="radio" id="linkedinPrivacy" name="linkedinPrivacy" class="custom-control-input" value="0">
                                 <label class="custom-control-label" for="linkedinOnlyMe">
                                     <i class="fal fa-lock ml-1"></i>
                                     Only Me

@@ -6,6 +6,7 @@ use App\Experience;
 use App\Family;
 use App\Http\Requests\UpdatePasswordRequest;
 use App\Location;
+use App\Social;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -151,7 +152,17 @@ class UserController extends Controller
 
     public function saveSocialInfo(Request $request)
     {
-
+        $social = new Social();
+        $social->user_id = Auth::id();
+        $social->whatsapp =$request->input('whatsapp');
+        $social->whatsapp_privacy =$request->input('whatsappPrivacy');
+        $social->facebook =$request->input('facebook');
+        $social->facebook_privacy =$request->input('facebookPrivacy');
+        $social->instagram =$request->input('instagram');
+        $social->instagram_privacy =$request->input('instagramPrivacy');
+        $social->linkedin =$request->input('linkedin');
+        $social->linkedin_privacy =$request->input('linkedinPrivacy');
+        $social->save();
     }
 
     public function showChecklistInfo()
