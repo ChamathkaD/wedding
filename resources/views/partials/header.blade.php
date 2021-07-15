@@ -43,7 +43,7 @@
                                             </li>
 
                                             <li>
-                                                <a href="{{ route('password.show') }}">
+                                                <a href="{{ route('account.show.change.password') }}">
                                                     Change Password
                                                 </a>
                                             </li>
