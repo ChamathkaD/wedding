@@ -119,7 +119,7 @@
             <a href="{{ route('account.privacy') }}" class="col-sm-3 d-flex justify-content-start align-items-center">
                 <i class="fad fa-lock fa-3x"></i>
                 <div class="ml-3">
-                    <h5>Privacy</h5>
+                    <h5>Privacy & Security</h5>
                     <small class="text-dark">Change Password</small>
                 </div>
             </a>

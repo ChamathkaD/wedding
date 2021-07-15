@@ -62,7 +62,8 @@ Route::middleware('auth')->group(function () {
         Route::post('checklist/save','UserController@saveChecklistInfo')->name('checklist.save');
 
         Route::get('privacy','UserController@showPrivacySettings')->name('privacy');
-        Route::post('privacy/save','UserController@savePrivacySettings')->name('privacy.save');
+        Route::get('change/password', 'UserController@showChangePasswordForm')->name('show.change.password');
+        Route::post('update/password','UserController@updatePassword')->name('password.update');
     });
 
     Route::get('update/password','userController@showChangePassword')->name('password.show');

@@ -181,19 +181,24 @@ class UserController extends Controller
 
     public function showPrivacySettings()
     {
-
+        return view('account.privacy');
     }
 
-    public function savePrivacySettings(Request $request)
+    public function showChangePasswordForm()
     {
+        return view('account.partials.password');
+    }
 
+    public function updatePassword(Request $request)
+    {
+        dd($request->all());
     }
 
     public function showChangePassword(){
         return view('users.password');
     }
 
-    public function updatePassword(UpdatePasswordRequest $updatePasswordRequest){
+    /*public function updatePassword(UpdatePasswordRequest $updatePasswordRequest){
 
         $current_Password = $updatePasswordRequest->current_password;
         //Check if the passwords are match
@@ -213,7 +218,7 @@ class UserController extends Controller
         }
 
 
-    }
+    }*/
 
     public function showUsers(){
         return view('users.users');
