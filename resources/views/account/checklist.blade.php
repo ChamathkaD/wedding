@@ -43,7 +43,7 @@
 
         </div>
 
-        <div class="row d-flex justify-content-center py-3">
+        <div class="row py-3">
             <div class="col-sm-8">
                 <form action="{{ route('account.checklist.save') }}" method="POST">
                     @csrf
@@ -75,9 +75,14 @@
                                 </div>
                             </td>
                         </tr>
-                    </table>
 
-                    <button class="genric-btn purple radius" type="submit">Save</button>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <button class="genric-btn purple radius" type="submit">Save</button>
+                            </td>
+                        </tr>
+                    </table>
 
                 </form>
             </div>
