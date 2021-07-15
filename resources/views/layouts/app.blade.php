@@ -46,6 +46,7 @@
         }
     </style>
     @stack('css')
+    @livewireStyles
 </head>
 <body>
 
@@ -85,5 +86,6 @@
 <script src="{{ asset('js/plugins.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
 @stack('js')
+@livewireScripts
 </body>
 </html>
