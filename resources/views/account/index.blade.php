@@ -124,7 +124,7 @@
                 </div>
             </a>
 
-            <a href="#" class="col-sm-3 d-flex justify-content-start align-items-center">
+            <a href="{{ route('account.settings') }}" class="col-sm-3 d-flex justify-content-start align-items-center">
                 <i class="fad fa-gear fa-3x"></i>
                 <div class="ml-3">
                     <h5>Settings</h5>

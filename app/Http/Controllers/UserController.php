@@ -194,8 +194,14 @@ class UserController extends Controller
         dd($request->all());
     }
 
-    public function showChangePassword(){
-        return view('users.password');
+    public function showSettings()
+    {
+        return view('account.settings');
+    }
+
+    public function saveSettings(Request $request)
+    {
+        dd($request->all());
     }
 
     /*public function updatePassword(UpdatePasswordRequest $updatePasswordRequest){

@@ -64,10 +64,12 @@ Route::middleware('auth')->group(function () {
         Route::get('privacy','UserController@showPrivacySettings')->name('privacy');
         Route::get('change/password', 'UserController@showChangePasswordForm')->name('show.change.password');
         Route::post('update/password','UserController@updatePassword')->name('password.update');
+
+        Route::get('settings','UserController@showSettings')->name('settings');
+        Route::post('settings/save','UserController@saveSettings')->name('settings.save');
     });
 
-    Route::get('update/password','userController@showChangePassword')->name('password.show');
-    Route::post('update/password','userController@updatePassword')->name('password.update');
+
     Route::get('show/users','userController@showUsers')->name('show.user');
 
     Route::get('show/profile/{id}','UserController@showProfile')->name('show.profile');
