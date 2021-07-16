@@ -61,10 +61,10 @@
                             type="file"
                             id="image"
                             name="image"
-                            class="@error('image') is-invalid @enderror"
+                            class="@error('image') border-danger @enderror"
                         >
                         @error('image')
-                        <small class="invalid-feedback">
+                        <small class="text-danger">
                             {{ $message }}
                         </small>
                         @enderror
@@ -80,11 +80,11 @@
                             placeholder="Enter First Name"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter First Name'"
-                            class="single-input-secondary @error('first_name') is-invalid @enderror"
+                            class="single-input-secondary @error('first_name') border-danger @enderror"
                             value="{{ Auth::user()->first_name }}"
                         >
                         @error('first_name')
-                        <small class="invalid-feedback">
+                        <small class="text-danger">
                             {{ $message }}
                         </small>
                         @enderror
@@ -99,11 +99,11 @@
                             placeholder="Enter Middle Name"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Middle Name'"
-                            class="single-input-secondary   @error('middle_name') is-invalid @enderror"
+                            class="single-input-secondary   @error('middle_name') border-danger @enderror"
                             value="{{ Auth::user()->middle_name }}"
                         >
                         @error('middle_name')
-                        <small class="invalid-feedback">
+                        <small class="text-danger">
                             {{ $message }}
                         </small>
                         @enderror
@@ -118,11 +118,11 @@
                             placeholder="Enter Last Name"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Last Name'"
-                            class="single-input-secondary @error('last_name') is-invalid @enderror"
+                            class="single-input-secondary @error('last_name') border-danger @enderror"
                             value="{{ Auth::user()->last_name }}"
                         >
                         @error('last_name')
-                        <small class="invalid-feedback">
+                        <small class="text-danger">
                             {{ $message }}
                         </small>
                         @enderror
@@ -137,12 +137,12 @@
                             placeholder="Enter NIC Name"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter NIC Name'"
-                            class="single-input-secondary @error('nic_name') is-invalid @enderror"
+                            class="single-input-secondary @error('nic_name') border-danger @enderror"
                             value="{{ Auth::user()->nic_name }}"
                         >
                         <small class="help-block">* Lorem ipsum dolor.</small>
                         @error('nic_name')
-                        <small class="invalid-feedback">
+                        <small class="text-danger">
                             {{ $message }}
                         </small>
                         @enderror
@@ -157,11 +157,11 @@
                             placeholder="Enter Email"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Email'"
-                            class="single-input-secondary @error('email') is-invalid @enderror"
+                            class="single-input-secondary @error('email') border-danger @enderror"
                             value="{{ Auth::user()->email }}"
                         >
                         @error('email')
-                        <small class="invalid-feedback">
+                        <small class="text-danger">
                             {{ $message }}
                         </small>
                         @enderror
@@ -177,11 +177,11 @@
                                 placeholder="Enter Birthday"
                                 onfocus="this.placeholder = ''"
                                 onblur="this.placeholder = 'Enter Birthday'"
-                                class="single-input-secondary @error('birthday') is-invalid @enderror"
+                                class="single-input-secondary @error('birthday') border-danger @enderror"
                                 value="{{ Auth::user()->birthday }}"
                             >
                             @error('birthday')
-                            <small class="invalid-feedback">
+                            <small class="text-danger">
                                 {{ $message }}
                             </small>
                             @enderror
@@ -190,7 +190,7 @@
                             <label for="gender" class="form-label">Gender</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('gender') is-invalid @enderror"
+                                    class="single-input-secondary @error('gender') border-danger @enderror"
                                     name="gender"
                                     id="gender"
                                 >
@@ -198,7 +198,7 @@
                                     <option value="Female">Female</option>
                                 </select>
                                 @error('gender')
-                                <small class="invalid-feedback">
+                                <small class="text-danger">
                                     {{ $message }}
                                 </small>
                                 @enderror
@@ -213,12 +213,12 @@
                                 placeholder="Enter Phone"
                                 onfocus="this.placeholder = ''"
                                 onblur="this.placeholder = 'Enter Phone'"
-                                class="single-input-secondary @error('phone') is-invalid @enderror"
+                                class="single-input-secondary @error('phone') border-danger @enderror"
                                 value="{{ Auth::user()->phone }}"
                             >
                             <small class="help-block">* Lorem ipsum dolor.</small>
                             @error('phone')
-                            <small class="invalid-feedback">
+                            <small class="text-danger">
                                 {{ $message }}
                             </small>
                             @enderror
@@ -235,12 +235,12 @@
                                 placeholder="Enter Whatsapp Number"
                                 onfocus="this.placeholder = ''"
                                 onblur="this.placeholder = 'Enter Whatsapp Number'"
-                                class="single-input-secondary @error('whatsapp') is-invalid @enderror"
+                                class="single-input-secondary @error('whatsapp') border-danger @enderror"
                                 value="{{ Auth::user()->whatsapp }}"
                             >
                             <small class="help-block">* Lorem ipsum dolor.</small>
                             @error('whatsapp')
-                            <small class="invalid-feedback">
+                            <small class="text-danger">
                                 {{ $message }}
                             </small>
                             @enderror
@@ -249,7 +249,7 @@
                             <label for="nationality" class="form-label">Nationality</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('nationality') is-invalid @enderror"
+                                    class="single-input-secondary @error('nationality') border-danger @enderror"
                                     name="nationality"
                                     id="nationality"
                                 >
@@ -263,7 +263,7 @@
                                     <option value="Other">Other</option>
                                 </select>
                                 @error('nationality')
-                                <small class="invalid-feedback">
+                                <small class="text-danger">
                                     {{ $message }}
                                 </small>
                                 @enderror
@@ -273,7 +273,7 @@
                             <label for="religion" class="form-label">Religion</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('religion') is-invalid @enderror"
+                                    class="single-input-secondary @error('religion') border-danger @enderror"
                                     name="religion"
                                     id="religion"
                                 >
@@ -284,7 +284,7 @@
                                     <option value="Other">Other</option>
                                 </select>
                                 @error('religion')
-                                <small class="invalid-feedback">
+                                <small class="text-danger">
                                     {{ $message }}
                                 </small>
                                 @enderror
@@ -302,11 +302,11 @@
                                 placeholder="Enter Height (Inches)"
                                 onfocus="this.placeholder = ''"
                                 onblur="this.placeholder = 'Enter Height (Inches)'"
-                                class="single-input-secondary @error('height') is-invalid @enderror"
+                                class="single-input-secondary @error('height') border-danger @enderror"
                                 value="{{ Auth::user()->height }}"
                             >
                             @error('height')
-                            <small class="invalid-feedback">
+                            <small class="text-danger">
                                 {{ $message }}
                             </small>
                             @enderror
@@ -320,11 +320,11 @@
                                 placeholder="Enter Weight (Kg)"
                                 onfocus="this.placeholder = ''"
                                 onblur="this.placeholder = 'Enter Weight (Kg)'"
-                                class="single-input-secondary @error('weight') is-invalid @enderror"
+                                class="single-input-secondary @error('weight') border-danger @enderror"
                                 value="{{ Auth::user()->weight }}"
                             >
                             @error('weight')
-                            <small class="invalid-feedback">
+                            <small class="text-danger">
                                 {{ $message }}
                             </small>
                             @enderror
@@ -333,7 +333,7 @@
                             <label for="mother_tongue" class="form-label">Mother Tongue</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('mother_tongue') is-invalid @enderror"
+                                    class="single-input-secondary @error('mother_tongue') border-danger @enderror"
                                     name="mother_tongue"
                                     id="mother_tongue"
                                 >
@@ -343,7 +343,7 @@
                                     <option value="Other">Other</option>
                                 </select>
                                 @error('mother_tongue')
-                                <small class="invalid-feedback">
+                                <small class="text-danger">
                                     {{ $message }}
                                 </small>
                                 @enderror
@@ -356,7 +356,7 @@
                             <label for="horoscope" class="form-label">Horoscope</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('horoscope') is-invalid @enderror"
+                                    class="single-input-secondary @error('horoscope') border-danger @enderror"
                                     name="horoscope"
                                     id="horoscope"
                                 >
@@ -374,7 +374,7 @@
                                     <option value="Pisces">Pisces</option>
                                 </select>
                                 @error('horoscope')
-                                <small class="invalid-feedback">
+                                <small class="text-danger">
                                     {{ $message }}
                                 </small>
                                 @enderror
@@ -384,7 +384,7 @@
                             <label for="marital_status" class="form-label">Marital Status</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('marital_status') is-invalid @enderror"
+                                    class="single-input-secondary @error('marital_status') border-danger @enderror"
                                     name="marital_status"
                                     id="marital_status"
                                 >
@@ -393,7 +393,7 @@
                                     <option value="Divorce">Divorced</option>
                                 </select>
                                 @error('marital_status')
-                                <small class="invalid-feedback">
+                                <small class="text-danger">
                                     {{ $message }}
                                 </small>
                                 @enderror
@@ -403,7 +403,7 @@
                             <label for="feature" class="form-label">Feature</label>
                             <div class="default-select" id="default-select">
                                 <select
-                                    class="single-input-secondary @error('feature') is-invalid @enderror"
+                                    class="single-input-secondary @error('feature') border-danger @enderror"
                                     name="feature"
                                     id="feature"
                                 >
@@ -414,7 +414,7 @@
                                     <option value="Dark">Dark</option>
                                 </select>
                                 @error('feature')
-                                <small class="invalid-feedback">
+                                <small class="text-danger">
                                     {{ $message }}
                                 </small>
                                 @enderror
@@ -425,7 +425,7 @@
                     <div class="form-group">
                         <label for="bio" class="form-label">Bio</label>
                         <textarea
-                            class="single-textarea "
+                            class="single-textarea  @error('feature') border-danger @enderror "
                             placeholder="Type something about you..."
                             id="bio"
                             name="bio"
@@ -433,7 +433,7 @@
                             onblur="this.placeholder = 'Type something about you...'"
                         ></textarea>
                         @error('bio')
-                        <small class="invalid-feedback">
+                        <small class="text-danger">
                             {{ $message }}
                         </small>
                         @enderror

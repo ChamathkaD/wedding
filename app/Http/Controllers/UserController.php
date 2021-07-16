@@ -29,11 +29,11 @@ class UserController extends Controller
         return view('account.personal');
     }
 
-    public function savePersonalInfo(SavePersonalInformationRequest $request)
+    public function savePersonalInfo(SavePersonalInformationRequest $savePersonalInformationRequest)
     {
-        if ($request->hasFile('image')){
-            if ($request->file('image')->isValid()){
-                $image = $request->file('image');
+        if ($savePersonalInformationRequest->hasFile('image')){
+            if ($savePersonalInformationRequest->file('image')->isValid()){
+                $image = $savePersonalInformationRequest->file('image');
                 $extention = $image->getClientOriginalExtension();
                 $filename = date('y_m_d_h_i_s') . "." . $extention;
                 Storage::disk('public')->put('img/users/'.$filename,file_get_contents($image));
@@ -49,24 +49,24 @@ class UserController extends Controller
 
         User::where('id',Auth::id())->update([
             'image' => isset($filename) ? $filename : Auth::user()->image,
-            'first_name' =>$request->input('first_name'),
-            'middle_name' =>$request->input('middle_name'),
-            'last_name' =>$request->input('last_name'),
-            'nic_name' =>$request->input('nic_name'),
-            'email' =>$request->input('email'),
-            'birthday' =>$request->input('birthday'),
-            'gender' =>$request->input('gender'),
-            'phone' =>$request->input('phone'),
-            'whatsapp' =>$request->input('whatsapp'),
-            'nationality' =>$request->input('nationality'),
-            'religion' =>$request->input('religion'),
-            'height' =>$request->input('height'),
-            'weight' =>$request->input('weight'),
-            'mother_tongue' =>$request->input('mother_tongue'),
-            'horoscope' =>$request->input('horoscope'),
-            'feature' =>$request->input('feature'),
-            'marital_status' =>$request->input('marital_status'),
-            'bio' =>$request->input('bio'),
+            'first_name' =>$savePersonalInformationRequest->input('first_name'),
+            'middle_name' =>$savePersonalInformationRequest->input('middle_name'),
+            'last_name' =>$savePersonalInformationRequest->input('last_name'),
+            'nic_name' =>$savePersonalInformationRequest->input('nic_name'),
+            'email' =>$savePersonalInformationRequest->input('email'),
+            'birthday' =>$savePersonalInformationRequest->input('birthday'),
+            'gender' =>$savePersonalInformationRequest->input('gender'),
+            'phone' =>$savePersonalInformationRequest->input('phone'),
+            'whatsapp' =>$savePersonalInformationRequest->input('whatsapp'),
+            'nationality' =>$savePersonalInformationRequest->input('nationality'),
+            'religion' =>$savePersonalInformationRequest->input('religion'),
+            'height' =>$savePersonalInformationRequest->input('height'),
+            'weight' =>$savePersonalInformationRequest->input('weight'),
+            'mother_tongue' =>$savePersonalInformationRequest->input('mother_tongue'),
+            'horoscope' =>$savePersonalInformationRequest->input('horoscope'),
+            'feature' =>$savePersonalInformationRequest->input('feature'),
+            'marital_status' =>$savePersonalInformationRequest->input('marital_status'),
+            'bio' =>$savePersonalInformationRequest->input('bio'),
         ]);
         return back()->with('success', 'Profile Created Successfully');
     }
