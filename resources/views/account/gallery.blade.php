@@ -24,14 +24,14 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-sm-12 d-flex justify-content-between align-items-center p-4">
+            <div class="col-sm-12 p-4 d-inline-flex justify-content-start align-items-start">
 
                 <h4 class="mb-40 heading-icon">
                     <i class="fad fa-image-polaroid mr-2"></i>
                     Gallery
                 </h4>
 
-                <a href="#" class="genric-btn purple">Add Images</a>
+                @livewire('modal.account.gallery')
 
             </div>
 
