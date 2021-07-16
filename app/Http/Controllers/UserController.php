@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Checklist;
 use App\Experience;
 use App\Family;
 use App\Http\Requests\SaveExperienceRequest;
@@ -176,7 +177,13 @@ class UserController extends Controller
 
     public function saveChecklistInfo(Request $request)
     {
-        dd($request->all());
+
+        $check = new Checklist();
+        $check->user_id = Auth::id();
+        $check->drinking =$request->input('drinking');
+        $check->smoking =$request->input('smoking');
+        $check->clubbing =$request->input('clubbing');
+        $check->save();
     }
 
     public function showPrivacySettings()
