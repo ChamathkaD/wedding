@@ -194,8 +194,16 @@
                                     name="gender"
                                     id="gender"
                                 >
+
+                                    @if(Auth::user()->gender)
+                                        <option > {{ Auth::user()->gender }}</option>
+                                    @else
+                                        <option disabled>Select Gender</option>
+                                    @endif
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
+
+
                                 </select>
                                 @error('gender')
                                 <small class="text-danger">
@@ -216,7 +224,7 @@
                                 class="single-input-secondary @error('phone') border-danger @enderror"
                                 value="{{ Auth::user()->phone }}"
                             >
-                            <small class="help-block">* Lorem ipsum dolor.</small>
+                            <small class="help-block">Your number is only visible to our registered. Your information will not be exposed to anyone without your permission.</small>
                             @error('phone')
                             <small class="text-danger">
                                 {{ $message }}
@@ -238,7 +246,7 @@
                                 class="single-input-secondary @error('whatsapp') border-danger @enderror"
                                 value="{{ Auth::user()->whatsapp }}"
                             >
-                            <small class="help-block">* Lorem ipsum dolor.</small>
+                            <small class="help-block">Your phone is only visible to our registered. Your information will not be exposed to anyone without your permission.</small>
                             @error('whatsapp')
                             <small class="text-danger">
                                 {{ $message }}
@@ -253,6 +261,11 @@
                                     name="nationality"
                                     id="nationality"
                                 >
+                                    @if(Auth::user()->nationality)
+                                        <option > {{ Auth::user()->nationality }}</option>
+                                    @else
+                                        <option disabled>Select Nationality</option>
+                                    @endif
                                     <option value="Sinhalese">Sinhalese</option>
                                     <option value="Sri Lankan Tamil">Sri Lankan Tamil</option>
                                     <option value="Sri Lankan Moor">Sri Lankan Moor</option>
@@ -277,6 +290,11 @@
                                     name="religion"
                                     id="religion"
                                 >
+                                    @if(Auth::user()->religion)
+                                        <option > {{ Auth::user()->religion }}</option>
+                                    @else
+                                        <option disabled>Select Religion</option>
+                                    @endif
                                     <option value="Buddhism">Buddhism</option>
                                     <option value="Hindus">Hindus</option>
                                     <option value="Muslims">Muslims</option>
@@ -337,6 +355,11 @@
                                     name="mother_tongue"
                                     id="mother_tongue"
                                 >
+                                    @if(Auth::user()->mother_tongue)
+                                        <option > {{ Auth::user()->mother_tongue }}</option>
+                                    @else
+                                        <option disabled>Select Mother Tongue</option>
+                                    @endif
                                     <option value="Sinhala">Sinhala</option>
                                     <option value="Tamil">Tamil</option>
                                     <option value="English">English</option>
@@ -360,6 +383,11 @@
                                     name="horoscope"
                                     id="horoscope"
                                 >
+                                    @if(Auth::user()->horoscope)
+                                        <option > {{ Auth::user()->horoscope }}</option>
+                                    @else
+                                        <option disabled>Select Horoscope</option>
+                                    @endif
                                     <option value="Aries">Aries</option>
                                     <option value="Taurus">Taurus</option>
                                     <option value="Gemini">Gemini</option>
@@ -388,6 +416,11 @@
                                     name="marital_status"
                                     id="marital_status"
                                 >
+                                    @if(Auth::user()->marital_status)
+                                        <option > {{ Auth::user()->marital_status }}</option>
+                                    @else
+                                        <option disabled>Select Marital Status</option>
+                                    @endif
                                     <option value="Unmarried">Unmarried</option>
                                     <option value="Unmarried">Married</option>
                                     <option value="Divorce">Divorced</option>
@@ -407,6 +440,11 @@
                                     name="feature"
                                     id="feature"
                                 >
+                                    @if(Auth::user()->feature)
+                                        <option > {{ Auth::user()->feature }}</option>
+                                    @else
+                                        <option disabled>Select Marital Feature</option>
+                                    @endif
                                     <option value="Fair">Fair</option>
                                     <option value="Whitish">Whitish</option>
                                     <option value="Whitish Medium">Whitish Medium</option>
