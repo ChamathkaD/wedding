@@ -41,7 +41,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.users.index');
+        $records = User::where('is_activated', true)->get();
+        return view('admin.users.index')->with(compact('records'));
     }
 
     /**
