@@ -22,7 +22,7 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
+        <div class="row d-flex justify-content-center">
 
             <div class="col-sm-9 p-4">
 
@@ -224,9 +224,6 @@
                 </form>
             </div>
 
-            <div class="col-sm-3 p-2">
-
-            </div>
         </div>
     </div>
 
