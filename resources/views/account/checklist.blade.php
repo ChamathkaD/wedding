@@ -30,21 +30,15 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
+        <div class="row d-flex justify-content-center">
 
-            <div class="col-sm-12 p-4">
+            <div class="col-sm-8 p-4">
 
                 <h4 class="mb-40 heading-icon">
                     <i class="fad fa-ballot-check mr-2"></i>
                     Checklist
                 </h4>
 
-            </div>
-
-        </div>
-
-        <div class="row py-3">
-            <div class="col-sm-8">
                 <form action="{{ route('account.checklist.save') }}" method="POST">
                     @csrf
                     <table class="table table-borderless">
@@ -85,7 +79,9 @@
                     </table>
 
                 </form>
+
             </div>
+
         </div>
 
     </div>
