@@ -87,5 +87,18 @@
 <script src="{{ asset('js/main.js') }}"></script>
 @stack('js')
 @livewireScripts
+<script>
+    window.addEventListener('closeGalleryModal', event => {
+        $("#modalGalleryForm").modal('hide');
+    });
+
+    window.addEventListener('closeSchoolModal', event => {
+        $("#modalSchoolForm").modal('hide');
+    });
+
+    window.addEventListener('closeUniversityModal', event => {
+        $("#modalUniversityForm").modal('hide');
+    });
+</script>
 </body>
 </html>
