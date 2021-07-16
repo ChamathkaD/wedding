@@ -7,7 +7,7 @@
             outline:none;border:1px solid #a903c8
         }
 
-        h4 {
+        h4, small {
             margin-bottom: 0;
             color: #a903c8;
         }
@@ -22,7 +22,7 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
+        <div class="row d-flex justify-content-center">
 
             <div class="col-sm-9 p-4">
 
@@ -30,6 +30,7 @@
                     <i class="fad fa-user mr-2"></i>
                     Personal Information
                 </h4>
+
                 @if(session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
@@ -42,6 +43,18 @@
                 <form action="{{ route('account.personal.save') }}" method="POST" enctype="multipart/form-data">
 
                     @csrf
+
+                    <div class="py-3">
+
+                        @if(\Illuminate\Support\Facades\Auth::user()->image)
+
+                            <img src="{{ asset('img/users/'.Auth::user()->image) }}" width="100" alt="">
+                        @else
+
+                            <img src="{{ asset('img/team/person_1.jpg') }}" alt="" width="100">
+                        @endif
+
+                    </div>
 
                     <div class="form-group">
                         <label for="image" class="form-label">Upload Your Photo</label>
@@ -57,6 +70,7 @@
                             {{ $message }}
                         </small>
                         @enderror
+                        <small class="help-block">* Lorem ipsum dolor.</small>
                     </div>
 
                     <div class="form-group">
@@ -128,6 +142,7 @@
                             class="single-input-secondary form-control @error('nic_name') is-invalid @enderror"
                             value="{{ Auth::user()->nic_name }}"
                         >
+                        <small class="help-block">* Lorem ipsum dolor.</small>
                         @error('nic_name')
                         <small class="invalid-feedback">
                             {{ $message }}
@@ -203,6 +218,7 @@
                                 class="single-input-secondary form-control @error('phone') is-invalid @enderror"
                                 value="{{ Auth::user()->phone }}"
                             >
+                            <small class="help-block">* Lorem ipsum dolor.</small>
                             @error('phone')
                             <small class="invalid-feedback">
                                 {{ $message }}
@@ -224,6 +240,7 @@
                                 class="single-input-secondary form-control @error('whatsapp') is-invalid @enderror"
                                 value="{{ Auth::user()->whatsapp }}"
                             >
+                            <small class="help-block">* Lorem ipsum dolor.</small>
                             @error('whatsapp')
                             <small class="invalid-feedback">
                                 {{ $message }}
@@ -429,25 +446,6 @@
                     </div>
 
                 </form>
-            </div>
-
-            <div class="col-sm-3 p-2">
-
-                <div class="text-center p-3">
-
-                    @if(\Illuminate\Support\Facades\Auth::user()->image)
-
-                        <img class="mr-3" src="{{ asset('img/users/'.Auth::user()->image) }}" width="200" alt="">
-                    @else
-
-                        <img src="{{ asset('img/team/person_1.jpg') }}" alt="" width="200">
-                    @endif
-
-
-
-
-                </div>
-
             </div>
         </div>
     </div>
