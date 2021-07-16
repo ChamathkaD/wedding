@@ -22,9 +22,9 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
+        <div class="row d-flex justify-content-center">
 
-            <div class="col-sm-12 p-4">
+            <div class="col-sm-9 p-4">
 
                 <h4 class="mb-40 heading-icon">
                     <i class="fad fa-briefcase mr-2"></i>
