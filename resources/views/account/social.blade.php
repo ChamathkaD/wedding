@@ -31,6 +31,14 @@
                     Social
                 </h4>
 
+                @if(session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">&times;</span>
+                        </button>
+                        <strong> <i class="fa fa-check"></i> {!! session()->get('success') !!}</strong></div>
+                @endif
+
                 <form action="{{ route('account.social.save') }}" method="POST">
 
                     @csrf
@@ -45,7 +53,7 @@
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Whatsapp Number'"
                             class="single-input-secondary @error('whatsapp') is-invalid @enderror"
-                            value="{{ Auth::user()->whatsapp }}"
+                            value="{{ isset(Auth::user()->social->whatsapp) ? Auth::user()->social->whatsapp : '' }}"
                         >
                         @error('whatsapp')
                         <small class="invalid-feedback">
@@ -55,14 +63,36 @@
 
                         <div class="py-2">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="whatsappPrivacy" name="whatsappPrivacy" class="custom-control-input" value="1">
+                                <input
+                                    type="radio"
+                                    id="whatsappPublic"
+                                    name="whatsappPrivacy"
+                                    class="custom-control-input"
+                                    value="1"
+                                    @if(isset(Auth::user()->social->whatsapp_privacy))
+                                        {{ Auth::user()->social->whatsapp_privacy == 1 ? 'checked' : '' }}
+                                    @else
+                                        {{ '' }}
+                                    @endif
+                                >
                                 <label class="custom-control-label" for="whatsappPublic">
                                     <i class="fal fa-globe ml-1"></i>
                                     Public
                                 </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="whatsappPrivacy" name="whatsappPrivacy" class="custom-control-input" value="0">
+                                <input
+                                    type="radio"
+                                    id="whatsappOnlyMe"
+                                    name="whatsappPrivacy"
+                                    class="custom-control-input"
+                                    value="0"
+                                @if(isset(Auth::user()->social->whatsapp_privacy))
+                                    {{ Auth::user()->social->whatsapp_privacy == 0 ? 'checked' : '' }}
+                                @else
+                                    {{ '' }}
+                                @endif
+                                >
                                 <label class="custom-control-label" for="whatsappOnlyMe">
                                     <i class="fal fa-lock ml-1"></i>
                                     Only Me
@@ -81,7 +111,7 @@
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Facebook URL'"
                             class="single-input-secondary @error('facebook') is-invalid @enderror"
-                            value="{{ Auth::user()->facebook }}"
+                            value="{{ isset(Auth::user()->social->facebook) ? Auth::user()->social->facebook : '' }}"
                         >
                         @error('facebook')
                         <small class="invalid-feedback">
@@ -91,14 +121,36 @@
 
                         <div class="py-2">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="facebookPrivacy" name="facebookPrivacy" class="custom-control-input" value="1">
+                                <input
+                                    type="radio"
+                                    id="facebookPublic"
+                                    name="facebookPrivacy"
+                                    class="custom-control-input"
+                                    value="1"
+                                    @if(isset(Auth::user()->social->facebook_privacy))
+                                        {{ Auth::user()->social->facebook_privacy == 1 ? 'checked' : '' }}
+                                    @else
+                                        {{ '' }}
+                                    @endif
+                                >
                                 <label class="custom-control-label" for="facebookPublic">
                                     <i class="fal fa-globe ml-1"></i>
                                     Public
                                 </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="facebookPrivacy" name="facebookPrivacy" class="custom-control-input" value="0">
+                                <input
+                                    type="radio"
+                                    id="facebookOnlyMe"
+                                    name="facebookPrivacy"
+                                    class="custom-control-input"
+                                    value="0"
+                                    @if(isset(Auth::user()->social->facebook_privacy))
+                                        {{ Auth::user()->social->facebook_privacy == 0 ? 'checked' : '' }}
+                                    @else
+                                        {{ '' }}
+                                    @endif
+                                >
                                 <label class="custom-control-label" for="facebookOnlyMe">
                                     <i class="fal fa-lock ml-1"></i>
                                     Only Me
@@ -117,7 +169,7 @@
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Instagram URL'"
                             class="single-input-secondary @error('instagram') is-invalid @enderror"
-                            value="{{ Auth::user()->instagram }}"
+                            value="{{ isset(Auth::user()->social->instagram) ? Auth::user()->social->instagram : '' }}"
                         >
                         @error('instagram')
                         <small class="invalid-feedback">
@@ -127,14 +179,36 @@
 
                         <div class="py-2">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="instagramPrivacy" name="instagramPrivacy" class="custom-control-input" value="1">
+                                <input
+                                    type="radio"
+                                    id="instagramPublic"
+                                    name="instagramPrivacy"
+                                    class="custom-control-input"
+                                    value="1"
+                                     @if(isset(Auth::user()->social->instagram_privacy))
+                                        {{ Auth::user()->social->instagram_privacy == 1 ? 'checked' : '' }}
+                                    @else
+                                        {{ '' }}
+                                    @endif
+                                >
                                 <label class="custom-control-label" for="instagramPublic">
                                     <i class="fal fa-globe ml-1"></i>
                                     Public
                                 </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="instagramPrivacy" name="instagramPrivacy" class="custom-control-input" value="0">
+                                <input
+                                    type="radio"
+                                    id="instagramOnlyMe"
+                                    name="instagramPrivacy"
+                                    class="custom-control-input"
+                                    value="0"
+                                     @if(isset(Auth::user()->social->instagram_privacy))
+                                        {{ Auth::user()->social->instagram_privacy == 0 ? 'checked' : '' }}
+                                    @else
+                                        {{ '' }}
+                                    @endif
+                                >
                                 <label class="custom-control-label" for="instagramOnlyMe">
                                     <i class="fal fa-lock ml-1"></i>
                                     Only Me
@@ -153,7 +227,7 @@
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Linked In URL'"
                             class="single-input-secondary @error('linkedin') is-invalid @enderror"
-                            value="{{ Auth::user()->linkedin }}"
+                            value="{{ isset(Auth::user()->social->linkedin) ? Auth::user()->social->linkedin : '' }}"
                         >
                         @error('linkedin')
                         <small class="invalid-feedback">
@@ -163,14 +237,36 @@
 
                         <div class="py-2">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="linkedinPrivacy" name="linkedinPrivacy" class="custom-control-input" value="1">
+                                <input
+                                    type="radio"
+                                    id="linkedinPublic"
+                                    name="linkedinPrivacy"
+                                    class="custom-control-input"
+                                    value="1"
+                                     @if(isset(Auth::user()->social->linkedin_privacy))
+                                        {{ Auth::user()->social->linkedin_privacy == 1 ? 'checked' : '' }}
+                                    @else
+                                        {{ '' }}
+                                    @endif
+                                >
                                 <label class="custom-control-label" for="linkedinPublic">
                                     <i class="fal fa-globe ml-1"></i>
                                     Public
                                 </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="linkedinPrivacy" name="linkedinPrivacy" class="custom-control-input" value="0">
+                                <input
+                                    type="radio"
+                                    id="linkedinOnlyMe"
+                                    name="linkedinPrivacy"
+                                    class="custom-control-input"
+                                    value="0"
+                                     @if(isset(Auth::user()->social->linkedin_privacy))
+                                        {{ Auth::user()->social->linkedin_privacy == 0 ? 'checked' : '' }}
+                                    @else
+                                        {{ '' }}
+                                    @endif
+                                >
                                 <label class="custom-control-label" for="linkedinOnlyMe">
                                     <i class="fal fa-lock ml-1"></i>
                                     Only Me

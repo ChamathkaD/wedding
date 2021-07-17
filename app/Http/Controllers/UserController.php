@@ -157,7 +157,7 @@ class UserController extends Controller
 
     public function saveSocialInfo(Request $request)
     {
-        $social = new Social();
+        $social = Social::firstOrNew(['user_id' => Auth::id()]);;
         $social->user_id = Auth::id();
         $social->whatsapp =$request->input('whatsapp');
         $social->whatsapp_privacy =$request->input('whatsappPrivacy');
@@ -168,6 +168,8 @@ class UserController extends Controller
         $social->linkedin =$request->input('linkedin');
         $social->linkedin_privacy =$request->input('linkedinPrivacy');
         $social->save();
+
+        return back()->with('success', 'Social Updated!');
     }
 
     public function showChecklistInfo()

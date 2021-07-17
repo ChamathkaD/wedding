@@ -145,4 +145,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Checklist::class, 'user_id');
     }
+
+    /**
+     * Get the social record associated with the user.
+     */
+    public function social()
+    {
+        return $this->hasOne(Social::class, 'user_id');
+    }
 }
