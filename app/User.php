@@ -113,4 +113,28 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Experience::class, 'user_id');
     }
+
+    /**
+     * Get the location record associated with the user.
+     */
+    public function location()
+    {
+        return $this->hasOne(Location::class, 'user_id');
+    }
+
+    /**
+     * Get the family members for the user.
+     */
+    public function families()
+    {
+        return $this->hasMany(Family::class, 'user_id');
+    }
+
+    /**
+     * Get the photos for the user.
+     */
+    public function photos()
+    {
+        return $this->hasMany(Photo::class, 'user_id');
+    }
 }
