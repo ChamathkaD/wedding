@@ -25,7 +25,6 @@ class CreateUsersTable extends Migration
             $table->string('nic_name')->nullable();
             $table->string('gender')->nullable();
             $table->string('phone')->nullable()->unique();
-            $table->string('whatsapp')->nullable()->unique();
             $table->string('nic')->nullable()->unique();
             $table->string('weight')->nullable();
             $table->string('height')->nullable();

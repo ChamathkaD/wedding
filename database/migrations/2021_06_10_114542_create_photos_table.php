@@ -16,10 +16,10 @@ class CreatePhotosTable extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('photo')->nullable();
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

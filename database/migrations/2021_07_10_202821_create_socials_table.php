@@ -17,13 +17,13 @@ class CreateSocialsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('whatsapp')->nullable();
+            $table->string('whatsapp')->nullable()->unique();
             $table->boolean('whatsapp_privacy')->nullable();
-            $table->string('facebook')->nullable();
+            $table->string('facebook')->nullable()->unique();
             $table->boolean('facebook_privacy')->nullable();
-            $table->string('instagram')->nullable();
+            $table->string('instagram')->nullable()->unique();
             $table->boolean('instagram_privacy')->nullable();
-            $table->string('linkedin')->nullable();
+            $table->string('linkedin')->nullable()->unique();
             $table->boolean('linkedin_privacy')->nullable();
             $table->timestamps();
             $table->softDeletes();
