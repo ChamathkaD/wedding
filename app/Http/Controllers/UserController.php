@@ -34,8 +34,8 @@ class UserController extends Controller
         if ($savePersonalInformationRequest->hasFile('image')){
             if ($savePersonalInformationRequest->file('image')->isValid()){
                 $image = $savePersonalInformationRequest->file('image');
-                $extention = $image->getClientOriginalExtension();
-                $filename = date('y_m_d_h_i_s') . "." . $extention;
+                $extension = $image->getClientOriginalExtension();
+                $filename = date('y_m_d_h_i_s') . "." . $extension;
                 Storage::disk('public')->put('img/users/'.$filename,file_get_contents($image));
             }
             if (Storage::disk('public')->exists('img/users/'.Auth::user()->image)){
@@ -177,13 +177,14 @@ class UserController extends Controller
 
     public function saveChecklistInfo(Request $request)
     {
-
-        $check = new Checklist();
+        $check = Checklist::firstOrNew(['user_id' => Auth::id()]);
         $check->user_id = Auth::id();
         $check->drinking =$request->input('drinking');
         $check->smoking =$request->input('smoking');
         $check->clubbing =$request->input('clubbing');
         $check->save();
+
+        return back()->with('success', 'Checklist Updated!');
     }
 
     public function showPrivacySettings()

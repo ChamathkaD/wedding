@@ -39,6 +39,14 @@
                     Checklist
                 </h4>
 
+                @if(session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">&times;</span>
+                        </button>
+                        <strong> <i class="fa fa-check"></i> {!! session()->get('success') !!}</strong></div>
+                @endif
+
                 <form action="{{ route('account.checklist.save') }}" method="POST">
                     @csrf
                     <table class="table table-borderless">
@@ -46,7 +54,13 @@
                             <td>Drinking</td>
                             <td>
                                 <div class="confirm-switch">
-                                    <input type="checkbox" id="drinking" name="drinking">
+                                    <input
+                                        type="checkbox"
+                                        id="drinking"
+                                        name="drinking"
+                                        value="1"
+                                        {{ Auth::user()->checklist->drinking ? 'checked' : '' }}
+                                    >
                                     <label for="drinking"></label>
                                 </div>
                             </td>
@@ -55,7 +69,13 @@
                             <td>Smoking</td>
                             <td>
                                 <div class="confirm-switch">
-                                    <input type="checkbox" id="smoking" name="smoking">
+                                    <input
+                                        type="checkbox"
+                                        id="smoking"
+                                        name="smoking"
+                                        value="1"
+                                        {{ Auth::user()->checklist->smoking ? 'checked' : '' }}
+                                    >
                                     <label for="smoking"></label>
                                 </div>
                             </td>
@@ -64,7 +84,13 @@
                             <td>Clubbing</td>
                             <td>
                                 <div class="confirm-switch">
-                                    <input type="checkbox" id="clubbing" name="clubbing">
+                                    <input
+                                        type="checkbox"
+                                        id="clubbing"
+                                        name="clubbing"
+                                        value="1"
+                                        {{ Auth::user()->checklist->clubbing ? 'checked' : '' }}
+                                    >
                                     <label for="clubbing"></label>
                                 </div>
                             </td>

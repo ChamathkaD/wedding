@@ -137,4 +137,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Photo::class, 'user_id');
     }
+
+    /**
+     * Get the checklist record associated with the user.
+     */
+    public function checklist()
+    {
+        return $this->hasOne(Checklist::class, 'user_id');
+    }
 }
