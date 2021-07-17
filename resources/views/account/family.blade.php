@@ -111,14 +111,17 @@
                             <div class="serial">Person</div>
                             <div class="serial">Name</div>
                             <div class="country">Occupation</div>
-                            <div class="visit">Actions</div>
+                            <div class="visit">Occupation</div>
                         </div>
+
+                        @foreach(\Illuminate\Support\Facades\Auth::user()->families as $family)
                         <div class="table-row">
-                            <div class="serial">01</div>
-                            <div class="serial">01</div>
-                            <div class="country"> <img src="assets/img/elements/f1.jpg" alt="flag">Canada</div>
+                            <div class="serial">{{$family->family_member}}</div>
+                            <div class="serial">{{$family->full_name}}</div>
+                            <div class="country">{{$family->occupation}}</div>
                             <div class="visit">645032</div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
