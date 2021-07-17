@@ -199,9 +199,23 @@ class UserController extends Controller
         return view('account.partials.password');
     }
 
-    public function updatePassword(Request $request)
+    public function updatePassword(UpdatePasswordRequest $updatePasswordRequest)
     {
-        dd($request->all());
+        $current_Password = $updatePasswordRequest->current_password;
+        if (Hash::check($current_Password, Auth::user()->password)){
+            $new_password = $updatePasswordRequest->password_confirmation;
+            //hashing the nwe password
+            $hashed_password = Hash::make($new_password);
+            //update password
+            User::where('id', Auth::id())->update([
+                'password' => $hashed_password,
+            ]);
+
+            return back()->with('success', 'Your Password has been updated');
+
+        }else{
+            return back()->withErrors('Your current password is not valid. Please enter your new password');
+        }
     }
 
     public function showSettings()

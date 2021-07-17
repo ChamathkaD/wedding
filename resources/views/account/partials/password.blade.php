@@ -51,10 +51,10 @@
                             placeholder="Enter Current Password"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Current Password'"
-                            class="single-input-secondary form-control @error('current_password') is-invalid @enderror"
+                            class="single-input-secondary  @error('current_password') border-danger @enderror"
                         >
                         @error('current_password')
-                        <small class="invalid-feedback">
+                        <small class="text-danger">
                             {{ $message }}
                         </small>
                         @enderror
@@ -69,10 +69,11 @@
                             placeholder="Enter New Password"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter New Password'"
-                            class="single-input-secondary form-control @error('password') is-invalid @enderror"
+                            class="single-input-secondary  @error('password') border-danger @enderror"
+                            value=""
                         >
                         @error('password')
-                        <small class="invalid-feedback">
+                        <small class="text-danger">
                             {{ $message }}
                         </small>
                         @enderror
@@ -87,7 +88,7 @@
                             placeholder="Re enter your new password"
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Re enter your new password'"
-                            class="single-input-secondary form-control @error('password_confirmation') is-invalid @enderror"
+                            class="single-input-secondary @error('password_confirmation') border-danger @enderror"
                         >
                     </div>
 

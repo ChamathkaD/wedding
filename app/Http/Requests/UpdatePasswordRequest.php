@@ -24,9 +24,24 @@ class UpdatePasswordRequest extends FormRequest
     public function rules()
     {
         return [
-            'current_password' => 'required',
-            'password' => 'required', 'min:8', 'confirmed',
-            'password_confirmation' => 'required'
+            'current_password' =>['required' ] ,
+            'password' =>['required', 'min:8', 'confirmed' ] ,
+            'password_confirmation' =>[ 'required' ]
+        ];
+    }
+
+
+
+    public function messages()
+    {
+        return [
+            'current_password.required' => 'Please Enter Your Current Password',
+            'password.required' => 'Please Enter Your New Password',
+            'password_confirmation.required' => 'Please Re-Enter Your New Password',
+            'password.min' => 'Your password must 8 or more characters in length',
+            'password.confirmed' => 'Your New Password and confirmation password do not match. try again'
         ];
     }
 }
+
+
