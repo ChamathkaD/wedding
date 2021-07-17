@@ -54,7 +54,7 @@
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Address Line 1'"
                             class="single-input-secondary @error('address_line1') is-invalid @enderror"
-                            value="{{ Auth::user()->location->address_line1 }}"
+                            value="{{ isset(Auth::user()->location->address_line1) ? Auth::user()->location->address_line1 : '' }}"
                         >
                         @error('address_line1')
                         <small class="invalid-feedback">
@@ -73,7 +73,7 @@
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Address Line 2'"
                             class="single-input-secondary @error('address_line2') is-invalid @enderror"
-                            value="{{ Auth::user()->location->address_line2 }}"
+                            value="{{ isset(Auth::user()->location->address_line2) ? Auth::user()->location->address_line2 : '' }}"
                         >
                         @error('address_line2')
                         <small class="invalid-feedback">
@@ -93,7 +93,7 @@
                                 onfocus="this.placeholder = ''"
                                 onblur="this.placeholder = 'Enter City'"
                                 class="single-input-secondary @error('city') is-invalid @enderror"
-                                value="{{ Auth::user()->location->city }}"
+                                value="{{ isset(Auth::user()->location->city) ? Auth::user()->location->city : '' }}"
                             >
                             @error('city')
                             <small class="invalid-feedback">
@@ -111,7 +111,7 @@
                                 onfocus="this.placeholder = ''"
                                 onblur="this.placeholder = 'Enter District'"
                                 class="single-input-secondary @error('district') is-invalid @enderror"
-                                value="{{ Auth::user()->location->district }}"
+                                value="{{ isset(Auth::user()->location->district) ? Auth::user()->location->district : '' }}"
                             >
                             @error('district')
                             <small class="invalid-feedback">
@@ -129,7 +129,7 @@
                                 onfocus="this.placeholder = ''"
                                 onblur="this.placeholder = 'Enter Zip Code (Postal Code)'"
                                 class="single-input-secondary @error('zip') is-invalid @enderror"
-                                value="{{ Auth::user()->location->zip }}"
+                                value="{{ isset(Auth::user()->location->zip) ? Auth::user()->location->zip : '' }}"
                             >
                             @error('zip')
                             <small class="invalid-feedback">
@@ -152,7 +152,7 @@
                                 onfocus="this.placeholder = ''"
                                 onblur="this.placeholder = 'Enter Home Town'"
                                 class="single-input-secondary @error('home_town') is-invalid @enderror"
-                                value="{{ Auth::user()->location->home_town }}"
+                                value="{{ isset(Auth::user()->location->home_town) ? Auth::user()->location->home_town : '' }}"
                             >
                             @error('home_town')
                             <small class="invalid-feedback">
@@ -170,7 +170,7 @@
                                 onfocus="this.placeholder = ''"
                                 onblur="this.placeholder = 'Enter Country of Birth'"
                                 class="single-input-secondary @error('birth_country') is-invalid @enderror"
-                                value="{{ Auth::user()->location->birth_country }}"
+                                value="{{ isset(Auth::user()->location->birth_country) ? Auth::user()->location->birth_country : '' }}"
                             >
                             @error('birth_country')
                             <small class="invalid-feedback">
@@ -188,7 +188,7 @@
                                 onfocus="this.placeholder = ''"
                                 onblur="this.placeholder = 'Enter Current City'"
                                 class="single-input-secondary @error('current_city') is-invalid @enderror"
-                                value="{{ Auth::user()->location->current_city }}"
+                                value="{{ isset(Auth::user()->location->current_city) ? Auth::user()->location->current_city : '' }}"
                             >
                             @error('current_city')
                             <small class="invalid-feedback">
@@ -208,7 +208,7 @@
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Enter Current Country'"
                             class="single-input-secondary @error('current_country') is-invalid @enderror"
-                            value="{{ Auth::user()->location->current_country }}"
+                            value="{{ isset(Auth::user()->location->current_country) ? Auth::user()->location->current_country : '' }}"
                         >
                         @error('current_country')
                         <small class="invalid-feedback">
