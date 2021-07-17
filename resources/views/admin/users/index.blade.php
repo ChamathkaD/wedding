@@ -44,7 +44,21 @@
                                     <td>{{$record->email}}</td>
                                     <td>{{$record->phone}}</td>
                                     <td>{{$record->birthday}}</td>
-                                    <td>view</td>
+                                    <td>
+                                        <a
+                                            href="{{ route('admin.users.show', $record->id) }}"
+                                            class="btn btn-primary btn-sm text-white"
+                                        >
+                                            <i class="mdi mdi-eye mdi-18px"></i>
+                                        </a>
+                                        <a
+                                            href="{{ route('admin.users.destroy', $record->id) }}"
+                                            class="btn btn-danger btn-sm text-white"
+                                            onclick="return confirm('Do you want to delete {{ $record->full_name }}?')"
+                                        >
+                                            <i class="mdi mdi-delete mdi-18px"></i>
+                                        </a>
+                                    </td>
 
                                 </tr>
                                 @endforeach
