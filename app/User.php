@@ -89,4 +89,28 @@ class User extends Authenticatable implements MustVerifyEmail
         }
 
     }
+
+    /**
+     * Get the schools for the user.
+     */
+    public function schools()
+    {
+        return $this->hasMany(School::class, 'user_id');
+    }
+
+    /**
+     * Get the universities for the user.
+     */
+    public function universities()
+    {
+        return $this->hasMany(University::class, 'user_id');
+    }
+
+    /**
+     * Get the experiences for the user.
+     */
+    public function experiences()
+    {
+        return $this->hasMany(Experience::class, 'user_id');
+    }
 }

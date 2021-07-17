@@ -246,24 +246,24 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-sm-12 p-2">
-                <div class="progress-table-wrap">
-                    <div class="progress-table">
-                        <div class="table-head">
-                            <div class="serial">Person</div>
-                            <div class="serial">Name</div>
-                            <div class="country">Occupation</div>
-                            <div class="visit">Actions</div>
-                        </div>
-                        <div class="table-row">
-                            <div class="serial">01</div>
-                            <div class="serial">01</div>
-                            <div class="country"> <img src="assets/img/elements/f1.jpg" alt="flag">Canada</div>
-                            <div class="visit">645032</div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-sm-9 p-2">
+
+                @foreach(Auth::user()->experiences as $record)
+
+                    <div class="d-flex justify-content-start py-1 align-items-center">
+                        <h1 class="display-3 font-weight-normal">{{ sprintf('%02d', $loop->iteration) }}</h1>
+                        <div class="ml-3 mt-4">
+                            <h4>{{ $record->job_title }}</h4>
+                            <h5>{{ $record->employment_type }}</h5>
+                            <p>{{ $record->company }}</p>
+                            <p>{{ $record->location }}</p>
+                            <small>{{ $record->start_year . " " . $record->start_month }} - {{ $record->end_year . " " . $record->end_month }}</small>
                         </div>
                     </div>
-                </div>
+
+                @endforeach
+
             </div>
         </div>
     </div>
