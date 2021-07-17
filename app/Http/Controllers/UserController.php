@@ -57,7 +57,7 @@ class UserController extends Controller
             'birthday' =>$savePersonalInformationRequest->input('birthday'),
             'gender' =>$savePersonalInformationRequest->input('gender'),
             'phone' =>$savePersonalInformationRequest->input('phone'),
-            'whatsapp' =>$savePersonalInformationRequest->input('whatsapp'),
+            'nic' =>$savePersonalInformationRequest->input('nic'),
             'nationality' =>$savePersonalInformationRequest->input('nationality'),
             'religion' =>$savePersonalInformationRequest->input('religion'),
             'height' =>$savePersonalInformationRequest->input('height'),

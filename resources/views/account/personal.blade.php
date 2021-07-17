@@ -235,19 +235,18 @@
 
                     <div class="form-row form-group">
                         <div class="col-sm-4">
-                            <label for="whatsapp" class="form-label">Whatsapp Number</label>
+                            <label for="nic" class="form-label">NIC Number</label>
                             <input
                                 type="text"
-                                id="whatsapp"
-                                name="whatsapp"
-                                placeholder="Enter Whatsapp Number"
+                                id="nic"
+                                name="nic"
+                                placeholder="Enter NIC Number"
                                 onfocus="this.placeholder = ''"
-                                onblur="this.placeholder = 'Enter Whatsapp Number'"
-                                class="single-input-secondary @error('whatsapp') border-danger @enderror"
-                                value="{{ Auth::user()->whatsapp }}"
+                                onblur="this.placeholder = 'Enter NIC Number'"
+                                class="single-input-secondary @error('nic') border-danger @enderror"
+                                value="{{ Auth::user()->nic }}"
                             >
-                            <small class="help-block">Your phone is only visible to our registered. Your information will not be exposed to anyone without your permission.</small>
-                            @error('whatsapp')
+                            @error('nic')
                             <small class="text-danger">
                                 {{ $message }}
                             </small>
