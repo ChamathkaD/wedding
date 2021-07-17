@@ -12,8 +12,6 @@ class Primary extends Component
     public $from;
     public $to;
 
-    protected $listeners = ['refreshSchool' => '$refresh'];
-
     protected $rules = [
         'school' => 'required|string',
         'from' => 'date_format:Y|after:1960',

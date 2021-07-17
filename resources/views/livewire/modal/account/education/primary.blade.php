@@ -1,5 +1,4 @@
 <div>
-    <a href="#" class="genric-btn purple small" data-toggle="modal" data-target="#modalSchoolForm">Add School</a>
 
     <div class="modal fade" id="modalSchoolForm" tabindex="-1" aria-labelledby="schoolModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -18,4 +17,17 @@
             </div>
         </div>
     </div>
+
+    @foreach($schools as $record)
+
+        <div class="d-flex justify-content-start py-1">
+            <h1 class="display-3 font-weight-normal">{{ sprintf('%02d', $loop->iteration) }}</h1>
+            <div class="ml-3 mt-4">
+                <h5>{{ $record->school }}</h5>
+                <p>{{ $record->from }} - {{ $record->to }}</p>
+            </div>
+        </div>
+
+    @endforeach
+
 </div>

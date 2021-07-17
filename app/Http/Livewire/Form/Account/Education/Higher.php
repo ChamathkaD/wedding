@@ -15,8 +15,6 @@ class Higher extends Component
     public $to;
     public $description;
 
-    protected $listeners = ['refreshUniversity' => '$refresh'];
-
     protected $rules = [
         'university' => 'required|string',
         'degree' => 'required|string',
