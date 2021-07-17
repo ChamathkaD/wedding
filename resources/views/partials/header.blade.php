@@ -16,8 +16,6 @@
                             <ul id="navigation">
                                 <li><a href="{{ url('aboutUs') }}">About Us</a></li>
                                 <li><a href="{{url('contact')}}">contact</a></li>
-                                <li><a href="{{url('help')}}">Help Center</a></li>
-
                                 @guest
                                     <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
 
@@ -61,6 +59,9 @@
                                         </ul>
                                     </li>
                                 @endguest
+                                <li>
+                                    <a href="#">සිංහල</a>
+                                </li>
                             </ul>
                         </nav>
                     </div>

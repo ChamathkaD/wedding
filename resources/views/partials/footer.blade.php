@@ -28,7 +28,7 @@
                             <div class="footer-tittle">
                                 <h4>WEDDING PLANNER FAQS</h4>
                                 <ul>
-                                    <li><a href="#">Why Hire a Planner?</a></li>
+                                    <li><a href="{{ route('help') }}">Help Center</a></li>
                                     <li><a href="#">How Can I Make An</a></li>
                                     <li><a href="#">Appointment?</a></li>
                                     <li><a href="#">How to Choose a Venue</a></li>
