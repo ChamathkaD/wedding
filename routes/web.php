@@ -47,13 +47,11 @@ Route::middleware('auth')->group(function () {
         Route::post('family/save','UserController@saveFamilyInfo')->name('family.save');
 
         Route::get('education','UserController@showEducationInfo')->name('education');
-        Route::post('education/save','UserController@saveEducationInfo')->name('education.save');
 
         Route::get('job','UserController@showJobInfo')->name('job');
         Route::post('job/save','UserController@saveJobInfo')->name('job.save');
 
         Route::get('gallery','UserController@showGalley')->name('gallery');
-        Route::post('gallery/add','UserController@addPhotosToGallery')->name('gallery.add');
 
         Route::get('social','UserController@showSocialInfo')->name('social');
         Route::post('social/save','UserController@saveSocialInfo')->name('social.save');
@@ -68,11 +66,6 @@ Route::middleware('auth')->group(function () {
         Route::get('settings','UserController@showSettings')->name('settings');
         Route::post('settings/save','UserController@saveSettings')->name('settings.save');
     });
-
-
-    Route::get('show/users','userController@showUsers')->name('show.user');
-
-    Route::get('show/profile/{id}','UserController@showProfile')->name('show.profile');
 
 });
 

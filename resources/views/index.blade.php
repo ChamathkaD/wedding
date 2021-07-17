@@ -37,4 +37,9 @@
         </div>
     </div>
 
+    @include('partials.user-area')
+
+    @include('partials.broker-area')
+
+
 @endsection
