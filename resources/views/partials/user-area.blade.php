@@ -1,4 +1,4 @@
-<div class="container-fluid mt-100 py-5" style="background: #f5f7fa">
+<div class="container-fluid py-5">
 
     <div class="mb-4">
         <h1 class="display-3 font-weight-bold">
