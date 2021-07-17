@@ -15,6 +15,11 @@
         .heading-icon i {
             color: #a903c8 !important;
         }
+
+        p, h5 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
     </style>
 
 @endpush
@@ -126,7 +131,7 @@
 
                     <div class="form-group">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="current_role" name="current_role">
+                            <input type="checkbox" class="custom-control-input" id="current_role" name="current_role" value="1">
                             <label class="custom-control-label" for="current_role">I am currently working in this role</label>
                         </div>
                     </div>
@@ -256,9 +261,9 @@
                         <div class="ml-3 mt-4">
                             <h4>{{ $record->job_title }}</h4>
                             <h5>{{ $record->employment_type }}</h5>
-                            <p>{{ $record->company }}</p>
+                            <p class="text-primary">{{ $record->company }}</p>
                             <p>{{ $record->location }}</p>
-                            <small>{{ $record->start_year . " " . $record->start_month }} - {{ $record->end_year . " " . $record->end_month }}</small>
+                            <small>{{ $record->start_year . " " . $record->start_month }} - {{ isset($record->current_role) && $record->current_role == true ? 'current' : $record->end_year . " " . $record->end_month }}</small>
                         </div>
                     </div>
 

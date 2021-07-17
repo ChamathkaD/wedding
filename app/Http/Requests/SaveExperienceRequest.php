@@ -28,10 +28,10 @@ class SaveExperienceRequest extends FormRequest
             'employment_type' =>['required','string',],
             'company' =>['required','string',],
             'location' =>['required','string',],
-            'start_month' =>['string',],
-            'start_year' =>['string',],
-            'end_month' =>['string',],
-            'end_year' =>['string',],
+            'start_month' =>['required'],
+            'start_year' =>['required',],
+            'end_month' =>['nullable'],
+            'end_year' =>['nullable'],
         ];
     }
 }

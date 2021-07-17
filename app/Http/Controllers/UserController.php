@@ -127,11 +127,14 @@ class UserController extends Controller
         $experience ->employment_type = $request->input('employment_type');
         $experience ->company = $request->input('company');
         $experience ->location = $request->input('location');
+        $experience ->current_role = $request->input('current_role');
         $experience ->start_month = $request->input('start_month');
         $experience ->start_year = $request->input('start_year');
         $experience ->end_month = $request->input('end_month');
         $experience ->end_year = $request->input('end_year');
         $experience->save();
+
+        return back()->with('success', 'Your Job Added!');
     }
 
     public function showGalley()
