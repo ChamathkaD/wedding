@@ -27,7 +27,7 @@
             <div class="col-sm-12 d-flex justify-content-between">
 
                 <div class="d-flex justify-content-around align-items-center">
-                    <img src="{{ asset('img/team/person_1.jpg') }}" alt="" class="user-img rounded-circle">
+                    <img src="{{ asset('img/default.gif') }}" alt="" class="user-img rounded-circle">
                     <div class="ml-3">
                         <h3 class="font-weight-bold">{{ Auth::user()->full_name }}</h3>
                         <p class="mb-0">{{ Auth::user()->email }}</p>
