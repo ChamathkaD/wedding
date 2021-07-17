@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Social extends Model
 {
    protected $fillable =[
-        'whatsapp',
+       'whatsapp',
        'whatsapp_privacy',
        'facebook',
        'facebook_privacy',
@@ -15,6 +15,5 @@ class Social extends Model
        'instagram_privacy',
        'linkedin',
        'linkedin_privacy',
-
    ];
 }
