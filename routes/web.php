@@ -18,17 +18,9 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('aboutUs', function (){
-    return view('partials.aboutUs');
-});
-
-Route::get('contact', function (){
-    return view('partials.contact');
-});
-
-Route::get('help', function (){
-    return view('partials.help');
-});
+Route::view('help', 'help')->name('help');
+Route::view('contact', 'contact')->name('contact');
+Route::view('about', 'about')->name('about');
 
 Auth::routes(['verify' => true]);
 
