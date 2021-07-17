@@ -114,12 +114,6 @@ class UserController extends Controller
         return view('account.education');
     }
 
-    public function saveEducationInfo(Request $request)
-    {
-
-
-    }
-
     public function showJobInfo()
     {
         return view('account.job');
@@ -143,11 +137,6 @@ class UserController extends Controller
     public function showGalley()
     {
         return view('account.gallery');
-    }
-
-    public function addPhotosToGallery(Request $request)
-    {
-
     }
 
     public function showSocialInfo()
@@ -227,28 +216,6 @@ class UserController extends Controller
     {
         dd($request->all());
     }
-
-    /*public function updatePassword(UpdatePasswordRequest $updatePasswordRequest){
-
-        $current_Password = $updatePasswordRequest->current_password;
-        //Check if the passwords are match
-        if (Hash::check($current_Password, Auth::user()->password)){
-            $new_password = $updatePasswordRequest->password_confirmation;
-            //hashing the nwe password
-            $hashed_password = Hash::make($new_password);
-            //update password
-            User::where('id', Auth::id())->update([
-                'password' => $hashed_password,
-            ]);
-
-            return back()->with('success', 'Your Password has been updated');
-
-        }else{
-            return back()->withErrors('Your current password is not valid. Please enter your new password');
-        }
-
-
-    }*/
 
     public function showUsers(){
         return view('users.users');
