@@ -13,7 +13,7 @@
             >
             @error('images.*')
             <span class="text-danger" role="alert">
-                    <strong>{{ $message }}</strong>
+                    <small>{{ $message }}</small>
                 </span>
             @enderror
         </div>

@@ -25,7 +25,7 @@
 
         <div class="row">
 
-            <div class="col-sm-12 p-4 d-inline-flex justify-content-start align-items-start">
+            <div class="col-sm-12 p-4">
 
                 <h4 class="mb-40 heading-icon">
                     <i class="fad fa-image-polaroid mr-2"></i>

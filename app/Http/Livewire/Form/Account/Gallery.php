@@ -14,16 +14,15 @@ class Gallery extends Component
 
     public $images = [];
 
-    protected $listeners = ['refreshGallery' => '$refresh'];
-
-    protected $rules = [
-        'images.*' => 'image|max:1024', // 1MB Max
-    ];
+    public function updatedPhoto()
+    {
+        $this->validate([
+            'images.*' => 'required|mimes:png,jpeg,jpg,gif|max:10240',
+        ]);
+    }
 
     public function save()
     {
-        $this->validate();
-
         if ($this->images) {
 
             foreach ($this->images as $image) {
@@ -50,7 +49,7 @@ class Gallery extends Component
 
     public function clear()
     {
-        $this->images = null;
+        $this->images = array();
     }
 
     public function render()
