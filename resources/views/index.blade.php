@@ -37,6 +37,8 @@
         </div>
     </div>
 
+    @include('partials.detail-area')
+
     @include('partials.user-area')
 
     @include('partials.broker-area')
